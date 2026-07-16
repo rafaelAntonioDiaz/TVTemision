@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inversión TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f0f0f0; }
+        .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
+        .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
+        .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+        .form-label { font-weight: 600; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <span class="navbar-brand">Geo-IA PetroTech</span>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card p-4">
+                <h2 class="text-center mb-3">Inversión TVT - Ronda <span th:text="${invite.round.name}">F&F</span></h2>
+                <p class="text-center">Precio por token: <strong th:text="${invite.round.priceUsd} + ' USD'"></strong></p>
+                <p class="text-center">Máximo de tokens: <strong th:text="${invite.maxQuantity}"></strong></p>
+
+                <form th:action="@{/invite/{code}/register(code=${invite.code})}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre completo</label>
+                        <input name="fullName" class="form-control" placeholder="Juan Pérez" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cédula</label>
+                        <input name="docId" class="form-control" placeholder="123456789" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electrónico</label>
+                        <input name="email" type="email" class="form-control" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono</label>
+                        <input name="phone" class="form-control" placeholder="+57 300 123 4567" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cantidad de tokens</label>
+                        <select name="quantity" id="quantitySelect" class="form-select">
+                            <option th:each="n : ${#numbers.sequence(1, invite.maxQuantity)}"
+                                    th:value="${n}" th:text="${n}">1</option>
+                        </select>
+                    </div>
+                    <p class="text-center fw-bold">Total a pagar: <span id="totalDisplay">0</span> USD</p>
+                    <button type="submit" class="btn btn-primary w-100">Continuar al pago</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer text-center py-3">
+    <div class="container"><span class="text-muted">© 2026 Geo-IA PetroTech S.A.S.</span></div>
+</footer>
+
+<script th:inline="javascript">
+    const price = /*[[${invite.round.priceUsd}]]*/ 500;
+    document.getElementById('quantitySelect').addEventListener('change', function() {
+        document.getElementById('totalDisplay').textContent = (this.value * price).toFixed(2);
+    });
+    document.getElementById('quantitySelect').dispatchEvent(new Event('change'));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

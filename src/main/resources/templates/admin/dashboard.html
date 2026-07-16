@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Dashboard TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #1b263b; color: #fff; }
+        .navbar { background: #0d1b2a !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .table { color: #fff; }
+        .table thead { background: #415a77; }
+        .btn-primary { background: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 600; }
+        .btn-primary:hover { background: #f4a261; border-color: #f4a261; }
+        .btn-secondary { background: #415a77; border-color: #415a77; color: #fff; }
+        .card { background: #111; border: 1px solid #415a77; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">Geo-IA Admin</a>
+        <div class="d-flex">
+            <a href="/admin/create-invite" class="btn btn-primary me-2">Crear invitación</a>
+            <a href="/admin/logout" class="btn btn-secondary">Cerrar sesión</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de invitaciones</h2>
+    <div class="table-responsive">
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Ronda</th>
+                <th>Máx. Tokens</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="invite : ${invites}">
+                <td th:text="${invite.id}">1</td>
+                <td><code th:text="${invite.code}">abc123</code></td>
+                <td th:text="${invite.round.name}">F&F</td>
+                <td th:text="${invite.maxQuantity}">5</td>
+                <td><span th:text="${invite.status}" class="badge bg-info">PENDING</span></td>
+                <td><a th:href="@{/admin/invite/{id}(id=${invite.id})}" class="btn btn-sm btn-primary">Ver detalle</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${param.confirmed}" class="alert alert-success mt-3">
+        ✅ Pago confirmado. Enlace de reclamo:
+        <code th:text="${'http://localhost:8080/claim/' + param.confirmed[0]}" class="text-dark"></code>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

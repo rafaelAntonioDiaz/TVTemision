@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 50px; }
+        h1 { text-align: center; }
+        .firma { margin-top: 80px; }
+        .fractal { width: 200px; margin: 10px; }
+    </style>
+</head>
+<body>
+<h1>CONTRATO DE TOKEN DE VALIDACIÓN TÉCNICA (TVT) – COMPRA MÚLTIPLE</h1>
+<p><strong>Geo-IA PetroTech S.A.S. (En Formación)</strong></p>
+
+<p>Entre <strong>Geo-IA PetroTech S.A.S.</strong>, sociedad en proceso de constitución, representada por
+    <strong>Rafael [Tu Apellido]</strong> y <strong>Eduardo Carrillo Zambrano</strong>, en calidad de fundadores
+    (en adelante, "La Empresa").</p>
+
+<p>Y <strong th:text="${investor.fullName}">Nombre del Inversor</strong>, identificado con CC
+    <span th:text="${investor.docId}">Número</span>, (en adelante, "El Titular").</p>
+
+<p><strong>Acuerdan:</strong></p>
+
+<h2>1. Objeto del Contrato</h2>
+<p>La Empresa emite a favor del Titular un paquete de <strong th:text="${#lists.size(tokens)}">N</strong>
+    Tokens de Validación Técnica (TVT) correspondientes a la Serie F (Fundadores), identificados con los códigos
+    únicos <span th:each="token, iter : ${tokens}" th:text="${token.code} + (iter.last ? '' : ', ')">TVT-F0XXX</span>,
+    cada uno representado por un fractal digital irrepetible.</p>
+
+<h2>2. Precio y Forma de Pago</h2>
+<p>El Titular paga a La Empresa la suma total de <strong th:text="${totalAmount} + ' USD'">Monto</strong>,
+    correspondiente a $<span th:text="${investor.invite.round.priceUsd}">Precio</span> USD por cada TVT,
+    como aporte de capital semilla no reembolsable.</p>
+
+<h2>3. Derechos del Titular (Acumulados por el Paquete de N Tokens)</h2>
+<p>(... cláusulas completas según tu contrato ...)</p>
+
+<h2>4. Naturaleza del Instrumento</h2>
+<p>El Titular declara entender que esta inversión es de alto riesgo...</p>
+
+<h2>5. Confidencialidad y No Competencia</h2>
+<p>...</p>
+
+<h2>6. Vigencia y Terminación</h2>
+<p>...</p>
+
+<h2>7. Aceptación</h2>
+<p>Ambas partes declaran haber leído y entendido todas las cláusulas...</p>
+
+<div class="firma">
+    <p>_________________________<br/><strong>Rafael [Tu Apellido]</strong><br/>CEO – Geo-IA PetroTech S.A.S.</p>
+    <p>_________________________<br/><strong>Eduardo Carrillo Zambrano</strong><br/>CTO – Geo-IA PetroTech S.A.S.</p>
+    <p>_________________________<br/><strong th:text="${investor.fullName}">Titular</strong><br/>Titular de los TVT</p>
+</div>
+
+<h3>Anexo: Fractales Únicos</h3>
+<div th:each="token : ${tokens}">
+    <img class="fractal" th:src="${'file://' + token.fractalImagePath}" alt="Fractal"/>
+    <p th:text="'Código: ' + token.code">Código</p>
+</div>
+</body>
+</html>

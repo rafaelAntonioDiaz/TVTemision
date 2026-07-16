@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pago TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f0f0f0; }
+        .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
+        .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
+        .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <span class="navbar-brand">Geo-IA PetroTech</span>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card p-4">
+                <h2 class="text-center">Realiza tu pago</h2>
+                <p class="text-center">Ronda: <strong th:text="${roundName}">F&F</strong></p>
+                <p class="text-center">Cantidad de tokens: <strong th:text="${quantity}">1</strong></p>
+                <p class="text-center h4">Total: <strong th:text="${total} + ' USD'">500 USD</strong></p>
+
+                <div class="alert alert-success text-center">
+                    Transfiere el monto exacto a:<br>
+                    <span id="paymentKey" class="fw-bold fs-5">@DAVI3132203002</span>
+                    <button onclick="copyKey()" class="btn btn-primary btn-sm ms-2">Copiar</button>
+                </div>
+
+                <form th:action="@{/invite/{code}/payment(code=${inviteCode})}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="inv" th:value="${investorId}">
+                    <input type="hidden" name="amount" th:value="${total}">
+                    <div class="mb-3">
+                        <label class="form-label">Adjunta el comprobante de pago (imagen)</label>
+                        <input type="file" name="file" class="form-control" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar comprobante</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer text-center py-3">
+    <div class="container"><span class="text-muted">© 2026 Geo-IA PetroTech S.A.S.</span></div>
+</footer>
+
+<script>
+    function copyKey() {
+        navigator.clipboard.writeText(document.getElementById('paymentKey').textContent)
+            .then(() => alert('¡Llave copiada!'))
+            .catch(() => alert('Copia manual: ' + document.getElementById('paymentKey').textContent));
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

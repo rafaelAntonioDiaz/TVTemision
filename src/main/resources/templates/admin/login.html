@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Geo-IA TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body { background: #0d1b2a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .login-box { background: #1b263b; padding: 2em; border-radius: 16px; width: 100%; max-width: 400px; color: white; }
+        .login-box h1 { text-align: center; margin-bottom: 1.5em; color: #e9c46a; }
+        input { background: #0d1b2a; color: white; border: 1px solid #415a77; }
+        button { background: #e9c46a; color: black; font-weight: bold; }
+        .error { color: #e76f51; text-align: center; margin-bottom: 1em; }
+        .logout { color: #f4a261; text-align: center; margin-bottom: 1em; }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h1>Geo-IA PetroTech</h1>
+    <p th:if="${param.logout}" class="logout">Sesión cerrada correctamente.</p>
+    <p th:if="${param.error}" class="error">Usuario o contraseña incorrectos.</p>
+
+    <form th:action="@{/admin/login}" method="post">
+        <label>Usuario:
+            <input type="text" name="username" placeholder="admin" required autofocus>
+        </label>
+        <label>Contraseña:
+            <input type="password" name="password" placeholder="••••••••" required>
+        </label>
+        <button type="submit">Ingresar al panel</button>
+    </form>
+</div>
+</body>
+</html>
