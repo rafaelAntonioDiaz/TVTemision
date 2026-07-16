@@ -1,0 +1,38 @@
+package com.rafaeldiaz.emisiontvt_ff;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class PageController {
+
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/home";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/amigosyfamilia")
+    public String amigosYFamilia() {
+        return "amigosyfamilia";
+    }
+
+    @GetMapping("/primera_emision")
+    public String primeraEmision() {
+        return "primera_emision";
+    }
+
+    @GetMapping("/segunda_emision")
+    public String segundaEmision() {
+        return "segunda_emision";
+    }
+    
+    @GetMapping("/tecnologia")
+    public String tecnologia() {
+        return "tecnologia";
+    }
+}

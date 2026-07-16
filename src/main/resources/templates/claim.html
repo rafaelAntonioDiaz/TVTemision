@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reclamo de TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { margin:0; background:#000; color:white; font-family: sans-serif; }
+        .navbar { background: #0d1b2a !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        #fractalCanvas { width:100%; height:calc(100vh - 120px); display:block; }
+        #finalLayout { display:none; padding:2em 0; text-align:center; background:#000; }
+        .card { background:#1a1a1a; border:1px solid #333; color:white; }
+        .card img { width:100%; border-radius:8px; }
+        .btn-primary { background-color:#e9c46a; border-color:#e9c46a; color:black; font-weight:700; }
+        .btn-primary:hover { background-color:#f4a261; border-color:#f4a261; }
+        .btn-outline-light { color:white; border-color:white; }
+        .footer { background:#111; color:#aaa; border-top:1px solid #333; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Geo-IA PetroTech</a>
+        <a href="/home" class="btn btn-sm btn-outline-light">← Inicio</a>
+    </div>
+</nav>
+
+<canvas id="fractalCanvas"></canvas>
+
+<div id="finalLayout" class="container">
+    <h2 class="mb-4">Tus Tokens de Validación Técnica</h2>
+    <div class="row g-4 justify-content-center" id="gallery"></div>
+    <div class="mt-4">
+        <a id="globalContractLink" href="#" download class="btn btn-primary btn-lg">Descargar Contrato Legal</a>
+    </div>
+</div>
+
+<footer class="footer text-center py-3">
+    <div class="container"><span>© 2026 Geo-IA PetroTech S.A.S.</span></div>
+</footer>
+
+<script th:inline="javascript">
+    // ---------- UTILIDADES ----------
+    function hexToRgb(hex) {
+        const bigint = parseInt(hex.slice(1), 16);
+        return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+    function easeInOutCubic(t) { return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+
+    // ---------- RENDER RÁPIDO (coloración suave) ----------
+    function renderMandelbrot(cx, cy, zoom, paletteHex, w, h, maxIter) {
+        const offCanvas = document.createElement('canvas');
+        offCanvas.width = w; offCanvas.height = h;
+        const ctx = offCanvas.getContext('2d');
+        const imgData = ctx.createImageData(w, h);
+        const data = imgData.data;
+        const palette = paletteHex.map(hexToRgb);
+        const numColors = palette.length;
+        const size = 3.5 / zoom;
+        const reMin = cx - size/2, imMin = cy - size/2;
+
+        for (let py = 0; py < h; py++) {
+            for (let px = 0; px < w; px++) {
+                const x0 = reMin + (px / w) * size;
+                const y0 = imMin + (py / h) * size;
+                let x = 0, y = 0, iter = 0;
+                while (x*x + y*y <= 4 && iter < maxIter) {
+                    const xtemp = x*x - y*y + x0;
+                    y = 2*x*y + y0;
+                    x = xtemp;
+                    iter++;
+                }
+                let r=0, g=0, b=0;
+                if (iter < maxIter) {
+                    const log_zn = Math.log(x*x + y*y) / 2;
+                    const nu = Math.log(log_zn / Math.LN2) / Math.LN2;
+                    const smoothIter = iter + 1 - nu;
+                    const idx = Math.floor((smoothIter * 5) % numColors);
+                    [r, g, b] = palette[Math.abs(idx) % numColors];
+                }
+                const idx = (py * w + px) * 4;
+                data[idx]=r; data[idx+1]=g; data[idx+2]=b; data[idx+3]=255;
+            }
+        }
+        ctx.putImageData(imgData, 0, 0);
+        return offCanvas;
+    }
+
+    // ---------- ANIMACIÓN DE UN SOLO TOKEN ----------
+    function animateOneToken(params, palette) {
+        return new Promise(resolve => {
+            const startTime = performance.now();
+            const duration = 8000;
+            let lastDraw = 0;
+
+            function frame(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1.0);
+                const eased = easeInOutCubic(progress);
+
+                if (now - lastDraw > 50 || progress === 1) {
+                    lastDraw = now;
+                    const zoom = params.startZoom + (params.targetZoom - params.startZoom) * eased;
+                    const cx = params.startRe + (params.targetRe - params.startRe) * eased;
+                    const cy = params.startIm + (params.targetIm - params.startIm) * eased;
+
+                    const lowCanvas = renderMandelbrot(cx, cy, zoom, palette, 250, 188, 300);
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.imageSmoothingEnabled = false;
+                    ctx.drawImage(lowCanvas, 0,0,canvas.width,canvas.height);
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(frame);
+                } else {
+                    // Último frame con buena calidad
+                    const finalCanvas = renderMandelbrot(params.targetRe, params.targetIm, params.targetZoom, palette, 600, 450, 500);
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.drawImage(finalCanvas, 0,0,canvas.width,canvas.height);
+                    ctx.font = 'bold 24px sans-serif';
+                    ctx.fillStyle = '#ffffffcc';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Tu fractal único', canvas.width/2, canvas.height-30);
+                    resolve();
+                }
+            }
+            requestAnimationFrame(frame);
+        });
+    }
+
+    // ---------- DESCARGA GIGANTE (CLIENTE) ----------
+    function downloadHighRes(tokenCode, paramsObj) {
+        const workerCode = `
+                self.onmessage = function(e) {
+                    const { cx, cy, zoom, palette, width, height, maxIter } = e.data;
+                    const offCanvas = new OffscreenCanvas(width, height);
+                    const ctx = offCanvas.getContext('2d');
+                    const imgData = ctx.createImageData(width, height);
+                    const data = imgData.data;
+                    const size = 3.5 / zoom;
+                    const reMin = cx - size/2, imMin = cy - size/2;
+                    const paletteRGB = palette.map(hex => {
+                        const bigint = parseInt(hex.slice(1), 16);
+                        return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+                    });
+                    const numColors = paletteRGB.length;
+
+                    for (let py = 0; py < height; py++) {
+                        for (let px = 0; px < width; px++) {
+                            const x0 = reMin + (px / width) * size;
+                            const y0 = imMin + (py / height) * size;
+                            let x = 0, y = 0, iter = 0;
+                            while (x*x + y*y <= 4 && iter < maxIter) {
+                                const xtemp = x*x - y*y + x0;
+                                y = 2*x*y + y0;
+                                x = xtemp;
+                                iter++;
+                            }
+                            let r=0,g=0,b=0;
+                            if (iter < maxIter) {
+                                const log_zn = Math.log(x*x + y*y) / 2;
+                                const nu = Math.log(log_zn / Math.LN2) / Math.LN2;
+                                const smoothIter = iter + 1 - nu;
+                                const idx = Math.floor((smoothIter * 5) % numColors);
+                                const [cr, cg, cb] = paletteRGB[Math.abs(idx) % numColors];
+                                r = cr; g = cg; b = cb;
+                            }
+                            const idx = (py * width + px) * 4;
+                            data[idx]=r; data[idx+1]=g; data[idx+2]=b; data[idx+3]=255;
+                        }
+                        if (py % 100 === 0) {
+                            self.postMessage({ type: 'progress', progress: Math.round((py / height) * 100) });
+                        }
+                    }
+                    ctx.putImageData(imgData, 0, 0);
+                    offCanvas.convertToBlob({type: 'image/png'}).then(blob => {
+                        self.postMessage({ type: 'done', blob: blob, tokenCode: '${tokenCode}' });
+                    });
+                };
+            `;
+
+        const blob = new Blob([workerCode], { type: 'application/javascript' });
+        const worker = new Worker(URL.createObjectURL(blob));
+        const progressDiv = document.createElement('div');
+        progressDiv.style.cssText = 'position:fixed; bottom:20px; right:20px; background:#1b263b; color:#ffd966; padding:1em; border-radius:8px; z-index:9999;';
+        progressDiv.innerHTML = 'Generando imagen de alta resolución... <span id="progressPercent">0%</span>';
+        document.body.appendChild(progressDiv);
+
+        worker.onmessage = function(e) {
+            const msg = e.data;
+            if (msg.type === 'progress') {
+                document.getElementById('progressPercent').textContent = msg.progress + '%';
+            } else if (msg.type === 'done') {
+                const url = URL.createObjectURL(msg.blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `fractal-${tokenCode}-1mx1m.png`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                progressDiv.remove();
+                worker.terminate();
+            }
+        };
+        worker.onerror = function() {
+            progressDiv.remove();
+            alert('Error al generar la imagen de alta resolución.');
+            worker.terminate();
+        };
+        worker.postMessage({
+            cx: paramsObj.targetRe,
+            cy: paramsObj.targetIm,
+            zoom: paramsObj.targetZoom,
+            palette: paramsObj.palette,
+            width: 12000,
+            height: 12000,
+            maxIter: 500
+        });
+    }
+
+    // ---------- GALERÍA FINAL ----------
+    function showFinalGallery() {
+        canvas.style.display = 'none';
+        document.getElementById('finalLayout').style.display = 'block';
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
+
+        tokensData.forEach(info => {
+            const col = document.createElement('div');
+            col.className = 'col-md-4 col-lg-3';  // 3-4 columnas según pantalla
+            const card = document.createElement('div');
+            card.className = 'card h-100 p-3';
+            card.innerHTML = `
+                    <img src="${info.imageUrl}" alt="Fractal ${info.tokenCode}" class="mb-3" />
+                    <h5>${info.tokenCode}</h5>
+                    <a href="${info.imageUrl}" download class="btn btn-sm btn-primary mb-2">Descargar Arte (Web)</a>
+                    <button class="btn btn-sm btn-outline-light" onclick="downloadHighRes('${info.tokenCode}', ${JSON.stringify(info.fractalParams).replace(/"/g, '&quot;')})">Descargar para impresión 1m×1m</button>
+                `;
+            col.appendChild(card);
+            gallery.appendChild(col);
+        });
+
+        // Contrato global (el mismo para todos)
+        if (tokensData.length > 0) {
+            document.getElementById('globalContractLink').href = tokensData[0].contractUrl;
+        }
+    }
+
+    // ---------- VARIABLES GLOBALES ----------
+    const canvas = document.getElementById('fractalCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    const claimCode = /*[[${claimCode}]]*/ '';
+    let tokensData = [];
+
+    // ---------- INICIO ----------
+    fetch(`/api/claim/${claimCode}/tokens-info`)
+        .then(res => res.json())
+        .then(data => {
+            if (!Array.isArray(data) || data.length === 0) throw new Error("Sin tokens");
+            tokensData = data;
+            // Tomamos los parámetros del primer token para la animación
+            const first = tokensData[0];
+            const params = first.fractalParams;
+            const palette = params.palette;
+            animateOneToken(params, palette).then(() => {
+                showFinalGallery();
+            });
+        })
+        .catch(err => {
+            document.body.innerHTML = '<div style="color:white;text-align:center;margin-top:50px;">Error: '+err.message+'</div>';
+        });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

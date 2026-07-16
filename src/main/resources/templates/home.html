@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo-IA PetroTech – Inversión en TVT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .hero { background: linear-gradient(135deg, #0d1b2a, #1b263b); color: white; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; color: #ffd966; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); }
+        .card-title { color: #0d1b2a; font-weight: 700; }
+        .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
+        .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
+        .btn-admin { background: #415a77; border: 1px solid #778da9; color: white; }
+        .btn-admin:hover { background: #1b263b; color: white; }
+        .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+
+        /* Estilo para la nueva sección de tecnología */
+        .tech-section { background: #ffffff; border-top: 2px solid #e9c46a; border-bottom: 2px solid #e9c46a; }
+        .tech-section h2 { color: #0d1b2a; font-weight: 800; }
+        .tech-section .lead { color: #333; }
+        .tech-icon { font-size: 2.5rem; color: #e9c46a; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/home">Geo-IA PetroTech</a>
+        <div class="ms-auto">
+            <a href="/admin" class="btn btn-admin btn-sm">Admin</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero text-center py-5">
+    <div class="container">
+        <h1>Geo-IA PetroTech</h1>
+        <p class="lead">Token de Validación Técnica (TVT) – Invierte en inteligencia artificial para el sector energético colombiano.</p>
+    </div>
+</header>
+
+<main>
+    <!-- Tarjetas de emisiones -->
+    <div class="container my-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <h3 class="card-title">🌱 Amigos y Familia</h3>
+                        <p class="card-text">Conoce nuestra propuesta de inversión temprana, con condiciones especiales para quienes confían en nosotros desde el inicio.</p>
+                        <a href="/amigosyfamilia" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <h3 class="card-title">📈 Primera Emisión</h3>
+                        <p class="card-text">Empresa con modelo entrenado con datos colombianos. Compra de tokens para impulsar la innovación.</p>
+                        <a href="/primera_emision" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <h3 class="card-title">🤝 Segunda Emisión</h3>
+                        <p class="card-text">Con el primer contrato firmado, la empresa se fortalece. Participa en esta nueva fase de crecimiento.</p>
+                        <a href="/segunda_emision" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <h3 class="card-title">🧠 Nuestra Tecnología</h3>
+                        <p class="card-text">Descubre el motor de inteligencia artificial propio que impulsa a Geo‑IA PetroTech, entrenado con datos colombianos reales.</p>
+                        <a href="/tecnologia" class="btn btn-primary">Conocer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer text-center py-3">
+    <div class="container">
+        <span class="text-muted">© 2026 Geo-IA PetroTech S.A.S.</span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
