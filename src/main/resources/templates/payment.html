@@ -29,17 +29,32 @@
                 <h2 class="text-center">Realiza tu pago</h2>
                 <p class="text-center">Ronda: <strong th:text="${roundName}">F&F</strong></p>
                 <p class="text-center">Cantidad de tokens: <strong th:text="${quantity}">1</strong></p>
-                <p class="text-center h4">Total: <strong th:text="${total} + ' USD'">500 USD</strong></p>
 
+                <!-- Total USD formateado -->
+                <p class="text-center h4">
+                    Total USD: <strong th:text="${totalUSDFormatted + ' USD'}">500 USD</strong>
+                </p>
+
+                <!-- TRM y equivalente en pesos -->
+                <div th:if="${trmError}" class="alert alert-warning text-center" th:text="${trmError}"></div>
+                <div th:if="${trm != null}" class="text-center mb-3">
+                    <p class="mb-1">TRM del día: <strong th:text="${#numbers.formatDecimal(trm, 0, 2)}">0</strong> COP por USD</p>
+                    <p class="h5">Total a pagar en pesos: <strong th:text="${totalCOPFormatted + ' COP'}">0 COP</strong></p>
+                </div>
+                <p class="text-center text-muted" th:if="${trm == null and trmError == null}">Calculando TRM...</p>
+
+                <!-- Instrucciones de pago -->
                 <div class="alert alert-success text-center">
-                    Transfiere el monto exacto a:<br>
+                    Transfiere el monto exacto en pesos colombianos a:<br>
                     <span id="paymentKey" class="fw-bold fs-5">@DAVI3132203002</span>
                     <button onclick="copyKey()" class="btn btn-primary btn-sm ms-2">Copiar</button>
                 </div>
 
+                <!-- Formulario -->
                 <form th:action="@{/invite/{code}/payment(code=${inviteCode})}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="inv" th:value="${investorId}">
-                    <input type="hidden" name="amount" th:value="${total}">
+                    <input type="hidden" name="amount" th:value="${totalCOP}">   <!-- monto en COP sin formato -->
+                    <input type="hidden" name="trm" th:value="${trm}">           <!-- TRM usada -->
                     <div class="mb-3">
                         <label class="form-label">Adjunta el comprobante de pago (imagen)</label>
                         <input type="file" name="file" class="form-control" accept="image/*" required>
