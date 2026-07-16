@@ -3,10 +3,12 @@ package com.rafaeldiaz.emisiontvt_ff.controller;
 import com.rafaeldiaz.emisiontvt_ff.entity.Investor;
 import com.rafaeldiaz.emisiontvt_ff.entity.Invite;
 import com.rafaeldiaz.emisiontvt_ff.entity.InviteStatus;
+import com.rafaeldiaz.emisiontvt_ff.entity.Round;
 import com.rafaeldiaz.emisiontvt_ff.repository.InvestorRepository;
 import com.rafaeldiaz.emisiontvt_ff.service.InvestorService;
 import com.rafaeldiaz.emisiontvt_ff.service.InviteService;
 import com.rafaeldiaz.emisiontvt_ff.service.PaymentService;
+import com.rafaeldiaz.emisiontvt_ff.service.TrmService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
+import static org.thymeleaf.util.NumberUtils.formatCurrency;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,7 +36,7 @@ public class InviteController {
     private final InvestorService investorService;
     private final PaymentService paymentService;
     private final InvestorRepository investorRepo;
-
+    private final TrmService trmService;
     // ----------------------------------------------------------------
     // 1. Mostrar formulario de registro
     // ----------------------------------------------------------------
@@ -90,14 +97,35 @@ public class InviteController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El inversor no corresponde a esta invitación");
         }
 
-        BigDecimal unitPrice = invite.getRound().getPriceUsd();
-        BigDecimal total = unitPrice.multiply(BigDecimal.valueOf(investor.getQuantity()));
+        Round round = invite.getRound();
+        int quantity = investor.getQuantity();
+        BigDecimal unitPrice = round.getPriceUsd();
+        BigDecimal totalUSD = unitPrice.multiply(BigDecimal.valueOf(quantity));
 
+        // Formatear USD sin decimales y con punto de miles
+        String totalUSDFormatted = formatPesosColombianos(totalUSD);
+
+        // Obtener TRM y calcular COP
+        BigDecimal trm = null;
+        BigDecimal totalCOP = null;
+        String totalCOPFormatted = null;
+        try {
+            trm = trmService.getTrm();
+            totalCOP = totalUSD.multiply(trm);
+            totalCOPFormatted = formatPesosColombianos(totalCOP);
+        } catch (Exception e) {
+            model.addAttribute("trmError", "No se pudo obtener la TRM. Realiza el pago usando un valor aproximado.");
+        }
+
+        // Atributos para la vista
+        model.addAttribute("roundName", round.getName());
+        model.addAttribute("quantity", quantity);
+        model.addAttribute("totalUSDFormatted", totalUSDFormatted);
+        model.addAttribute("totalCOPFormatted", totalCOPFormatted);
+        model.addAttribute("totalCOP", totalCOP);               // BigDecimal sin formato (para el hidden)
+        model.addAttribute("trm", trm);                         // BigDecimal
         model.addAttribute("investorId", inv);
-        model.addAttribute("total", total);
-        model.addAttribute("roundName", invite.getRound().getName());
-        model.addAttribute("quantity", investor.getQuantity());
-        model.addAttribute("inviteCode", code);   // <-- AÑADIR esta línea
+        model.addAttribute("inviteCode", code);
 
         return "payment";
     }
@@ -129,13 +157,22 @@ public class InviteController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Debe adjuntar el comprobante de pago");
         }
 
-        // (Opcional) verifica que el monto enviado coincida con el total esperado
-        BigDecimal expected = invite.getRound().getPriceUsd().multiply(BigDecimal.valueOf(investor.getQuantity()));
-        if (amount.compareTo(expected) != 0) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El monto no coincide con el total a pagar");
+        BigDecimal expectedUSD = invite.getRound().getPriceUsd()
+                .multiply(BigDecimal.valueOf(investor.getQuantity()));
+        BigDecimal expectedCOP = expectedUSD.multiply(trmService.getTrm());
+        if (amount.compareTo(expectedCOP) != 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "El monto no coincide con el total a pagar (COP).");
         }
 
-        paymentService.submitPayment(investor, amount, file);
+        paymentService.submitPayment(investor, amount, file); // amount en COP
         return "thank-you";
+    }
+
+    private String formatPesosColombianos(BigDecimal amount) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.forLanguageTag("es-CO"));
+        symbols.setGroupingSeparator('.');
+        DecimalFormat df = new DecimalFormat("#,##0", symbols);
+        return df.format(amount);
     }
 }

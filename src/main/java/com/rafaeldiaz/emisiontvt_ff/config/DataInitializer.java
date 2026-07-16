@@ -4,7 +4,10 @@ import com.rafaeldiaz.emisiontvt_ff.entity.Round;
 import com.rafaeldiaz.emisiontvt_ff.repository.RoundRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,6 +25,13 @@ public class DataInitializer implements CommandLineRunner {
                     new Round(null, "HITO2", BigDecimal.valueOf(2000), 10, 30),
                     new Round(null, "CIRCULO", BigDecimal.valueOf(5000), 3, 12)
             ));
+        }
+    }
+    @Configuration
+    public class AppConfig {
+        @Bean
+        public RestTemplate restTemplate() {
+            return new RestTemplate();
         }
     }
 }

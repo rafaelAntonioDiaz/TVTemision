@@ -22,8 +22,7 @@ public class PaymentService {
     private final InviteService inviteService;
     private final String uploadDir = "./uploads/";
 
-    public Payment submitPayment(Investor investor, BigDecimal amount, MultipartFile file) throws IOException {
-        // Guardar comprobante
+    public Payment submitPayment(Investor investor, BigDecimal amountCop, MultipartFile file) throws IOException {
         Files.createDirectories(Paths.get(uploadDir + "comprobantes/"));
         String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
         Path path = Paths.get(uploadDir + "comprobantes/" + fileName);
@@ -31,7 +30,8 @@ public class PaymentService {
 
         Payment payment = new Payment();
         payment.setInvestor(investor);
-        payment.setAmount(amount);
+        payment.setAmount(amountCop);       // ahora se guarda en COP
+        payment.setCurrency("COP");         // indicamos la moneda
         payment.setProofFilePath(path.toString());
         paymentRepo.save(payment);
         inviteService.updateStatus(investor.getInvite(), InviteStatus.PAID);
