@@ -1,6 +1,7 @@
 package com.rafaeldiaz.emisiontvt_ff.service;
 
 import com.rafaeldiaz.emisiontvt_ff.config.FractalParams;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
@@ -20,7 +21,8 @@ import java.util.List;
 @Service
 public class FractalService {
     private final ObjectMapper mapper = new ObjectMapper();
-    private final String uploadDir = "./uploads/fractals/";
+    @Value("${app.upload.fractals.dir}")
+    private String uploadDir;
 
     public FractalParams generateParams(Long investorId, String tokenCode, String roundName) {
         String seed = investorId + ":" + tokenCode;
