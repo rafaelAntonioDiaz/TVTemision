@@ -5,6 +5,7 @@ import com.rafaeldiaz.emisiontvt_ff.entity.InviteStatus;
 import com.rafaeldiaz.emisiontvt_ff.entity.Payment;
 import com.rafaeldiaz.emisiontvt_ff.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,9 +19,12 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class PaymentService {
+
     private final PaymentRepository paymentRepo;
     private final InviteService inviteService;
-    private final String uploadDir = "./uploads/";
+
+    @Value("${app.upload.dir}")
+    private final String uploadDir;
 
     public Payment submitPayment(Investor investor, BigDecimal amountCop, MultipartFile file) throws IOException {
         Files.createDirectories(Paths.get(uploadDir + "comprobantes/"));

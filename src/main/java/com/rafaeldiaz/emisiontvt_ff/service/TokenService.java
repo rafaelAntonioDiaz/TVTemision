@@ -7,6 +7,7 @@ import com.rafaeldiaz.emisiontvt_ff.repository.InvestorRepository;
 import com.rafaeldiaz.emisiontvt_ff.repository.TokenRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
@@ -31,7 +32,9 @@ public class TokenService {
     private final InvestorRepository investorRepo;
     private final TemplateEngine templateEngine; // Thymeleaf
 
-    private final String uploadDir = "./uploads/";
+    @Value("${app.upload.dir}")
+    private final String uploadDir;
+    
     private int sequenceCounter = 1; // simplificado; en producción usa sincronización o BD
 
     public void generateTokens(Investor investor) throws IOException {

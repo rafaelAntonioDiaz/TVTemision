@@ -42,4 +42,14 @@ Thumbs.db
 # Archivos generados por la aplicación
 uploads/
 *.log
+
+# Docker
+.env
+docker-compose.override.yml
+
+# Base de datos local
 data/
+*.db
+
+# Archivos subidos en desarrollo
+uploads/
