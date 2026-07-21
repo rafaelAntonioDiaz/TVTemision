@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #f0f0f0; }
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
         .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
         .navbar-brand { color: #ffd966 !important; font-weight: bold; }
-        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
         .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
-        .btn-outline-primary { border-color: #e9c46a; color: #1b263b; font-weight: 600; }
-        .btn-outline-primary:hover { background-color: #e9c46a; color: #000; }
         .btn-admin { background: #415a77; border: 1px solid #778da9; color: white; }
+        .btn-admin:hover { background: #1b263b; color: white; }
         .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #e8f8f5; border-left: 5px solid #16a085; padding: 1rem; margin: 1rem 0; font-weight: bold; color: #0d1b2a; }
+        .badge-tech { background-color: #0d1b2a; color: white; padding: 0.35em 0.8em; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 0.2em; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .comparison-table th, .comparison-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        .comparison-table th { background-color: #0d1b2a; color: white; }
+        .team-avatar { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #e9c46a; background: #1b263b; }
     </style>
 </head>
 <body>
@@ -29,32 +37,122 @@
 </nav>
 
 <main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card p-4">
-                <h1 class="mb-3">Nuestra Tecnología</h1>
-                <p class="lead">Geo-IA PetroTech es propietaria de un sistema de inteligencia artificial único, desarrollado íntegramente por nuestro equipo y entrenado exclusivamente con datos geológicos y de producción colombianos.</p>
+    <!-- Hero: Física + IA, cero alucinaciones -->
+    <div class="card-custom text-center">
+        <h1 class="mb-3">GEO IA – Physics Informed Machine Learning</h1>
+        <p class="lead">Inteligencia Artificial guiada por la física para caracterizar yacimientos sin alucinaciones.</p>
+        <p>Entrenamos nuestros modelos sobre <strong>unidades hidráulicas de flujo (HFU)</strong> extraídas de la diagénesis real de los pozos, no sobre promedios estadísticos. Eliminamos las alucinaciones típicas de la IA integrando leyes físicas en cada predicción.</p>
+    </div>
 
-                <h3 class="mt-4">¿Qué hacemos?</h3>
-                <p>Hemos construido un modelo predictivo que integra <strong>procesamiento de lenguaje natural, visión artificial y análisis de series de tiempo</strong> para optimizar la exploración y extracción de hidrocarburos. Este sistema es capaz de:</p>
-                <ul>
-                    <li>Interpretar documentos técnicos y generar alertas automáticas.</li>
-                    <li>Detectar patrones en imágenes sísmicas y de pozos con una precisión superior al 95%.</li>
-                    <li>Predecir fallos en equipos críticos con semanas de anticipación.</li>
-                </ul>
-
-                <h3 class="mt-4">Propiedad intelectual</h3>
-                <p>El código fuente, los datasets de entrenamiento y los modelos resultantes están protegidos bajo derechos de autor y secreto industrial. Al invertir en nuestros TVT, participas directamente en los beneficios económicos que genere esta tecnología.</p>
-
-                <h3 class="mt-4">¿Por qué es única?</h3>
-                <p>No dependemos de APIs de terceros ni de modelos genéricos. Cada componente se ha entrenado con datos reales de la industria colombiana, lo que nos da una ventaja competitiva inigualable. Nuestro pipeline de machine learning ha sido validado por expertos del sector y ya está generando interés en varias empresas del país.</p>
-
-                <div class="d-flex gap-2 mt-4">
-                    <a href="/home" class="btn btn-primary">← Volver al inicio</a>
-                    <a href="/amigosyfamilia" class="btn btn-outline-primary">Ver oportunidades de inversión</a>
+    <!-- Maximizar Valor con Menor CAPEX -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>MAXIMIZAR VALOR CON MENOR CAPEX</h2>
+                <p>Las empresas operadoras enfrentan una creciente presión por reducir el CAPEX y optimizar el desempeño de sus activos. En este contexto, las decisiones técnicas deben apoyarse en un mejor aprovechamiento de la información existente para disminuir la incertidumbre, reducir costos y aumentar el valor económico de los yacimientos.</p>
+                <p>Nuestra solución aplica <strong>Physics Informed Machine Learning</strong> para estimar propiedades petrofísicas con alta fidelidad, evitando las alucinaciones que presentan los modelos puramente estadísticos. Así, cada predicción respeta las leyes de la física de yacimientos.</p>
+                <div class="mt-3">
+                    <span class="badge-tech">Reducir incertidumbre</span>
+                    <span class="badge-tech">Reducir costos</span>
+                    <span class="badge-tech">Incrementar recuperación de reservas</span>
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen1.png" alt="Centro de Monitoreo GEO IA" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Los Desafíos Actuales de las Operadoras + por qué PIML -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen2.png" alt="Equipo analizando mapas de yacimientos" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>LOS DESAFÍOS ACTUALES DE LAS OPERADORAS</h2>
+                <p>Las operadoras deben tomar decisiones de alto impacto económico con información limitada. La calidad de la información disponible es un factor determinante para disminuir la incertidumbre y mejorar los resultados.</p>
+                <div class="highlight-box">
+                    Mejor información = Mejores decisiones
+                </div>
+                <p>La IA convencional puede generar respuestas plausibles pero físicamente imposibles (alucinaciones). Nuestro enfoque <strong>Physics Informed ML</strong> incorpora restricciones termodinámicas y de flujo directamente en la función de pérdida del modelo, asegurando que cada salida sea físicamente consistente.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- IA para Reevaluar el Yacimiento: PIML + datos reales -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>PIML: CORRELACIONANDO DATOS DE LAMINILLAS, CORAZONES Y REGISTROS</h2>
+                <p>Nuestra metodología integra tres fuentes de datos históricos para entrenar modelos que no alucinan:</p>
+                <ul>
+                    <li><strong>Puntos de laminillas delgadas:</strong> extraemos las coordenadas de los puntos de conteo mineralógico y las vinculamos con la diagénesis.</li>
+                    <li><strong>Resultados de laboratorio de corazones:</strong> porosidad, permeabilidad, presión capilar y saturaciones.</li>
+                    <li><strong>Registros de pozo:</strong> GR, RHOB, NPHI, resistividad, entre otros.</li>
+                </ul>
+                <p>Con estos datos, entrenamos un modelo <strong>Physics Informed</strong> que estima propiedades petrofísicas sin perder la coherencia física. El resultado: un modelo estático actualizado del yacimiento, listo para reevaluar reservas sin perforar nuevos pozos.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen3.png" alt="Visualización 3D y análisis petrofísico" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Más Valor Reinterpretando Datos Existentes (tabla comparativa) -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen4.png" alt="Subsuelo y modelo estático" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>MÁS VALOR REINTERPRETANDO DATOS EXISTENTES</h2>
+                <p>La caracterización convencional depende de nuevas perforaciones, corazonamientos y análisis de laboratorio, procesos de alto costo y disponibilidad limitada. Nuestra tecnología utiliza información de archivo procesándola con Inteligencia Artificial guiada por la física para estimar propiedades petrofísicas, complementando los métodos actuales y reduciendo el costo de obtener conocimiento del yacimiento.</p>
+                <table class="comparison-table">
+                    <thead>
+                    <tr><th>MÉTODO CONVENCIONAL</th><th>PHYSICS INFORMED ML</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Perforación + corazonamiento</td><td>Datos de archivo (laminillas, núcleos, registros)</td></tr>
+                    <tr><td>Laboratorios petrofísicos tradicionales</td><td>Estimación de HFU basada en diagénesis</td></tr>
+                    <tr><td>Modelos estadísticos con riesgo de alucinación</td><td>Modelos con restricciones físicas (sin alucinaciones)</td></tr>
+                    <tr><td>Semanas o meses</td><td>Días o semanas</td></tr>
+                    </tbody>
+                </table>
+                <div class="mt-3">
+                    <span class="badge-tech">Menor costo</span>
+                    <span class="badge-tech">Menor tiempo</span>
+                    <span class="badge-tech">Cero alucinaciones</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Del Dato Histórico al Modelo Actualizado & Beneficios -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen5.png" alt="Extracción y balancín petrolero" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>DEL DATO HISTÓRICO AL MODELO ACTUALIZADO</h2>
+                <p>La solución integra puntos de laminillas delgadas, registros de pozo e información de corazonamiento para entrenar modelos de <strong>Physics Informed Machine Learning</strong> que estiman propiedades petrofísicas y apoyan la actualización del modelo estático del yacimiento.</p>
+                <p><strong>Unidades hidráulicas de flujo (HFU):</strong> en lugar de entrenar con etiquetas petrofísicas convencionales, nuestro modelo aprende a identificar las HFU que reflejan la diagénesis real del yacimiento, garantizando coherencia geológica y predictibilidad física.</p>
+                <h3 class="mt-4">BENEFICIOS PARA EL ACTIVO</h3>
+                <ul>
+                    <li>Reducción de incertidumbre en la distribución de propiedades.</li>
+                    <li>Actualización rápida del modelo estático sin nuevos pozos.</li>
+                    <li>Decisiones de desarrollo y reservas basadas en datos físicamente validados.</li>
+                    <li>Eliminación de alucinaciones propias de modelos estadísticos no restringidos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="text-center mt-4">
+        <a href="/home" class="btn btn-primary me-2">← Volver al inicio</a>
+        <a href="/amigosyfamilia" class="btn btn-outline-secondary">Ver oportunidades de inversión</a>
     </div>
 </main>
 

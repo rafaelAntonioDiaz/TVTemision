@@ -6,16 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #f0f0f0; }
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
         .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
         .navbar-brand { color: #ffd966 !important; font-weight: bold; }
-        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
         .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
-        .btn-outline-primary { border-color: #e9c46a; color: #1b263b; font-weight: 600; }
-        .btn-outline-primary:hover { background-color: #e9c46a; color: #000; }
         .btn-admin { background: #415a77; border: 1px solid #778da9; color: white; }
+        .btn-admin:hover { background: #1b263b; color: white; }
         .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #fff3e0; border-left: 5px solid #e9c46a; padding: 1rem; margin: 1rem 0; font-weight: bold; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .comparison-table th, .comparison-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        .comparison-table th { background-color: #0d1b2a; color: white; }
+        .img-fluid { max-width: 100%; height: auto; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -29,20 +36,124 @@
 </nav>
 
 <main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card p-4">
-                <h1 class="mb-3">Inversión para Amigos y Familia</h1>
-                <p>Esta es una oportunidad exclusiva para nuestro círculo más cercano. Estamos construyendo una empresa de base tecnológica que utiliza inteligencia artificial para optimizar procesos en el sector energético colombiano.</p>
-                <h3 class="mt-4">¿Qué ofrecemos?</h3>
-                <p>Tokens de Validación Técnica (TVT) que otorgan derechos económicos y de participación en utilidades durante los primeros 5 años, con posibilidad de conversión en acciones en el futuro.</p>
-                <p>Actualmente tenemos dos emisiones disponibles. Conoce cada una:</p>
-                <div class="d-flex flex-wrap gap-2 mt-3">
-                    <a href="/primera_emision" class="btn btn-primary">Primera Emisión (Modelo con datos colombianos)</a>
-                    <a href="/segunda_emision" class="btn btn-outline-primary">Segunda Emisión (Primer contrato firmado)</a>
+    <!-- Hero de la página -->
+    <div class="card-custom text-center">
+        <h1 class="mb-3">GEO IA</h1>
+        <p class="lead">Transformando datos archivados en nuevas oportunidades petroleras</p>
+        <p>Nuestra tecnología basada en Inteligencia Artificial aprovecha información histórica y genera oportunidades de negocio en la industria petrolera.</p>
+    </div>
+
+    <!-- Cada barril cuesta más -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/imagen2.png" alt="Reunión de equipo GEO IA" class="img-fluid shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom">
+                <h2>CADA BARRIL CUESTA MÁS</h2>
+                <p>En los últimos años, el precio del petróleo ha presentado fuertes incrementos y alta volatilidad debido a factores geopolíticos y a la creciente dificultad para desarrollar nuevos yacimientos.</p>
+                <p>Cada vez es más difícil encontrar y producir petróleo. La demanda mundial sigue siendo alta, pero los nuevos yacimientos son más complejos y costosos. Además, los conflictos internacionales generan incertidumbre y elevan los precios. Esto abre una oportunidad para desarrollar soluciones que reduzcan costos y mejoren la eficiencia.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ¿Quiénes se benefician? -->
+    <div class="card-custom">
+        <h2>¿QUIÉNES SE BENEFICIAN?</h2>
+        <p>Nuestra solución está dirigida a las empresas operadoras petroleras, en todo el ciclo del yacimiento desde la exploración hasta fase de recobro mejorado (EOR). También nos dirigimos a empresas de geoingeniería que quieran almacenar gas natural, H2 o CO2 en yacimientos naturales.</p>
+        <div class="row mt-4 text-center">
+            <div class="col-md-6 mb-3">
+                <h4>OPERADORAS PETROLERAS</h4>
+                <ul class="list-unstyled">
+                    <li>Evaluación de reservas</li>
+                    <li>Aumento de producción</li>
+                </ul>
+            </div>
+            <div class="col-md-6 mb-3">
+                <h4>EMPRESAS DE GEOINGENIERÍA</h4>
+                <p>Mejores modelos del yacimiento a menor costo</p>
+            </div>
+        </div>
+        <p class="text-center fw-bold">Todas buscan reducir costos y aumentar la eficiencia.</p>
+    </div>
+
+    <!-- Convertimos datos archivados -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom">
+                <h2>CONVERTIMOS DATOS ARCHIVADOS EN INFORMACIÓN QUE VALE MILLONES DE DÓLARES</h2>
+                <p>Durante décadas se han almacenado enormes cantidades de información sobre el subsuelo colombiano. Nuestra tecnología utiliza Inteligencia Artificial para transformar esos datos en conocimiento útil, ayudando a las empresas a entender mejor cómo funciona el subsuelo y así operar de forma más eficiente, sin depender únicamente de nuevas perforaciones de corazonamiento muy costosas.</p>
+                <div class="highlight-box">
+                    Datos históricos → Inteligencia artificial → Nuevo conocimiento → Mejores decisiones e incremento del valor del yacimiento
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <img src="/img/imagen3.png" alt="Ilustración de Inteligencia Artificial" class="img-fluid shadow mb-3">
+        </div>
+    </div>
+
+    <!-- Más información sin perforar -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/imagen5.png" alt="Operaciones en pozo petrolero" class="img-fluid shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom">
+                <h2>MÁS INFORMACIÓN SIN PERFORAR</h2>
+                <p>Hoy, para conocer mejor un yacimiento, las empresas suelen perforar pozos, extraer corazones y enviarlas a laboratorios especializados. Es un proceso costoso y lento. Nuestra tecnología aprovecha datos históricos e Inteligencia Artificial para obtener información valiosa de forma más rápida, reduciendo costos y apoyando mejores decisiones.</p>
+                <table class="comparison-table">
+                    <thead>
+                    <tr>
+                        <th>MÉTODO TRADICIONAL</th>
+                        <th>NUESTRA SOLUCIÓN</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Perforar por corazones</td>
+                        <td>Datos existentes</td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorios petro-físicos</td>
+                        <td>Inteligencia Artificial</td>
+                    </tr>
+                    <tr>
+                        <td>Alto costo</td>
+                        <td>Fracción del costo</td>
+                    </tr>
+                    <tr>
+                        <td>Semanas o meses</td>
+                        <td>Días o semanas</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inversión -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom">
+                <h2>SIEMBRA HOY PARA RECOGER MAÑANA</h2>
+                <p>Queremos invitar a los mejores inversionistas desde la etapa inicial del proyecto. El capital permitirá acelerar el desarrollo de la tecnología, llegar al mercado y aumentar el valor de la empresa rápidamente.</p>
+
+                <h3 class="mt-4">¿EN QUÉ CONSISTE LA INVERSIÓN?</h3>
+                <p>Te ofrecemos 20 TVT's (Tokens de validación técnica) con un valor de US$500 (quinientos dólares) con la posibilidad de adquirir hasta 5 unidades.</p>
+                <p>Cada uno tiene una vigencia de 5 años y te ofrece 0.25% de las utilidades anuales autorizadas a distribuir. Al final del 3.er año lo puedes convertir en acciones de la compañía al 20% de descuento.</p>
+                <p>Ese mismo instrumento se lanzará en futuras rondas a costo de US$1000 y US$2000 valorizándose rápidamente. Si quieres salir del negocio te lo recompramos a su costo.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/img/imagen7.png" alt="Equipo de negocios e inversionistas" class="img-fluid shadow">
+        </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="text-center mt-4">
+        <a href="/home" class="btn btn-primary me-2">← Volver al inicio</a>
+        <a href="/tecnologia" class="btn btn-outline-secondary">Conocer nuestra tecnología</a>
     </div>
 </main>
 

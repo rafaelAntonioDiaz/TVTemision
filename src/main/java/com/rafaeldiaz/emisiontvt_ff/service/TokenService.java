@@ -33,7 +33,7 @@ public class TokenService {
     private final TemplateEngine templateEngine; // Thymeleaf
 
     @Value("${app.upload.dir}")
-    private final String uploadDir;
+    private String uploadDir;
     
     private int sequenceCounter = 1; // simplificado; en producción usa sincronización o BD
 
