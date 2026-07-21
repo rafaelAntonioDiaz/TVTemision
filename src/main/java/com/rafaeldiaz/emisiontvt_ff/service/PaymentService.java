@@ -24,7 +24,7 @@ public class PaymentService {
     private final InviteService inviteService;
 
     @Value("${app.upload.dir}")
-    private final String uploadDir;
+    private String uploadDir;
 
     public Payment submitPayment(Investor investor, BigDecimal amountCop, MultipartFile file) throws IOException {
         Files.createDirectories(Paths.get(uploadDir + "comprobantes/"));
