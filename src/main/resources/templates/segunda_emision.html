@@ -2,18 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Segunda Emisión TVT – Geo-IA</title>
+    <title>Segunda Emisión TVT – Geo‑IA PetroTech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #f0f0f0; }
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
         .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
         .navbar-brand { color: #ffd966 !important; font-weight: bold; }
-        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
         .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
         .btn-admin { background: #415a77; border: 1px solid #778da9; color: white; }
+        .btn-admin:hover { background: #1b263b; color: white; }
         .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #e8f8f5; border-left: 5px solid #16a085; padding: 1rem; margin: 1rem 0; font-weight: bold; }
+        .valorization-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .valorization-table th, .valorization-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: center; }
+        .valorization-table th { background-color: #0d1b2a; color: white; }
+        .valorization-table td:first-child { text-align: left; }
+        .badge-tech { background-color: #0d1b2a; color: white; padding: 0.3em 0.7em; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0.2em; }
     </style>
 </head>
 <body>
@@ -27,23 +36,65 @@
 </nav>
 
 <main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card p-4">
-                <h1 class="mb-3">Segunda Emisión de TVT</h1>
-                <p><strong>Compra y venta de tokens de una empresa de base tecnológica con su primer contrato firmado.</strong></p>
-                <p>La empresa ha conseguido un contrato importante que valida su tecnología en el mercado. Esta segunda emisión permite a los inversores participar con condiciones ajustadas al nuevo hito, reflejando el menor riesgo y el crecimiento alcanzado.</p>
-                <p>Los fondos se utilizarán para:</p>
-                <ul>
-                    <li>Escalar la infraestructura.</li>
-                    <li>Expandir el equipo comercial.</li>
-                    <li>Iniciar nuevos proyectos de I+D.</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2 mt-4">
-                    <a href="/home" class="btn btn-primary">← Volver al inicio</a>
-                </div>
+    <div class="card-custom">
+        <h1 class="mb-3">Segunda Emisión de TVT – Hito 2</h1>
+        <p class="lead"><strong>Primer contrato firmado para la aplicación de nuestra tecnología.</strong></p>
+        <p>La empresa ha conseguido un contrato importante que valida comercialmente la solución. Esto representa la reducción del riesgo de mercado y consolida la valorización de la compañía.</p>
+        <p><strong>El precio del token aumenta a US$2.000</strong> (máximo 10 tokens por inversor) para reflejar la nueva realidad: un producto probado, un cliente real y la expectativa de nuevos contratos.</p>
+    </div>
+
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>¿Por qué el precio sube a US$2.000?</h2>
+                <p>Superar el hito del primer contrato elimina el riesgo de “producto sin mercado”. Ahora la tecnología está respaldada por un cliente que confía en nuestra solución. La empresa pasa de ser una promesa tecnológica a un proveedor validado.</p>
+                <p>Los inversores que participaron en las rondas anteriores (<strong>Amigos y Familia</strong> y <strong>Primera Emisión</strong>) ya ven una revalorización significativa de sus tokens: quien compró a US$500 ahora posee un activo valorado en US$2.000.</p>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>Valorización estimada</h2>
+                <table class="valorization-table">
+                    <thead>
+                    <tr><th>Concepto</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Tokens emitidos en esta ronda</td><td>30 TVT</td></tr>
+                    <tr><td>Precio por token</td><td>US$2.000</td></tr>
+                    <tr><td>Total recaudado</td><td>US$60.000</td></tr>
+                    <tr><td>Valor pre‑money estimado</td><td>~US$2.000.000</td></tr>
+                    <tr><td>Valor post‑money estimado</td><td>~US$2.060.000</td></tr>
+                    </tbody>
+                </table>
+                <p class="mt-3"><small>La valorización refleja la validación comercial y el potencial de escalar la solución a otros clientes del sector oil & gas. Frente a la Primera Emisión, el valor de la empresa se ha multiplicado por 4.</small></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <h2>Ventajas sobre las emisiones anteriores</h2>
+        <div class="row mt-3">
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ Contrato firmado</span>
+                <p class="mt-2">Validación comercial que reduce drásticamente el riesgo de mercado.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ Tecnología probada</span>
+                <p class="mt-2">El modelo ha sido aplicado con éxito en un caso real, demostrando su eficacia.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ Potencial de escalabilidad</span>
+                <p class="mt-2">Con un cliente ancla, la empresa puede expandirse a otras operadoras en Colombia y el mundo.</p>
+            </div>
+        </div>
+        <div class="highlight-box">
+            💡 Si entraste en la Primera Emisión, tu inversión se ha duplicado en valor de mercado. Esta es la última oportunidad para adquirir TVT antes de una posible salida a bolsa o adquisición.
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/primera_emision" class="btn btn-primary me-2">← Primera Emisión</a>
+        <a href="/amigosyfamilia" class="btn btn-outline-secondary">Volver a Amigos y Familia</a>
     </div>
 </main>
 

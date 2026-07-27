@@ -37,11 +37,11 @@
 </nav>
 
 <main class="container my-5">
-    <!-- Hero: Física + IA, cero alucinaciones -->
+    <!-- Hero -->
     <div class="card-custom text-center">
         <h1 class="mb-3">GEO IA – Physics Informed Machine Learning</h1>
         <p class="lead">Inteligencia Artificial guiada por la física para caracterizar yacimientos sin alucinaciones.</p>
-        <p>Entrenamos nuestros modelos sobre <strong>unidades hidráulicas de flujo (HFU)</strong> extraídas de la diagénesis real de los pozos, no sobre promedios estadísticos. Eliminamos las alucinaciones típicas de la IA integrando leyes físicas en cada predicción.</p>
+        <p>Entrenamos nuestros modelos sobre <strong>unidades hidráulicas de flujo (HFU)</strong> extraídas de la diagénesis real de los pozos, no sobre promedios estadísticos. Eliminamos las alucinaciones típicas de la IA integrando leyes físicas en cada predicción. Y cada resultado es completamente <strong>explicable con TreeSHAP</strong>: no existe caja negra.</p>
     </div>
 
     <!-- Maximizar Valor con Menor CAPEX -->
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <!-- Los Desafíos Actuales de las Operadoras + por qué PIML -->
+    <!-- Los Desafíos Actuales + por qué PIML -->
     <div class="row g-4 align-items-center mb-4">
         <div class="col-lg-6">
             <img src="/img/poc_imagen2.png" alt="Equipo analizando mapas de yacimientos" class="img-fluid rounded shadow">
@@ -75,7 +75,7 @@
                 <div class="highlight-box">
                     Mejor información = Mejores decisiones
                 </div>
-                <p>La IA convencional puede generar respuestas plausibles pero físicamente imposibles (alucinaciones). Nuestro enfoque <strong>Physics Informed ML</strong> incorpora restricciones termodinámicas y de flujo directamente en la función de pérdida del modelo, asegurando que cada salida sea físicamente consistente.</p>
+                <p>La IA convencional puede generar respuestas plausibles pero físicamente imposibles (alucinaciones). Nuestro enfoque <strong>Physics Informed ML</strong> incorpora restricciones termodinámicas y de flujo directamente en la función de pérdida del modelo, asegurando que cada salida sea físicamente consistente. <strong>Además, con TreeSHAP sabemos exactamente por qué el modelo tomó esa decisión.</strong></p>
             </div>
         </div>
     </div>
@@ -128,6 +128,30 @@
         </div>
     </div>
 
+    <!-- NUEVA SECCIÓN: TreeSHAP – Transparencia total -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-12">
+            <div class="card-custom">
+                <h2>TRANSPARENCIA TOTAL: NO SOMOS UNA CAJA NEGRA</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <p>En la industria petrolera, cada decisión sobre reservas debe ser auditable. Por eso incorporamos <strong>TreeSHAP</strong>, una herramienta de explicabilidad basada en teoría de juegos que descompone cada predicción en la contribución exacta de cada variable de entrada.</p>
+                        <p><strong>¿Qué significa esto para el operador?</strong></p>
+                        <ul>
+                            <li><strong>Trazabilidad:</strong> puedes ver cómo influyó cada dato (la laminilla, el registro de Gamma Ray, la porosidad del núcleo) en la HFU estimada.</li>
+                            <li><strong>Validación geocientífica:</strong> un petrofísico puede confirmar que las relaciones aprendidas son geológicamente coherentes, sin correlaciones espurias.</li>
+                            <li><strong>Confianza regulatoria:</strong> al presentar un informe de reevaluación de reservas, puedes demostrar exactamente la línea de razonamiento del modelo, eliminando la opacidad de las cajas negras.</li>
+                        </ul>
+                        <p>TreeSHAP nos permite garantizar que el modelo no está tomando atajos estadísticos, sino aprendiendo las verdaderas relaciones físicas que gobiernan el yacimiento. <strong>El resultado: predicciones precisas, explicables y auditables.</strong></p>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="/img/poc_imagen9.png" alt="Gráfico de TreeSHAP mostrando contribuciones" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Del Dato Histórico al Modelo Actualizado & Beneficios -->
     <div class="row g-4 align-items-center mb-4">
         <div class="col-lg-6">
@@ -137,13 +161,14 @@
             <div class="card-custom h-100">
                 <h2>DEL DATO HISTÓRICO AL MODELO ACTUALIZADO</h2>
                 <p>La solución integra puntos de laminillas delgadas, registros de pozo e información de corazonamiento para entrenar modelos de <strong>Physics Informed Machine Learning</strong> que estiman propiedades petrofísicas y apoyan la actualización del modelo estático del yacimiento.</p>
-                <p><strong>Unidades hidráulicas de flujo (HFU):</strong> en lugar de entrenar con etiquetas petrofísicas convencionales, nuestro modelo aprende a identificar las HFU que reflejan la diagénesis real del yacimiento, garantizando coherencia geológica y predictibilidad física.</p>
+                <p><strong>Unidades hidráulicas de flujo (HFU):</strong> en lugar de entrenar con etiquetas petrofísicas convencionales, nuestro modelo aprende a identificar las HFU que reflejan la diagénesis real del yacimiento, garantizando coherencia geológica y predictibilidad física. <strong>Con TreeSHAP, cada HFU predicha incluye el desglose de qué variables influyeron y en qué medida.</strong></p>
                 <h3 class="mt-4">BENEFICIOS PARA EL ACTIVO</h3>
                 <ul>
                     <li>Reducción de incertidumbre en la distribución de propiedades.</li>
                     <li>Actualización rápida del modelo estático sin nuevos pozos.</li>
                     <li>Decisiones de desarrollo y reservas basadas en datos físicamente validados.</li>
                     <li>Eliminación de alucinaciones propias de modelos estadísticos no restringidos.</li>
+                    <li><strong>Explicabilidad total con TreeSHAP</strong> para auditorías y validación geocientífica.</li>
                 </ul>
             </div>
         </div>
