@@ -2,20 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Primera Emisión TVT – Geo-IA</title>
+    <title>Primera Emisión TVT – Geo‑IA PetroTech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: #f0f0f0; }
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
         .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
         .navbar-brand { color: #ffd966 !important; font-weight: bold; }
-        .card { border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
         .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
-        .btn-outline-primary { border-color: #e9c46a; color: #1b263b; font-weight: 600; }
-        .btn-outline-primary:hover { background-color: #e9c46a; color: #000; }
         .btn-admin { background: #415a77; border: 1px solid #778da9; color: white; }
+        .btn-admin:hover { background: #1b263b; color: white; }
         .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #fff3e0; border-left: 5px solid #e9c46a; padding: 1rem; margin: 1rem 0; font-weight: bold; }
+        .valorization-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .valorization-table th, .valorization-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: center; }
+        .valorization-table th { background-color: #0d1b2a; color: white; }
+        .valorization-table td:first-child { text-align: left; }
+        .badge-tech { background-color: #0d1b2a; color: white; padding: 0.3em 0.7em; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0.2em; }
     </style>
 </head>
 <body>
@@ -29,24 +36,66 @@
 </nav>
 
 <main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card p-4">
-                <h1 class="mb-3">Primera Emisión de TVT</h1>
-                <p><strong>Compra y venta de tokens de una empresa de base tecnológica innovando entrenando su modelo con datos colombianos.</strong></p>
-                <p>En esta fase, la empresa ha desarrollado un modelo de inteligencia artificial entrenado con datos reales del sector energético colombiano. Los tokens de esta emisión permiten participar en las utilidades generadas por los contratos que se deriven de este modelo.</p>
-                <p>Los fondos se destinarán a:</p>
-                <ul>
-                    <li>Ampliar el dataset de entrenamiento.</li>
-                    <li>Mejorar la precisión del modelo.</li>
-                    <li>Establecer alianzas estratégicas.</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2 mt-3">
-                    <a href="/amigosyfamilia" class="btn btn-primary">Amigos y familia</a>
-                    <a href="/segunda_emision" class="btn btn-outline-primary">Segunda Emisión (Primer contrato firmado)</a>
-                </div>
+    <div class="card-custom">
+        <h1 class="mb-3">Primera Emisión de TVT – Hito 1</h1>
+        <p class="lead"><strong>Constitución de la SAS y acceso al dataset real colombiano.</strong></p>
+        <p>En esta fase, la empresa ya tiene personalidad jurídica y ha recibido los datos de entrenamiento del modelo: registros de pozo, láminas delgadas y resultados de laboratorio de núcleos de un campo real en Colombia.</p>
+        <p><strong>El riesgo técnico se reduce significativamente</strong> porque ahora trabajamos con datos reales, no sintéticos. Esto justifica un aumento en el valor del token frente a la ronda de Amigos y Familia.</p>
+    </div>
+
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>¿Por qué invertir ahora?</h2>
+                <p>Al haber superado el hito de constitución legal y adquisición del dataset, la empresa ha eliminado dos de los mayores riesgos iniciales. El precio del TVT refleja esta menor incertidumbre: <strong>US$1.000 por token</strong> (máximo 8 tokens por inversor).</p>
+                <p>Cada TVT otorga <strong>0.25% de las utilidades netas anuales</strong> durante 5 años, con opción de convertirlo en equity (0.1% del capital social) a partir del tercer año, con un 20% de descuento sobre la valoración independiente.</p>
+                <p>En la <strong>ronda de Amigos y Familia</strong> el token costaba US$500. Ahora la tecnología avanza y el valor de la empresa crece.</p>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>Valorización estimada</h2>
+                <table class="valorization-table">
+                    <thead>
+                    <tr><th>Concepto</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Tokens emitidos en esta ronda</td><td>24 TVT</td></tr>
+                    <tr><td>Precio por token</td><td>US$1.000</td></tr>
+                    <tr><td>Total recaudado</td><td>US$24.000</td></tr>
+                    <tr><td>Valor pre‑money estimado</td><td>~US$500.000</td></tr>
+                    <tr><td>Valor post‑money estimado</td><td>~US$524.000</td></tr>
+                    </tbody>
+                </table>
+                <p class="mt-3"><small>La valorización se basa en el potencial de la tecnología con datos reales y el equipo fundador. Comparada con la ronda anterior, el valor de la empresa se ha multiplicado por 5, recompensando a los primeros inversores.</small></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <h2>Ventajas frente a la ronda anterior</h2>
+        <div class="row mt-3">
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ SAS constituida</span>
+                <p class="mt-2">Entidad legal sólida, lista para facturar y firmar contratos.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ Dataset colombiano real</span>
+                <p class="mt-2">El modelo se entrena con datos de un yacimiento verdadero, mejorando su precisión y aplicabilidad.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <span class="badge-tech">✔️ Menor riesgo</span>
+                <p class="mt-2">Dos hitos superados reducen la incertidumbre técnica y legal.</p>
+            </div>
+        </div>
+        <div class="highlight-box">
+            💡 Si invertiste en la ronda de Amigos y Familia, tus tokens ya valen el doble en esta nueva emisión. Si entras ahora, aún estás en una etapa temprana con alto potencial de valorización.
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/amigosyfamilia" class="btn btn-primary me-2">← Volver a Amigos y Familia</a>
+        <a href="/segunda_emision" class="btn btn-outline-secondary">Ver Segunda Emisión</a>
     </div>
 </main>
 
