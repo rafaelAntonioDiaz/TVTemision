@@ -1,32 +1,53 @@
+version: '3.8'
+
 services:
+  # --------------------------------------------
+  # Servicio de Base de Datos (PostgreSQL)
+  # --------------------------------------------
   db:
     image: postgres:15-alpine
     container_name: tvt-db
     environment:
-      POSTGRES_DB: tvt_db
-      POSTGRES_USER: tvt_user
+      POSTGRES_DB: tvtdb
+      POSTGRES_USER: tvtuser
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
-    networks:
-      - tvt-network
+    # Espera activa para confirmar que Postgres ya acepta conexiones
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tvtuser -d tvtdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
+  # --------------------------------------------
+  # Servicio de Aplicación (Spring Boot)
+  # --------------------------------------------
   app:
     build: .
     container_name: tvt-app
     depends_on:
-      - db
+      db:
+        condition: service_healthy  # No arranca hasta que 'db' pase el healthcheck
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tvt_db
-      SPRING_DATASOURCE_USERNAME: tvt_user
-      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_PROFILES_ACTIVE: prod
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_USER: ${ADMIN_USER}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     ports:
       - "8080:8080"
     volumes:
       - uploads:/app/uploads
+      - fractals_uploads:/app/uploads/fractals
     restart: unless-stopped
 
+# --------------------------------------------
+# Volúmenes Persistentes
+# --------------------------------------------
+volumes:
+  postgres_data:
+  uploads:
+  fractals_uploads:
