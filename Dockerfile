@@ -1,7 +1,8 @@
 # ============================================
+# ============================================
 # ETAPA 1: Compilación con Gradle y JDK 25
 # ============================================
-FROM eclipse-temurin:25-jre-alpine AS build
+FROM eclipse-temurin:25-jdk AS build
 WORKDIR /app
 
 # Copiar archivos de configuración de Gradle
@@ -21,7 +22,7 @@ RUN ./gradlew bootJar --no-daemon -x test
 # ============================================
 # ETAPA 2: Imagen ligera de ejecución con JRE 25
 # ============================================
-FROM eclipse-temurin:25-jre-alpine
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 
 # Crear directorio para archivos subidos
@@ -33,5 +34,5 @@ COPY --from=build /app/build/libs/*.jar app.jar
 # Exponer el puerto de la aplicación
 EXPOSE 8080
 
-# Comando de inicio (activa el perfil 'prod' si lo tienes)
+# Comando de inicio
 ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod"]
