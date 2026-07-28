@@ -3,7 +3,7 @@ name: Docker Build & Deploy to GCP
 on:
   push:
     branches:
-      - main  # Se activa al hacer 'git push' a la rama main (o master)
+      - main  # Se activa al hacer 'git push' a la rama main
 
 jobs:
   build-and-push:
@@ -24,6 +24,8 @@ jobs:
         with:
           context: .
           push: true
+          no-cache: true  # <-- Para evitar que use la caché del slim antiguo
+          pull: true      # <-- Fuerza a descargar la versión correcta sin -slim
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
 
   deploy-to-gcp:
@@ -40,12 +42,16 @@ jobs:
           script: |
             # 1. Navegar al repositorio en la VM
             cd ~/TVTemision
+
             # 2. Actualizar el repositorio para tener el docker-compose.yml al día
             git pull origin main
-            # 3. Iniciar sesión o descargar la última imagen
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
-            # 4. Reiniciar los servicios usando Docker Compose (crea la red interna entre 'app' y 'db')
-            docker compose down
-            docker compose up -d
-            # 5. Limpieza de imágenes viejas para no llenar el disco de 10GB
-            docker system prune -f
+
+            # 3. Descargar la última imagen compilada
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
+
+            # 4. Reiniciar los servicios usando Docker Compose (agrega --remove-orphans para evitar conflictos)
+            sudo docker compose down --remove-orphans
+            sudo docker compose up -d
+
+            # 5. Limpieza de imágenes viejas para proteger el disco de 10GB
+            sudo docker system prune -f
