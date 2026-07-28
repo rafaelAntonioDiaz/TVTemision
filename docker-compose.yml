@@ -1,36 +1,33 @@
-version: '3.8'
-
 services:
-  # ============================================
-  # Aplicación Spring Boot
-  # ============================================
+  db:
+    image: postgres:15-alpine
+    container_name: tvt-db
+    environment:
+      POSTGRES_DB: tvt_db
+      POSTGRES_USER: tvt_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - tvt-network
+
   app:
     build: .
-    ports:
-      - "8080:8080"
-    environment:
-      - DB_PASSWORD=${DB_PASSWORD}
-      - ADMIN_USER=${ADMIN_USER}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    container_name: tvt-app
     depends_on:
       - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tvt_db
+      SPRING_DATASOURCE_USERNAME: tvt_user
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      # Si usas perfiles, descomenta:
+      # SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8080:8080"
     volumes:
       - uploads:/app/uploads
     restart: unless-stopped
 
-  # ============================================
-  # Base de datos PostgreSQL
-  # ============================================
-  db:
-    image: postgres:15-alpine
-    environment:
-      - POSTGRES_DB=tvtdb
-      - POSTGRES_USER=tvtuser
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-
-volumes:
-  postgres_data:
-  uploads:
