@@ -21,7 +21,7 @@ RUN ./gradlew bootJar --no-daemon -x test
 # ============================================
 # ETAPA 2: Imagen ligera de ejecución con JRE 25
 # ============================================
-FROM eclipse-temurin:25-jre-slim
+FROM eclipse-temurin:25-jre-alpine
 WORKDIR /app
 
 # Crear directorio para archivos subidos
