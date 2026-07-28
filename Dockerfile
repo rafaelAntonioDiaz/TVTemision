@@ -1,7 +1,7 @@
 # ============================================
 # ETAPA 1: Compilación con Gradle y JDK 25
 # ============================================
-FROM eclipse-temurin:25-jdk AS build
+FROM eclipse-temurin:25-jre-alpine AS build
 WORKDIR /app
 
 # Copiar archivos de configuración de Gradle
