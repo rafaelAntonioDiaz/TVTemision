@@ -23,8 +23,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tvt_db
       SPRING_DATASOURCE_USERNAME: tvt_user
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
-      # Si usas perfiles, descomenta:
-      # SPRING_PROFILES_ACTIVE: prod
+      SPRING_PROFILES_ACTIVE: prod
     ports:
       - "8080:8080"
     volumes:
