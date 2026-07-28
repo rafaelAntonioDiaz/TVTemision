@@ -1,0 +1,56 @@
+name: Docker Build & Deploy to GCP
+
+on:
+  push:
+    branches:
+      - main  # Se activa al hacer 'git push' a la rama main (o master)
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Iniciar sesión en Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Construir y subir imagen a Docker Hub
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
+
+  deploy-to-gcp:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Desplegar en la VM vía SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.GCP_VM_HOST }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_VM_SSH_KEY }}
+          script: |
+            # 1. Iniciar sesión o descargar la última imagen
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
+
+            # 2. Detener y remover el contenedor anterior si existe
+            docker stop mi-app-spring-prod || true
+            docker rm mi-app-spring-prod || true
+
+            # 3. Lanzar el nuevo contenedor con la nueva versión
+            docker run -d \
+              --name mi-app-spring-prod \
+              -p 8080:8080 \
+              --restart unless-stopped \
+              ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
+
+            # 4. Limpieza de imágenes viejas para no llenar el disco de 10GB
+            docker system prune -f
