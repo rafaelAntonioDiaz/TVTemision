@@ -27,23 +27,19 @@ services:
   # Servicio de Aplicación (Spring Boot)
   # --------------------------------------------
   app:
-    image: rafaelantoniodiaz/tvtemision:latest
-    container_name: tvt-app
-    depends_on:
-      db:
-        condition: service_healthy  # No arranca hasta que 'db' pase el healthcheck
-    environment:
-      SPRING_PROFILES_ACTIVE: prod
-      DB_PASSWORD: ${DB_PASSWORD}
-      ADMIN_USER: ${ADMIN_USER}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    build: .
+    image: tvtemision-app:latest
     ports:
       - "8080:8080"
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    depends_on:
+      - db
     volumes:
       - uploads:/app/uploads
-      - fractals_uploads:/app/uploads/fractals
     restart: unless-stopped
-
 # --------------------------------------------
 # Volúmenes Persistentes
 # --------------------------------------------
