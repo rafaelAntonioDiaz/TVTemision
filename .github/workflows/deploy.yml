@@ -18,7 +18,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          
+
       - name: ☕ Configurar JDK 25
         uses: actions/setup-java@v4
         with:
@@ -62,8 +62,8 @@ jobs:
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/tvtemision:latest
 
             # 4. Reiniciar los servicios usando Docker Compose (agrega --remove-orphans para evitar conflictos)
-            sudo docker compose down --remove-orphans
-            sudo docker compose up -d
+            sudo docker compose pull app
+            sudo docker compose up -d --force-recreate app
 
             # 5. Limpieza de imágenes viejas para proteger el disco de 10GB
             sudo docker system prune -f
