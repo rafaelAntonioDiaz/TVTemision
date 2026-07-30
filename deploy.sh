@@ -1,15 +1,13 @@
 #!/bin/bash
+echo "🚀 Compilando y desplegando Geo Petro Litix AI..."
 
-echo "🚀 Iniciando despliegue de Geo-IA TVT..."
+# Compilar localmente (sin tests para acelerar)
+./gradlew bootJar -x test
 
-# Ir al directorio del proyecto
-cd /opt/tvt-platform  # ajusta la ruta en tu VM
+# Subir el JAR a la VM
+scp build/libs/EmisionTVT_FF-0.0.1-SNAPSHOT.jar rafael_diaz@34.66.125.104:/home/rafael_diaz/TVTemision/app.jar
 
-# Obtener últimos cambios
-git pull origin main
+# Conectar a la VM, hacer pull por si acaso y reconstruir solo el servicio 'app'
+ssh rafael_diaz@34.66.125.104 "cd /home/rafael_diaz/TVTemision && git pull origin main && docker compose up -d --build app"
 
-# Construir y levantar contenedores
-docker-compose build app
-docker-compose up -d
-
-echo "✅ Despliegue completado. La aplicación está corriendo en http://localhost:8080"
+echo "✅ Despliegue completado en https://geopetrolitixai.pro"

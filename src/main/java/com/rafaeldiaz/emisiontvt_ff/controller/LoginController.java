@@ -1,4 +1,4 @@
-package com.rafaeldiaz.emisiontvt_ff;
+package com.rafaeldiaz.emisiontvt_ff.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
