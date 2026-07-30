@@ -24,6 +24,17 @@
         .contact-highlight { background: #fff3e0; border-left: 5px solid #e9c46a; padding: 1.5rem; margin: 2rem 0; font-size: 1.1rem; }
         .contact-highlight a { color: #0d1b2a; font-weight: 700; text-decoration: none; }
         .btn-share { background-color: #25D366; border-color: #25D366; color: white; } /* WhatsApp verde */
+        .btn-hidden {
+            color: #415a77;
+            text-decoration: none;
+            font-size: 0.7rem;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+        .btn-hidden:hover {
+            opacity: 0.8;
+            color: #ffd966;
+        }
     </style>
 </head>
 <body>
@@ -31,9 +42,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <span class="navbar-brand">Geo Petro Litix AI</span>
+        <div class="ms-auto">
+            <a href="/home" class="btn-hidden" title="Acceso inversores">◆</a>
+        </div>
     </div>
 </nav>
-
 <main class="container my-5">
     <!-- Hero (igual que en tecnología) -->
     <div class="card-custom text-center">
