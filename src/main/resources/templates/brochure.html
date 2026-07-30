@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo Petro Litix AI – Brochure Corporativo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
+        .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
+        .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
+        .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #e8f8f5; border-left: 5px solid #16a085; padding: 1rem; margin: 1rem 0; font-weight: bold; color: #0d1b2a; }
+        .badge-tech { background-color: #0d1b2a; color: white; padding: 0.35em 0.8em; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 0.2em; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .comparison-table th, .comparison-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        .comparison-table th { background-color: #0d1b2a; color: white; }
+        .team-avatar { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #e9c46a; background: #1b263b; }
+        .contact-highlight { background: #fff3e0; border-left: 5px solid #e9c46a; padding: 1.5rem; margin: 2rem 0; font-size: 1.1rem; }
+        .contact-highlight a { color: #0d1b2a; font-weight: 700; text-decoration: none; }
+        .btn-share { background-color: #25D366; border-color: #25D366; color: white; } /* WhatsApp verde */
+    </style>
+</head>
+<body>
+<!-- Navbar minimalista, solo la marca -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <span class="navbar-brand">Geo Petro Litix AI</span>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <!-- Hero (igual que en tecnología) -->
+    <div class="card-custom text-center">
+        <h1 class="mb-3">Geo Petro Litix AI – Physics Informed Machine Learning</h1>
+        <p class="lead">Inteligencia Artificial guiada por la física para caracterizar yacimientos sin alucinaciones.</p>
+        <p>Entrenamos nuestros modelos sobre <strong>unidades hidráulicas de flujo (HFU)</strong> extraídas de la diagénesis real de los pozos, no sobre promedios estadísticos. Eliminamos las alucinaciones típicas de la IA integrando leyes físicas en cada predicción. Y cada resultado es completamente <strong>explicable con TreeSHAP</strong>: no existe caja negra.</p>
+    </div>
+
+    <!-- Maximizar Valor con Menor CAPEX -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>MAXIMIZAR VALOR CON MENOR CAPEX</h2>
+                <p>Las empresas operadoras enfrentan una creciente presión por reducir el CAPEX y optimizar el desempeño de sus activos. En este contexto, las decisiones técnicas deben apoyarse en un mejor aprovechamiento de la información existente para disminuir la incertidumbre, reducir costos y aumentar el valor económico de los yacimientos.</p>
+                <p>Nuestra solución aplica <strong>Physics Informed Machine Learning</strong> para estimar propiedades petrofísicas con alta fidelidad, evitando las alucinaciones que presentan los modelos puramente estadísticos. Así, cada predicción respeta las leyes de la física de yacimientos.</p>
+                <div class="mt-3">
+                    <span class="badge-tech">Reducir incertidumbre</span>
+                    <span class="badge-tech">Reducir costos</span>
+                    <span class="badge-tech">Incrementar recuperación de reservas</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen1.png" alt="Centro de Monitoreo GEO IA" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Los Desafíos Actuales + por qué PIML -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen2.png" alt="Equipo analizando mapas de yacimientos" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>LOS DESAFÍOS ACTUALES DE LAS OPERADORAS</h2>
+                <p>Las operadoras deben tomar decisiones de alto impacto económico con información limitada. La calidad de la información disponible es un factor determinante para disminuir la incertidumbre y mejorar los resultados.</p>
+                <div class="highlight-box">
+                    Mejor información = Mejores decisiones
+                </div>
+                <p>La IA convencional puede generar respuestas plausibles pero físicamente imposibles (alucinaciones). Nuestro enfoque <strong>Physics Informed ML</strong> incorpora restricciones termodinámicas y de flujo directamente en la función de pérdida del modelo, asegurando que cada salida sea físicamente consistente. <strong>Además, con TreeSHAP sabemos exactamente por qué el modelo tomó esa decisión.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- IA para Reevaluar el Yacimiento: PIML + datos reales -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>PIML: CORRELACIONANDO DATOS DE LAMINILLAS, CORAZONES Y REGISTROS</h2>
+                <p>Nuestra metodología integra tres fuentes de datos históricos para entrenar modelos que no alucinan:</p>
+                <ul>
+                    <li><strong>Puntos de laminillas delgadas:</strong> extraemos las coordenadas de los puntos de conteo mineralógico y las vinculamos con la diagénesis.</li>
+                    <li><strong>Resultados de laboratorio de corazones:</strong> porosidad, permeabilidad, presión capilar y saturaciones.</li>
+                    <li><strong>Registros de pozo:</strong> GR, RHOB, NPHI, resistividad, entre otros.</li>
+                </ul>
+                <p>Con estos datos, entrenamos un modelo <strong>Physics Informed</strong> que estima propiedades petrofísicas sin perder la coherencia física. El resultado: un modelo estático actualizado del yacimiento, listo para reevaluar reservas sin perforar nuevos pozos.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen3.png" alt="Visualización 3D y análisis petrofísico" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- Más Valor Reinterpretando Datos Existentes (tabla comparativa) -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen4.png" alt="Subsuelo y modelo estático" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>MÁS VALOR REINTERPRETANDO DATOS EXISTENTES</h2>
+                <p>La caracterización convencional depende de nuevas perforaciones, corazonamientos y análisis de laboratorio, procesos de alto costo y disponibilidad limitada. Nuestra tecnología utiliza información de archivo procesándola con Inteligencia Artificial guiada por la física para estimar propiedades petrofísicas, complementando los métodos actuales y reduciendo el costo de obtener conocimiento del yacimiento.</p>
+                <table class="comparison-table">
+                    <thead>
+                    <tr><th>MÉTODO CONVENCIONAL</th><th>PHYSICS INFORMED ML</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Perforación + corazonamiento</td><td>Datos de archivo (laminillas, núcleos, registros)</td></tr>
+                    <tr><td>Laboratorios petrofísicos tradicionales</td><td>Estimación de HFU basada en diagénesis</td></tr>
+                    <tr><td>Modelos estadísticos con riesgo de alucinación</td><td>Modelos con restricciones físicas (sin alucinaciones)</td></tr>
+                    <tr><td>Semanas o meses</td><td>Días o semanas</td></tr>
+                    </tbody>
+                </table>
+                <div class="mt-3">
+                    <span class="badge-tech">Menor costo</span>
+                    <span class="badge-tech">Menor tiempo</span>
+                    <span class="badge-tech">Cero alucinaciones</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TreeSHAP – Transparencia total -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-12">
+            <div class="card-custom">
+                <h2>TRANSPARENCIA TOTAL: NO SOMOS UNA CAJA NEGRA</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <p>En la industria petrolera, cada decisión sobre reservas debe ser auditable. Por eso incorporamos <strong>TreeSHAP</strong>, una herramienta de explicabilidad basada en teoría de juegos que descompone cada predicción en la contribución exacta de cada variable de entrada.</p>
+                        <p><strong>¿Qué significa esto para el operador?</strong></p>
+                        <ul>
+                            <li><strong>Trazabilidad:</strong> puedes ver cómo influyó cada dato (la laminilla, el registro de Gamma Ray, la porosidad del núcleo) en la HFU estimada.</li>
+                            <li><strong>Validación geocientífica:</strong> un petrofísico puede confirmar que las relaciones aprendidas son geológicamente coherentes, sin correlaciones espurias.</li>
+                            <li><strong>Confianza regulatoria:</strong> al presentar un informe de reevaluación de reservas, puedes demostrar exactamente la línea de razonamiento del modelo, eliminando la opacidad de las cajas negras.</li>
+                        </ul>
+                        <p>TreeSHAP nos permite garantizar que el modelo no está tomando atajos estadísticos, sino aprendiendo las verdaderas relaciones físicas que gobiernan el yacimiento. <strong>El resultado: predicciones precisas, explicables y auditables.</strong></p>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="/img/poc_imagen9.png" alt="Gráfico de TreeSHAP mostrando contribuciones" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Del Dato Histórico al Modelo Actualizado & Beneficios -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen5.png" alt="Extracción y balancín petrolero" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>DEL DATO HISTÓRICO AL MODELO ACTUALIZADO</h2>
+                <p>La solución integra puntos de laminillas delgadas, registros de pozo e información de corazonamiento para entrenar modelos de <strong>Physics Informed Machine Learning</strong> que estiman propiedades petrofísicas y apoyan la actualización del modelo estático del yacimiento.</p>
+                <p><strong>Unidades hidráulicas de flujo (HFU):</strong> en lugar de entrenar con etiquetas petrofísicas convencionales, nuestro modelo aprende a identificar las HFU que reflejan la diagénesis real del yacimiento, garantizando coherencia geológica y predictibilidad física.</p>
+                <h3 class="mt-4">BENEFICIOS PARA EL ACTIVO</h3>
+                <ul>
+                    <li>Reducción de incertidumbre en la distribución de propiedades.</li>
+                    <li>Actualización rápida del modelo estático sin nuevos pozos.</li>
+                    <li>Decisiones de desarrollo y reservas basadas en datos físicamente validados.</li>
+                    <li>Eliminación de alucinaciones propias de modelos estadísticos no restringidos.</li>
+                    <li><strong>Explicabilidad total con TreeSHAP</strong> para auditorías y validación geocientífica.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN: Quiénes somos (ejecutivos) -->
+    <div class="card-custom text-center">
+        <h2 class="mb-4">Quiénes somos</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-5 mb-4">
+                <img src="/img/rafael_diaz.png" alt="Rafael Antonio Díaz" class="team-avatar mb-3">
+                <h4 class="h5 fw-bold mb-1">Rafael Antonio Díaz</h4>
+                <p class="badge-tech mb-2" style="background-color:#415a77;">CEO - Líder Ejecutivo</p>
+                <p class="small text-muted">PMP Ing. de Petróleos desde 1995</p>
+            </div>
+            <div class="col-md-5 mb-4">
+                <img src="/img/pablo_guillen.png" alt="Pablo Guillén" class="team-avatar mb-3">
+                <h4 class="h5 fw-bold mb-1">Pablo Guillén</h4>
+                <p class="badge-tech mb-2" style="background-color:#415a77;">CSO - Líder Científico</p>
+                <p class="small text-muted">PhD Petrofísico Experto Machine Learning / IA aplicada al Oil & Gas desde 1995</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacto y compartir -->
+    <div class="contact-highlight text-center">
+        <p class="mb-2"><strong>¿Interesado en nuestra tecnología?</strong></p>
+        <div id="callContainer">
+            <!-- Versión móvil: botón grande de llamada -->
+            <a id="btnCallMobile" href="tel:+573132203002" class="btn btn-success btn-lg mb-2" style="display:none;">
+                📞 Llamar ahora
+            </a>
+            <!-- Versión escritorio: número sin enlace y botón de copiar -->
+            <div id="desktopNumber" class="h4 mb-1">
+                <span>📞 +57 313 220 3002</span>
+                <button onclick="copyPhone()" class="btn btn-sm btn-outline-secondary ms-2">Copiar</button>
+            </div>
+        </div>
+        <p class="text-muted">Líder Ejecutivo – Rafael Antonio Díaz</p>
+        <button id="btnShare" class="btn btn-primary mt-2">
+            📤 Compartir esta página
+        </button>
+    </div>
+
+    <script>
+        // Detectar si es un dispositivo móvil (simplificado)
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+            document.getElementById('btnCallMobile').style.display = 'inline-block';
+            document.getElementById('desktopNumber').style.display = 'none';
+        } else {
+            document.getElementById('btnCallMobile').style.display = 'none';
+            document.getElementById('desktopNumber').style.display = 'block';
+        }
+
+        function copyPhone() {
+            navigator.clipboard.writeText('+573132203002')
+                .then(() => alert('Número copiado al portapapeles'))
+                .catch(() => prompt('Copia el número:', '+573132203002'));
+        }
+
+        // Botón de compartir (sin cambios)
+        document.getElementById('btnShare').addEventListener('click', async () => {
+            const shareData = {
+                title: 'Geo Petro Litix AI – Brochure',
+                text: 'Descubre cómo la inteligencia artificial guiada por la física puede transformar la caracterización de yacimientos.',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Error al compartir', err);
+                }
+            } else {
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => alert('Enlace copiado al portapapeles. ¡Compártelo!'))
+                    .catch(() => prompt('Copia este enlace:', window.location.href));
+            }
+        });
+    </script>
+
+</main>
+
+<footer class="footer text-center py-3">
+    <div class="container"><span class="text-muted">© 2026 Geo Petro Litix AI S.A.S.</span></div>
+</footer>
+
+<script>
+    // Botón para compartir usando la Web Share API (móviles) o copiando el enlace (escritorio)
+    document.getElementById('btnShare').addEventListener('click', async () => {
+        const shareData = {
+            title: 'Geo Petro Litix AI – Brochure',
+            text: 'Descubre cómo la inteligencia artificial guiada por la física puede transformar la caracterización de yacimientos.',
+            url: window.location.href
+        };
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                console.log('Error al compartir', err);
+            }
+        } else {
+            // Fallback: copiar enlace al portapapeles
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => alert('Enlace copiado al portapapeles. ¡Compártelo!'))
+                .catch(() => prompt('Copia este enlace:', window.location.href));
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
