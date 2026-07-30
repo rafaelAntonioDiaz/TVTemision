@@ -27,7 +27,7 @@ services:
   # Servicio de Aplicación (Spring Boot)
   # --------------------------------------------
   app:
-    build: .
+    image: rafaelantoniodiaz/tvtemision:latest
     container_name: tvt-app
     depends_on:
       db:
