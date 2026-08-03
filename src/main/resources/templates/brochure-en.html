@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo Petro Litix AI – Corporate Brochure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f0f0f0; font-family: 'Segoe UI', system-ui, sans-serif; color: #111; }
+        .navbar { background: linear-gradient(135deg, #0d1b2a, #1b263b) !important; }
+        .navbar-brand { color: #ffd966 !important; font-weight: bold; }
+        .btn-primary { background-color: #e9c46a; border-color: #e9c46a; color: #000; font-weight: 700; }
+        .btn-primary:hover { background-color: #f4a261; border-color: #f4a261; }
+        .footer { background: #f0f0f0; border-top: 1px solid #ddd; }
+        .card-custom { background: #ffffff; border: 1px solid #d0d0d0; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .card-custom h2, .card-custom h3 { color: #0d1b2a; font-weight: 700; }
+        .card-custom p, .card-custom li { color: #333; }
+        .highlight-box { background-color: #e8f8f5; border-left: 5px solid #16a085; padding: 1rem; margin: 1rem 0; font-weight: bold; color: #0d1b2a; }
+        .badge-tech { background-color: #0d1b2a; color: white; padding: 0.35em 0.8em; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 0.2em; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .comparison-table th, .comparison-table td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        .comparison-table th { background-color: #0d1b2a; color: white; }
+        .team-avatar { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #e9c46a; background: #1b263b; }
+        .contact-highlight { background: #fff3e0; border-left: 5px solid #e9c46a; padding: 1.5rem; margin: 2rem 0; font-size: 1.1rem; }
+
+        /* Botón oculto al home (inversores) */
+        .btn-hidden {
+            color: #415a77;
+            text-decoration: none;
+            font-size: 0.7rem;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+        .btn-hidden:hover { opacity: 0.8; color: #ffd966; }
+
+        /* Botón de idioma */
+        .lang-switch {
+            color: #e9c46a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+        }
+        .lang-switch:hover { color: #f4a261; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <span class="navbar-brand">Geo Petro Litix AI</span>
+        <div class="ms-auto d-flex align-items-center">
+            <a href="/brochure" class="lang-switch">🇪🇸 Español</a>
+            <a href="/home" class="btn-hidden" title="Investors area">◆</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <!-- Hero -->
+    <div class="card-custom text-center">
+        <h1 class="mb-3">Geo Petro Litix AI – Physics Informed Machine Learning</h1>
+        <p class="lead">Physics‑guided Artificial Intelligence for reservoir characterization, without hallucinations.</p>
+        <p>We train our models on <strong>Hydraulic Flow Units (HFU)</strong> derived from the actual diagenesis of the wells, not on statistical averages. We eliminate the typical hallucinations of AI by integrating physical laws into every prediction. And every result is fully <strong>explainable with TreeSHAP</strong>: there is no black box.</p>
+    </div>
+
+    <!-- Maximize Value with Lower CAPEX -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6 order-lg-2">
+            <img src="/img/poc_imagen1.png" alt="GEO IA Monitoring Center" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <div class="card-custom h-100">
+                <h2>MAXIMIZE VALUE WITH LOWER CAPEX</h2>
+                <p>Operating companies face increasing pressure to reduce CAPEX and optimize asset performance. In this context, technical decisions must rely on better use of existing information to reduce uncertainty, cut costs, and increase the economic value of reservoirs.</p>
+                <p>Our solution applies <strong>Physics Informed Machine Learning</strong> to estimate petrophysical properties with high fidelity, avoiding the hallucinations that purely statistical models produce. Thus, every prediction respects the laws of reservoir physics.</p>
+                <div class="mt-3">
+                    <span class="badge-tech">Reduce uncertainty</span>
+                    <span class="badge-tech">Cut costs</span>
+                    <span class="badge-tech">Increase recovery</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Today's Challenges for Operators + Why PIML -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen2.png" alt="Team analyzing reservoir maps" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>TODAY'S CHALLENGES FOR OPERATORS</h2>
+                <p>Operators must make high‑impact economic decisions with limited information. The quality of available data is a decisive factor in reducing uncertainty and improving results.</p>
+                <div class="highlight-box">
+                    Better information = Better decisions
+                </div>
+                <p>Conventional AI can generate plausible but physically impossible answers (hallucinations). Our <strong>Physics Informed ML</strong> approach embeds thermodynamic and flow constraints directly into the model's loss function, ensuring that every output is physically consistent. <strong>Moreover, with TreeSHAP we know exactly why the model made that decision.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI to Re‑evaluate the Reservoir: PIML + real data -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>PIML: CORRELATING THIN‑SECTION, CORE, AND LOG DATA</h2>
+                <p>Our methodology integrates three sources of historical data to train models that do not hallucinate:</p>
+                <ul>
+                    <li><strong>Thin‑section point‑counts:</strong> we extract the coordinates of mineralogical counting points and link them to diagenesis.</li>
+                    <li><strong>Core laboratory results:</strong> porosity, permeability, capillary pressure, and saturations.</li>
+                    <li><strong>Well logs:</strong> GR, RHOB, NPHI, resistivity, among others.</li>
+                </ul>
+                <p>With these data, we train a <strong>Physics Informed</strong> model that estimates petrophysical properties without losing physical coherence. The result: an updated static reservoir model, ready to re‑evaluate reserves without drilling new wells.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen3.png" alt="3D visualization and petrophysical analysis" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <!-- More Value Reinterpreting Existing Data (comparison table) -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen4.png" alt="Subsurface and static model" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>MORE VALUE BY REINTERPRETING EXISTING DATA</h2>
+                <p>Conventional characterization depends on new drilling, coring, and laboratory analysis—high‑cost processes with limited availability. Our technology uses archived data processed with physics‑guided Artificial Intelligence to estimate petrophysical properties, complementing current methods and reducing the cost of acquiring reservoir knowledge.</p>
+                <table class="comparison-table">
+                    <thead>
+                    <tr><th>CONVENTIONAL METHOD</th><th>PHYSICS INFORMED ML</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Drilling + coring</td><td>Archived data (thin sections, cores, logs)</td></tr>
+                    <tr><td>Traditional petrophysical labs</td><td>HFU estimation based on diagenesis</td></tr>
+                    <tr><td>Statistical models with hallucination risk</td><td>Models with physical constraints (no hallucinations)</td></tr>
+                    <tr><td>Weeks or months</td><td>Days or weeks</td></tr>
+                    </tbody>
+                </table>
+                <div class="mt-3">
+                    <span class="badge-tech">Lower cost</span>
+                    <span class="badge-tech">Less time</span>
+                    <span class="badge-tech">Zero hallucinations</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TreeSHAP – Total Transparency -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-12">
+            <div class="card-custom">
+                <h2>TOTAL TRANSPARENCY: WE ARE NOT A BLACK BOX</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <p>In the oil industry, every reserve decision must be auditable. That is why we incorporate <strong>TreeSHAP</strong>, an explainability tool based on game theory that decomposes each prediction into the exact contribution of each input variable.</p>
+                        <p><strong>What does this mean for the operator?</strong></p>
+                        <ul>
+                            <li><strong>Traceability:</strong> you can see how each piece of data (the thin section, the Gamma Ray log, the core porosity) influenced the estimated HFU.</li>
+                            <li><strong>Geoscientific validation:</strong> a petrophysicist can confirm that the learned relationships are geologically coherent, without spurious correlations.</li>
+                            <li><strong>Regulatory confidence:</strong> when presenting a reserve re‑evaluation report, you can demonstrate exactly the reasoning line of the model, eliminating the opacity of black boxes.</li>
+                        </ul>
+                        <p>TreeSHAP allows us to guarantee that the model is not taking statistical shortcuts, but learning the true physical relationships that govern the reservoir. <strong>The result: accurate, explainable, and auditable predictions.</strong></p>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="/img/poc_imagen9.png" alt="TreeSHAP graph showing contributions" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- From Historical Data to Updated Model & Benefits -->
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-lg-6">
+            <img src="/img/poc_imagen5.png" alt="Extraction and pumpjack" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-custom h-100">
+                <h2>FROM HISTORICAL DATA TO AN UPDATED MODEL</h2>
+                <p>The solution integrates thin‑section point‑counts, well logs, and core data to train <strong>Physics Informed Machine Learning</strong> models that estimate petrophysical properties and support the updating of the static reservoir model.</p>
+                <p><strong>Hydraulic Flow Units (HFU):</strong> instead of training with conventional petrophysical labels, our model learns to identify the HFUs that reflect the actual diagenesis of the reservoir, guaranteeing geological coherence and physical predictability. <strong>With TreeSHAP, each predicted HFU includes a breakdown of which variables influenced it and to what extent.</strong></p>
+                <h3 class="mt-4">BENEFITS FOR THE ASSET</h3>
+                <ul>
+                    <li>Reduced uncertainty in property distribution.</li>
+                    <li>Fast static model updates without new wells.</li>
+                    <li>Development and reserve decisions based on physically validated data.</li>
+                    <li>Elimination of hallucinations typical of unconstrained statistical models.</li>
+                    <li><strong>Full explainability with TreeSHAP</strong> for audits and geoscientific validation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Who we are (executive team) -->
+    <div class="card-custom text-center">
+        <h2 class="mb-4">Who we are</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-5 mb-4">
+                <img src="/img/rafael_diaz.png" alt="Rafael Antonio Díaz" class="team-avatar mb-3">
+                <h4 class="h5 fw-bold mb-1">Rafael Antonio Díaz</h4>
+                <p class="badge-tech mb-2" style="background-color:#415a77;">CEO – Executive Leader</p>
+                <p class="small text-muted">PMP Petroleum Engineer since 1995</p>
+            </div>
+            <div class="col-md-5 mb-4">
+                <img src="/img/pablo_guillen.png" alt="Pablo Guillén" class="team-avatar mb-3">
+                <h4 class="h5 fw-bold mb-1">Pablo Guillén</h4>
+                <p class="badge-tech mb-2" style="background-color:#415a77;">CSO – Scientific Leader</p>
+                <p class="small text-muted">PhD Petrophysicist, Expert in ML / AI applied to Oil & Gas since 1995</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact and Share -->
+    <div class="contact-highlight text-center">
+        <p class="mb-2"><strong>Interested in our technology?</strong></p>
+        <a href="tel:+573132203002" class="btn btn-success btn-lg mb-2">📞 Call now (+57 313 220 3002)</a>
+        <p class="text-muted">Executive Leader – Rafael Antonio Díaz</p>
+        <button id="btnShare" class="btn btn-primary mt-2">📤 Share this page</button>
+    </div>
+</main>
+
+<footer class="footer text-center py-3">
+    <div class="container"><span class="text-muted">© 2026 Geo Petro Litix AI S.A.S.</span></div>
+</footer>
+
+<script>
+    document.getElementById('btnShare').addEventListener('click', async () => {
+        const shareData = {
+            title: 'Geo Petro Litix AI – Corporate Brochure',
+            text: 'Discover how physics‑guided artificial intelligence can transform reservoir characterization.',
+            url: window.location.href
+        };
+        if (navigator.share) {
+            try { await navigator.share(shareData); } catch (err) {}
+        } else {
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => alert('Link copied!'))
+                .catch(() => prompt('Copy this link:', window.location.href));
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
