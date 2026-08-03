@@ -35,19 +35,26 @@
             opacity: 0.8;
             color: #ffd966;
         }
+        .lang-switch {
+            color: #e9c46a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+        }
+        .lang-switch:hover { color: #f4a261; }
     </style>
 </head>
 <body>
-<!-- Navbar minimalista, solo la marca -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <span class="navbar-brand">Geo Petro Litix AI</span>
-        <div class="ms-auto">
+        <div class="ms-auto d-flex align-items-center">
+            <a href="/brochure-en" class="lang-switch">🇬🇧 English</a>
             <a href="/home" class="btn-hidden" title="Acceso inversores">◆</a>
         </div>
     </div>
-</nav>
-<main class="container my-5">
+</nav><main class="container my-5">
     <!-- Hero (igual que en tecnología) -->
     <div class="card-custom text-center">
         <h1 class="mb-3">Geo Petro Litix AI – Physics Informed Machine Learning</h1>

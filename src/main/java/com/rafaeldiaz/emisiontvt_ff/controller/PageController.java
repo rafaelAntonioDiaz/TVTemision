@@ -40,4 +40,8 @@ public class PageController {
     public String brochure() {
         return "brochure";
     }
+    @GetMapping("/brochure-en")
+    public String brochureEn() {
+        return "brochure-en";
+    }
 }
