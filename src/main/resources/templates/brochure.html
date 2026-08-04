@@ -213,26 +213,16 @@
         </div>
     </div>
 
-    <!-- Contacto y compartir -->
+    <!-- Contacto y Compartir -->
     <div class="contact-highlight text-center">
         <p class="mb-2"><strong>¿Interesado en nuestra tecnología?</strong></p>
-        <div id="callContainer">
-            <!-- Versión móvil: botón grande de llamada -->
-            <a id="btnCallMobile" href="tel:+573132203002" class="btn btn-success btn-lg mb-2" style="display:none;">
-                📞 Llamar ahora
-            </a>
-            <!-- Versión escritorio: número sin enlace y botón de copiar -->
-            <div id="desktopNumber" class="h4 mb-1">
-                <span>📞 +57 313 220 3002</span>
-                <button onclick="copyPhone()" class="btn btn-sm btn-outline-secondary ms-2">Copiar</button>
-            </div>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-success btn-lg mb-2">📞 Llamar ahora</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro" class="btn btn-primary btn-lg mb-2">✉️ Enviar correo</a>
         </div>
-        <p class="text-muted">Líder Ejecutivo – Rafael Antonio Díaz</p>
-        <button id="btnShare" class="btn btn-primary mt-2">
-            📤 Compartir esta página
-        </button>
+        <p class="text-muted mt-2">Líder Ejecutivo – Rafael Antonio Díaz</p>
+        <button id="btnShare" class="btn btn-primary mt-2">📤 Compartir esta página</button>
     </div>
-
     <script>
         // Detectar si es un dispositivo móvil (simplificado)
         const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
