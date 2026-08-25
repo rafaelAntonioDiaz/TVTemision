@@ -35,6 +35,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - ADMIN_USER=${ADMIN_USER}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - ALEXA_EMAIL_PASSWORD=${ALEXA_EMAIL_PASSWORD}
     depends_on:
       - db
     volumes:

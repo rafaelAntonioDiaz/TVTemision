@@ -5,6 +5,7 @@ import com.rafaeldiaz.emisiontvt_ff.repository.InvestorRepository;
 import com.rafaeldiaz.emisiontvt_ff.repository.InviteRepository;
 import com.rafaeldiaz.emisiontvt_ff.repository.PaymentRepository;
 import com.rafaeldiaz.emisiontvt_ff.repository.RoundRepository;
+import com.rafaeldiaz.emisiontvt_ff.service.EmailService;
 import com.rafaeldiaz.emisiontvt_ff.service.InviteService;
 import com.rafaeldiaz.emisiontvt_ff.service.TokenService;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,7 @@ public class AdminController {
     private final PaymentRepository paymentRepo;
     private final TokenService tokenService;
     private final InviteService inviteService;
+    private final EmailService emailService;
 
     @Value("${app.base-url}")
     private String baseUrl;
@@ -100,6 +102,18 @@ public class AdminController {
             paymentRepo.save(payment);
         }
 
+        // Enviar correo al inversor
+        try {
+            emailService.enviarCorreoReclamo(
+                    investor.getEmail(),
+                    investor.getFullName(),
+                    investor.getClaimCode(),
+                    baseUrl
+            );
+        } catch (Exception e) {
+            // No bloqueamos la confirmación por un fallo de correo
+            System.err.println("Error al enviar correo: " + e.getMessage());
+        }
         // Redirige al detalle mostrando el código de reclamo
         return "redirect:/admin/invite/" + id + "?confirmed=true";    }
 
