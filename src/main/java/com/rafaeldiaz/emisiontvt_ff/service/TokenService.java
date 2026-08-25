@@ -103,7 +103,7 @@ public class TokenService {
     void initCounter() {
         Token last = tokenRepo.findTopByOrderByIdDesc().orElse(null);
         if (last != null && last.getCode() != null) {
-            String numPart = last.getCode().substring(4); // "TVT-F" tiene 5 caracteres? ajusta
+            String numPart = last.getCode().substring(5); // "TVT-F" tiene 5 caracteres? ajusta
             sequenceCounter = Integer.parseInt(numPart) + 1;
         }
     }
