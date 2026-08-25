@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'com.h2database:h2' // desarrollo, cambia a postgresql en prod
     implementation 'org.postgresql:postgresql'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     // iText 7 + html2pdf para el contrato
