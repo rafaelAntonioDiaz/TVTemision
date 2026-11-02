@@ -16,6 +16,12 @@ public class PageController {
         return "home";
     }
 
+
+    @GetMapping("/inversionistas")
+    public String inversionistas() {
+        return "inversionistas";
+    }
+
     @GetMapping("/amigosyfamilia")
     public String amigosYFamilia() {
         return "amigosyfamilia";
@@ -40,6 +46,7 @@ public class PageController {
     public String brochure() {
         return "brochure";
     }
+
     @GetMapping("/brochure-en")
     public String brochureEn() {
         return "brochure-en";
