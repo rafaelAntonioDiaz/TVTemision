@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::#page-head}, ~{::main}, 'es')}">
+<head>
+    <title th:text="${product.name()} + ' — Geo Petro Litix AI'">Producto</title>
+    <th:block id="page-head">
+        <link rel="canonical"
+              th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
+        <link rel="alternate" hreflang="es"
+              th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
+        <link rel="alternate" hreflang="en"
+              th:href="@{'https://www.geopetrolitixai.pro/en/solutions/' + ${product.domainEn()} + '/' + ${product.slugEn()}}"/>
+        <link rel="alternate" hreflang="x-default"
+              th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
+        <meta name="description" th:attr="content=${content.tagline()}"/>
+    </th:block>
+</head>
+<body>
+<main class="container my-5">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/soluciones}">Soluciones</a></li>
+            <li class="breadcrumb-item" th:text="${domainLabel}">Dominio</li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${product.name()}">Producto</li>
+        </ol>
+    </nav>
+
+    <!-- Hero producto -->
+    <section class="card-custom hero-card mb-4">
+        <span class="badge-tech mb-3" th:text="${domainLabel}">Dominio</span>
+        <h1 class="mb-3" th:text="${product.name()}">Nombre</h1>
+        <p class="hero-lead mb-4" th:text="${content.tagline()}">Tagline</p>
+        <p th:text="${content.intro()}">Intro</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg">📞 Llamar</a>
+            <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+               class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20sobre%20un%20producto"
+               class="btn btn-outline-navy btn-lg">✉️ Email</a>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">El problema que resuelve</h2>
+        <p th:text="${content.problem()}">Problema</p>
+    </section>
+
+    <!-- Inputs / Outputs -->
+    <section class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card-custom h-100 mb-0">
+                <h2 class="h4 mb-3">Qué necesita</h2>
+                <ul class="mb-0">
+                    <li th:each="i : ${content.inputs()}" th:text="${i}">Input</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-custom h-100 mb-0">
+                <h2 class="h4 mb-3">Qué entrega</h2>
+                <ul class="mb-0">
+                    <li th:each="o : ${content.outputs()}" th:text="${o}">Output</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Beneficios para el activo</h2>
+        <ul class="mb-0">
+            <li th:each="b : ${content.benefits()}" th:text="${b}">Beneficio</li>
+        </ul>
+    </section>
+
+    <!-- Evidencia -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Evidencia y demo</h2>
+        <div class="highlight-box mb-3" th:each="e : ${content.evidence()}" th:text="${e}">Evidencia</div>
+        <div class="alert alert-light border small mb-0">
+            <strong>Aviso:</strong> las demos públicas usan datos sintéticos. Los resultados mostrados son ilustrativos, no reproducibles y no corresponden a un activo real. La demo completa se entrega bajo NDA.
+        </div>
+        <div class="mt-3">
+            <a th:href="@{/contacto}" class="btn btn-primary">Solicitar demo bajo NDA</a>
+        </div>
+    </section>
+
+    <!-- Tech breve -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Capacidad tecnológica</h2>
+        <ul class="mb-3">
+            <li th:each="t : ${content.tech()}" th:text="${t}">Tecnología</li>
+        </ul>
+        <a th:href="@{/tecnologia}" class="fw-bold small">Ver Tecnología →</a>
+        <span th:if="${product.patent()}" class="badge-tech ms-2" th:text="${product.patent()}">Patente</span>
+    </section>
+
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>¿Hablamos de tu activo?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Llamar ahora</a>
+            <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20sobre%20un%20producto"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

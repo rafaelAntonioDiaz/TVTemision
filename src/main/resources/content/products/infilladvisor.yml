@@ -1,0 +1,48 @@
+name: InfillAdvisor
+domain: yacimientos
+domainEn: reservoir
+domainLabelEs: "Yacimientos / Reservas"
+domainLabelEn: "Reservoir / Reserves"
+slugEs: infilladvisor
+slugEn: infilladvisor
+patent: null
+es:
+  tagline: "Prioriza pozos de relleno con un modelo actualizado."
+  intro: "Combina historia de producción, modelo estático y datos de pozo para rankear ubicaciones candidatas de infill con valor esperado."
+  problem: "Las decisiones de infill suelen apoyarse en modelos estáticos desactualizados. El resultado: candidatos mal priorizados, pozos secos evitables y CAPEX comprometido sin justificación."
+  inputs:
+    - "Historia de producción por pozo"
+    - "Modelo estático actualizado"
+    - "Datos de pozo y completamiento"
+  outputs:
+    - "Ranking de ubicaciones candidatas"
+    - "Valor esperado por candidato"
+  benefits:
+    - "Mejor targeting de pozos de relleno"
+    - "Menos pozos secos evitables"
+    - "Decisiones justificables ante comité"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Modelos con restricciones físicas"
+    - "Explicabilidad por variable"
+en:
+  tagline: "Prioritize infill wells with an updated model."
+  intro: "Combines production history, static model and well data to rank candidate infill locations by expected value."
+  problem: "Infill decisions are often supported by outdated static models. Result: poorly prioritized candidates, avoidable dry wells and unjustified CAPEX."
+  inputs:
+    - "Production history per well"
+    - "Updated static model"
+    - "Well and completion data"
+  outputs:
+    - "Ranking of candidate locations"
+    - "Expected value per candidate"
+  benefits:
+    - "Better infill targeting"
+    - "Fewer avoidable dry wells"
+    - "Decisions defensible before committees"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Physics-constrained models"
+    - "Per-variable explainability"

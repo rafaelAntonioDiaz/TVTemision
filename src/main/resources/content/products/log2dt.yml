@@ -1,0 +1,44 @@
+name: Log2DT
+domain: geologia-geofisica
+domainEn: geology-geophysics
+domainLabelEs: "Geología / Geofísica"
+domainLabelEn: "Geology / Geophysics"
+slugEs: log2dt
+slugEn: log2dt
+patent: null
+es:
+  tagline: "Genera curvas de tiempo de tránsito (DT) en pozos sin sónico."
+  intro: "Deriva curvas de DT compresional y de corte a partir de registros convencionales, para calibración de porosidad, amarre sísmico y correlación entre pozos."
+  problem: "La ausencia de DT limita la calibración de porosidad, la correlación entre pozos y el amarre con la sísmica en sectores clave."
+  inputs:
+    - "Registros convencionales de pozo"
+    - "Curvas de DT existentes para calibración"
+  outputs:
+    - "Curvas DT compresional y de corte"
+    - "Insumos para calibración de porosidad"
+  benefits:
+    - "Mejora la correlación y el amarre sísmico"
+    - "Evita re-registrar pozos solo por DT"
+    - "Resultados auditables"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Modelos con restricciones físicas"
+en:
+  tagline: "Generates DT curves in wells without sonic."
+  intro: "Derives compressional and shear DT curves from conventional logs for porosity calibration, seismic ties and well correlation."
+  problem: "Missing DT limits porosity calibration, well correlation and seismic ties in key sectors."
+  inputs:
+    - "Conventional well logs"
+    - "Existing DT curves for calibration"
+  outputs:
+    - "Compressional and shear DT curves"
+    - "Inputs for porosity calibration"
+  benefits:
+    - "Improves correlation and seismic tie"
+    - "Avoids re-logging wells only for DT"
+    - "Auditable results"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Physics-constrained models"
