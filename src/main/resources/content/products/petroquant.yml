@@ -1,0 +1,42 @@
+name: PetroQuant
+domain: yacimientos
+domainEn: reservoir
+domainLabelEs: "Yacimientos / Reservas"
+domainLabelEn: "Reservoir / Reserves"
+slugEs: petroquant
+slugEn: petroquant
+patent: null
+es:
+  tagline: "Cuantificación de incertidumbre en propiedades petrofísicas."
+  intro: "Acompaña cada estimación petrofísica con intervalos de confianza para decisiones de riesgo."
+  problem: "Las estimaciones puntuales no dicen cuánto se puede confiar en el valor. Sin banda de incertidumbre, la decisión pierde robustez."
+  inputs:
+    - "Estimaciones petrofísicas"
+    - "Datos de calibración"
+  outputs:
+    - "Distribuciones de propiedad con intervalos de confianza"
+  benefits:
+    - "Decisiones con riesgo medido"
+    - "Auditabilidad de supuestos"
+    - "Comparabilidad entre escenarios"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Explicabilidad por variable"
+en:
+  tagline: "Uncertainty quantification in petrophysical properties."
+  intro: "Accompanies every petrophysical estimate with confidence intervals for risk decisions."
+  problem: "Point estimates do not tell how much to trust the value. Without an uncertainty band, decisions lose robustness."
+  inputs:
+    - "Petrophysical estimates"
+    - "Calibration data"
+  outputs:
+    - "Property distributions with confidence intervals"
+  benefits:
+    - "Risk-measured decisions"
+    - "Auditable assumptions"
+    - "Scenario comparability"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Per-variable explainability"

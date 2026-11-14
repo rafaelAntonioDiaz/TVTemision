@@ -1,0 +1,48 @@
+name: DrillingSuper
+domain: perforacion
+domainEn: drilling
+domainLabelEs: "Perforación"
+domainLabelEn: "Drilling"
+slugEs: drillingsuper
+slugEn: drillingsuper
+patent: "Patentes estadounidenses otorgadas"
+es:
+  tagline: "ROP híbrido y detección de eventos en tiempo real."
+  intro: "Modelos híbridos física + ML para optimización de ROP y detección automatizada de eventos (atascamientos, eventos de flujo, clasificación de ripios)."
+  problem: "Los datos de perforación son escasos, ruidosos y no estacionarios. Un modelo puramente correlacional aprende el campo, no el fenómeno. El resultado: recomendaciones que no generalizan."
+  inputs:
+    - "Datos de perforación en tiempo real (WOB, RPM, torque, flujo)"
+    - "Información geológica de la formación"
+  outputs:
+    - "Recomendaciones de ROP"
+    - "Alertas de eventos (stuck pipe, flujo de lodo)"
+    - "Priorización de NPT"
+  benefits:
+    - "Menos tiempo no productivo"
+    - "Pozos más rápidos y seguros"
+    - "Decisiones ancladas a la física del pozo"
+  evidence:
+    - "Demo sintética disponible bajo solicitud. Patentes estadounidenses otorgadas respaldan la metodología."
+  tech:
+    - "Modelos con restricciones físicas"
+    - "Escalabilidad computacional"
+en:
+  tagline: "Hybrid ROP and real-time event detection."
+  intro: "Hybrid physics + ML models for ROP optimization and automated event detection (stuck pipe, flow events, cuttings classification)."
+  problem: "Drilling data is sparse, noisy and non-stationary. A purely correlational model learns the field, not the phenomenon. Result: recommendations that do not generalize."
+  inputs:
+    - "Real-time drilling data (WOB, RPM, torque, flow)"
+    - "Formation geological information"
+  outputs:
+    - "ROP recommendations"
+    - "Event alerts (stuck pipe, mud flow)"
+    - "NPT prioritization"
+  benefits:
+    - "Less non-productive time"
+    - "Faster, safer wells"
+    - "Decisions anchored in well physics"
+  evidence:
+    - "Synthetic demo available on request. Granted US patents back the methodology."
+  tech:
+    - "Physics-constrained models"
+    - "Computational scalability"

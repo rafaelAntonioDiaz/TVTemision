@@ -1,0 +1,50 @@
+name: LitixCore
+domain: geologia-geofisica
+domainEn: geology-geophysics
+domainLabelEs: "Geología / Geofísica"
+domainLabelEn: "Geology / Geophysics"
+slugEs: litixcore
+slugEn: litixcore
+patent: null
+es:
+  tagline: "Caracterización de HFU a partir de la diagénesis real del activo."
+  intro: "Reinterpreta láminas delgadas, núcleos y registros históricos para actualizar el modelo estático sin perforar pozos nuevos."
+  problem: "La caracterización convencional depende de nueva perforación y laboratorio, procesos de alto costo y disponibilidad limitada. Mientras tanto, décadas de información permanecen sin integrarse en una interpretación operativa."
+  inputs:
+    - "Descripciones de lámina delgada con conteos mineralógicos"
+    - "Resultados de laboratorio sobre núcleos (porosidad, permeabilidad, presión capilar)"
+    - "Registros de pozo convencionales (GR, RHOB, NPHI, resistividad)"
+  outputs:
+    - "Distribución de unidades de flujo hidráulico (HFU) por pozo"
+    - "Curvas petrofísicas derivadas con consistencia física"
+    - "Insumos para actualizar el modelo estático"
+  benefits:
+    - "Reducción de incertidumbre en la distribución de propiedades"
+    - "Actualización del modelo sin adquirir datos nuevos"
+    - "Resultados auditables variable por variable"
+  evidence:
+    - "Demo sintética disponible bajo solicitud. Resultados ilustrativos con datos no reales."
+  tech:
+    - "Modelos con restricciones físicas"
+    - "Explicabilidad total por variable"
+en:
+  tagline: "HFU characterization from real diagenesis."
+  intro: "Reinterprets thin sections, cores and historical logs to update the static model without drilling new wells."
+  problem: "Conventional characterization depends on new drilling and laboratory work — high-cost and limited-availability processes. Meanwhile, decades of information remain unintegrated into an operational interpretation."
+  inputs:
+    - "Thin section descriptions with mineralogical counts"
+    - "Core lab results (porosity, permeability, capillary pressure)"
+    - "Conventional well logs (GR, RHOB, NPHI, resistivity)"
+  outputs:
+    - "Hydraulic flow unit (HFU) distribution per well"
+    - "Derived petrophysical curves with physical consistency"
+    - "Inputs to update the static model"
+  benefits:
+    - "Reduced uncertainty in property distribution"
+    - "Model update without acquiring new data"
+    - "Variable-by-variable auditable results"
+  evidence:
+    - "Synthetic demo available on request. Illustrative results with non-real data."
+  tech:
+    - "Physics-constrained models"
+    - "Full per-variable explainability"
