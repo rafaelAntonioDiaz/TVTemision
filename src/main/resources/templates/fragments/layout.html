@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title, headExtra, content, lang)"
+      th:lang="${lang}">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:replace="${title}">Geo Petro Litix AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <th:block th:replace="${headExtra}"></th:block>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header(lang=${lang})}"></div>
+<main th:replace="${content}"></main>
+<div th:replace="~{fragments/footer :: footer(lang=${lang})}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

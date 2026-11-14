@@ -1,0 +1,46 @@
+name: FacieStudio
+domain: geologia-geofisica
+domainEn: geology-geophysics
+domainLabelEs: "Geología / Geofísica"
+domainLabelEn: "Geology / Geophysics"
+slugEs: faciestudio
+slugEn: faciestudio
+patent: null
+es:
+  tagline: "Clasificación de facies asistida por IA con validación física."
+  intro: "Integra registros, núcleos y descripciones de lámina delgada para producir electrofacies consistentes y auditables."
+  problem: "La interpretación de facies es manual, lenta e inconsistente entre intérpretes; la IA convencional entrega clasificaciones que no siempre respetan la geología."
+  inputs:
+    - "Registros convencionales"
+    - "Descripciones de núcleos y láminas"
+  outputs:
+    - "Electrofacies por pozo"
+    - "Modelo de facies calibrado"
+  benefits:
+    - "Consistencia entre pozos"
+    - "Aceleración del flujo de interpretación"
+    - "Clasificaciones auditables"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Modelos con restricciones físicas"
+    - "Explicabilidad por variable"
+en:
+  tagline: "AI-assisted facies classification with physical validation."
+  intro: "Integrates logs, cores and thin section descriptions to produce consistent, auditable electrofacies."
+  problem: "Facies interpretation is manual, slow and inconsistent across interpreters; conventional AI produces classifications that do not always respect geology."
+  inputs:
+    - "Conventional logs"
+    - "Core and thin section descriptions"
+  outputs:
+    - "Electrofacies per well"
+    - "Calibrated facies model"
+  benefits:
+    - "Consistency across wells"
+    - "Faster interpretation workflow"
+    - "Auditable classifications"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Physics-constrained models"
+    - "Per-variable explainability"

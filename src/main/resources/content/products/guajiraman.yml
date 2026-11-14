@@ -1,0 +1,44 @@
+name: GuajiraMan
+domain: produccion
+domainEn: production
+domainLabelEs: "Producción"
+domainLabelEn: "Production"
+slugEs: guajiraman
+slugEn: guajiraman
+patent: null
+es:
+  tagline: "Monitoreo y optimización de producción con datos de campo."
+  intro: "Consolida datos de pozo, superficie y equipos de bombeo para detectar anomalías y recomendar acciones de optimización."
+  problem: "El monitoreo de producción suele ser reactivo. Los eventos de caída de producción se detectan cuando ya impactaron el acumulado."
+  inputs:
+    - "Datos de cabezal de pozo (presión, caudal)"
+    - "Datos de equipos de bombeo"
+  outputs:
+    - "Recomendaciones de optimización"
+    - "Alertas de anomalía"
+  benefits:
+    - "Menor producción diferida"
+    - "Vida útil extendida de pozos"
+    - "Decisiones con trazabilidad"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Explicabilidad por variable"
+en:
+  tagline: "Production monitoring and optimization with field data."
+  intro: "Consolidates well, surface and pumping equipment data to detect anomalies and recommend optimization actions."
+  problem: "Production monitoring is often reactive. Production drops are detected after they have already impacted cumulative volumes."
+  inputs:
+    - "Wellhead data (pressure, flow rate)"
+    - "Pumping equipment data"
+  outputs:
+    - "Optimization recommendations"
+    - "Anomaly alerts"
+  benefits:
+    - "Less deferred production"
+    - "Extended well life"
+    - "Traceable decisions"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Per-variable explainability"

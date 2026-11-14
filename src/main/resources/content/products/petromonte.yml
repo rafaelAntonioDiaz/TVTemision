@@ -1,0 +1,44 @@
+name: PetroMonte
+domain: yacimientos
+domainEn: reservoir
+domainLabelEs: "Yacimientos / Reservas"
+domainLabelEn: "Reservoir / Reserves"
+slugEs: petromonte
+slugEn: petromonte
+patent: null
+es:
+  tagline: "Estimación probabilística de reservas con simulación Monte Carlo."
+  intro: "Genera distribuciones de reservas con P10/P50/P90 a partir de parámetros petrofísicos y volumétricos, con supuestos explícitos y auditables."
+  problem: "Las estimaciones determinísticas no reflejan la incertidumbre real del subsuelo. Reguladores y socios exigen rangos y supuestos explícitos."
+  inputs:
+    - "Parámetros petrofísicos con distribuciones"
+    - "Parámetros volumétricos y de recuperación"
+  outputs:
+    - "Distribución probabilística de reservas"
+    - "P10 / P50 / P90"
+  benefits:
+    - "Estimaciones defendibles ante reguladores"
+    - "Supuestos explícitos y auditables"
+    - "Decisiones informadas por riesgo"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Escalabilidad computacional"
+en:
+  tagline: "Probabilistic reserves estimation with Monte Carlo simulation."
+  intro: "Generates reserves distributions with P10/P50/P90 from petrophysical and volumetric parameters, with explicit auditable assumptions."
+  problem: "Deterministic estimates do not reflect real subsurface uncertainty. Regulators and partners require ranges and explicit assumptions."
+  inputs:
+    - "Petrophysical parameters with distributions"
+    - "Volumetric and recovery parameters"
+  outputs:
+    - "Probabilistic reserves distribution"
+    - "P10 / P50 / P90"
+  benefits:
+    - "Estimates defensible before regulators"
+    - "Explicit auditable assumptions"
+    - "Risk-informed decisions"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Computational scalability"

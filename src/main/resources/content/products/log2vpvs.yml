@@ -1,0 +1,46 @@
+name: Log2VpVs
+domain: geologia-geofisica
+domainEn: geology-geophysics
+domainLabelEs: "Geología / Geofísica"
+domainLabelEn: "Geology / Geophysics"
+slugEs: log2vpvs
+slugEn: log2vpvs
+patent: null
+es:
+  tagline: "Predice Vp/Vs donde no hay registro sónico."
+  intro: "Genera curvas sintéticas de Vp y Vs a partir de registros convencionales, habilitando inversión sísmica y amarre pozo-sísmica en pozos sin sónico."
+  problem: "El registro sónico no se adquiere en todos los pozos por costo. Sin Vp/Vs, la inversión sísmica y la caracterización elástica pierden calidad en zonas clave del activo."
+  inputs:
+    - "Registros convencionales (GR, RHOB, NPHI, resistividad)"
+    - "Curvas sónicas existentes para calibración"
+  outputs:
+    - "Curvas sintéticas de Vp y Vs por pozo"
+    - "Relaciones Vp/Vs consistentes con la litología"
+  benefits:
+    - "Habilita inversión sísmica en pozos sin sónico"
+    - "Reduce necesidad de adquirir registros nuevos"
+    - "Curvas físicamente consistentes y auditables"
+  evidence:
+    - "Demo sintética disponible bajo solicitud."
+  tech:
+    - "Modelos con restricciones físicas"
+    - "Explicabilidad por variable"
+en:
+  tagline: "Predict Vp/Vs where no sonic log exists."
+  intro: "Generates synthetic Vp and Vs curves from conventional logs, enabling seismic inversion and well-to-seismic ties in wells without sonic."
+  problem: "Sonic logs are not acquired in every well due to cost. Without Vp/Vs, seismic inversion and elastic characterization lose quality in key asset zones."
+  inputs:
+    - "Conventional logs (GR, RHOB, NPHI, resistivity)"
+    - "Existing sonic curves for calibration"
+  outputs:
+    - "Synthetic Vp and Vs curves per well"
+    - "Vp/Vs relationships consistent with lithology"
+  benefits:
+    - "Enables seismic inversion in wells without sonic"
+    - "Reduces need to acquire new logs"
+    - "Physically consistent, auditable curves"
+  evidence:
+    - "Synthetic demo available on request."
+  tech:
+    - "Physics-constrained models"
+    - "Per-variable explainability"
