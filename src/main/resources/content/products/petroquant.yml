@@ -1,42 +1,81 @@
-name: PetroQuant
-domain: yacimientos
-domainEn: reservoir
+# ---------------------------------------------------------------------------
+# Ficha de producto: PetroQuant
+# Fuente: paper "Machine learning prediction of porosity and permeability
+#         from petrographic point-counting data" (Geo Petro Litix AI, 2026).
+# Enfoque: híbrido -> predicción φ-k desde petrografía como base, con la
+#          cuantificación de incertidumbre como capacidad de la oferta
+#          (el paper la señala como requisito para despliegue en campo).
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: PetroQuant                 # Nombre comercial del producto
+domain: yacimientos              # Clave de dominio (ES)
+domainEn: reservoir              # Clave de dominio (EN)
 domainLabelEs: "Yacimientos / Reservas"
 domainLabelEn: "Reservoir / Reserves"
-slugEs: petroquant
-slugEn: petroquant
-patent: null
+slugEs: petroquant               # Slug de URL en español
+slugEn: petroquant               # Slug de URL en inglés
+patent: null                     # Sin patente registrada
+
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Cuantificación de incertidumbre en propiedades petrofísicas."
-  intro: "Acompaña cada estimación petrofísica con intervalos de confianza para decisiones de riesgo."
-  problem: "Las estimaciones puntuales no dicen cuánto se puede confiar en el valor. Sin banda de incertidumbre, la decisión pierde robustez."
+  tagline: "Porosidad y permeabilidad desde petrografía, con validación honesta e incertidumbre."
+  intro: "Predice porosidad y permeabilidad a partir de conteo de puntos en lámina delgada y acompaña cada estimación con validación por pozo y formación e intervalos de incertidumbre para decisiones de riesgo."
+  problem: "Las mediciones de núcleo son costosas y escasas, mientras los archivos de láminas delgadas siguen sin explotarse. Y una estimación puntual, o un R² obtenido con muestras aleatorias, no dice cuánto se puede confiar en el valor en un pozo o yacimiento nuevo: sin validación por pozo y banda de incertidumbre, la decisión pierde robustez."
   inputs:
-    - "Estimaciones petrofísicas"
-    - "Datos de calibración"
+    - "Conteo de puntos petrográfico (granos, cementos, arcillas, tipos de poro)"
+    - "Mediciones de núcleo de porosidad y permeabilidad para calibración"
+    - "Formación y pozo de cada muestra"
   outputs:
+    - "Predicción de porosidad y permeabilidad (log10 mD)"
     - "Distribuciones de propiedad con intervalos de confianza"
+    - "Métricas por pozo y por formación (interpolación vs. transferencia)"
+    - "Variables dominantes por muestra (atribución TreeSHAP)"
   benefits:
     - "Decisiones con riesgo medido"
     - "Auditabilidad de supuestos"
     - "Comparabilidad entre escenarios"
+    - "Priorización de mediciones de núcleo donde el modelo es menos confiable"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Reanálisis de dos datasets públicos (1,007 muestras de porosidad, 908 de permeabilidad, 57 pozos): R² de porosidad 0.884 / 0.827 con muestras aleatorias, y −1.890 / 0.639 al retener pozos completos."
+    - "Referencias: Sadrikhanloo et al. (2026) y Busch & Hilgers (2026)."
   tech:
-    - "Explicabilidad por variable"
+    - "Auditoría de fuga de datos (proxy invertible de porosidad excluido)"
+    - "Validación con pozos y formaciones retenidos"
+    - "XGBoost, LightGBM, Random Forest, Ridge y stacking"
+    - "Optimización bayesiana anidada (Optuna)"
+    - "Explicabilidad por variable (TreeSHAP)"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "Uncertainty quantification in petrophysical properties."
-  intro: "Accompanies every petrophysical estimate with confidence intervals for risk decisions."
-  problem: "Point estimates do not tell how much to trust the value. Without an uncertainty band, decisions lose robustness."
+  tagline: "Porosity and permeability from petrography, with honest validation and uncertainty."
+  intro: "Predicts porosity and permeability from thin-section point counts and accompanies every estimate with well- and formation-level validation and uncertainty intervals for risk decisions."
+  problem: "Core measurements are costly and sparse, while thin-section archives remain unexploited. And a point estimate, or an R² from random samples, does not say how much to trust the value in a new well or reservoir: without well-level validation and an uncertainty band, decisions lose robustness."
   inputs:
-    - "Petrophysical estimates"
-    - "Calibration data"
+    - "Petrographic point-counting data (grains, cements, clays, pore types)"
+    - "Core porosity and permeability measurements for calibration"
+    - "Formation and well of each sample"
   outputs:
+    - "Porosity and permeability prediction (log10 mD)"
     - "Property distributions with confidence intervals"
+    - "Per-well and per-formation metrics (interpolation vs. transfer)"
+    - "Dominant variables per sample (TreeSHAP attribution)"
   benefits:
     - "Risk-measured decisions"
     - "Auditable assumptions"
     - "Scenario comparability"
+    - "Core measurements prioritized where the model is least reliable"
   evidence:
     - "Synthetic demo available on request."
+    - "Reanalysis of two public datasets (1,007 porosity samples, 908 permeability samples, 57 wells): porosity R² of 0.884 / 0.827 with random samples, and −1.890 / 0.639 when whole wells are held out."
+    - "References: Sadrikhanloo et al. (2026) and Busch & Hilgers (2026)."
   tech:
-    - "Per-variable explainability"
+    - "Data-leakage audit (invertible porosity proxy excluded)"
+    - "Validation with held-out wells and formations"
+    - "XGBoost, LightGBM, Random Forest, Ridge and stacking"
+    - "Nested Bayesian optimization (Optuna)"
+    - "Per-variable explainability (TreeSHAP)"

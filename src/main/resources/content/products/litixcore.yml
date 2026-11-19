@@ -1,50 +1,89 @@
-name: LitixCore
-domain: geologia-geofisica
-domainEn: geology-geophysics
+# ---------------------------------------------------------------------------
+# Ficha de producto: LitixCore
+# Fuente: "Petrophysical ML Studies" (Geo Petro Litix AI): tres estudios de
+#         ML petrofísico (permeabilidad, litología y facies/unidades de
+#         flujo por NMR).
+# Enfoque: reorientado al contenido del adjunto. Los resultados provienen de
+#          datos SINTÉTICOS anclados en física real (minerales, registros
+#          y NMR); así deben presentarse.
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: LitixCore                  # Nombre comercial del producto
+domain: geologia-geofisica       # Clave de dominio (ES)
+domainEn: geology-geophysics     # Clave de dominio (EN)
 domainLabelEs: "Geología / Geofísica"
 domainLabelEn: "Geology / Geophysics"
-slugEs: litixcore
-slugEn: litixcore
-patent: null
+slugEs: litixcore                # Slug de URL en español
+slugEn: litixcore                # Slug de URL en inglés
+patent: null                     # Sin patente registrada
+imageFolder: litixcore
+heroImage: fig02.webp
+gallery:
+  - fig02.webp
+  - fig04.webp
+  - fig05.webp
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Caracterización de HFU a partir de la diagénesis real del activo."
-  intro: "Reinterpreta láminas delgadas, núcleos y registros históricos para actualizar el modelo estático sin perforar pozos nuevos."
-  problem: "La caracterización convencional depende de nueva perforación y laboratorio, procesos de alto costo y disponibilidad limitada. Mientras tanto, décadas de información permanecen sin integrarse en una interpretación operativa."
+  tagline: "Permeabilidad, litología y unidades de flujo desde registros y NMR, con razonamiento verificable."
+  intro: "Aplica ML anclado en petrofísica sobre registros convencionales, NMR e índices de imagen para estimar permeabilidad, clasificar litología y definir unidades de flujo, y revisa el razonamiento de cada modelo contra la teoría petrofísica antes de usarlo."
+  problem: "Las transformaciones porosidad–permeabilidad y los crossplots de una variable asumen relaciones simples que los yacimientos reales no cumplen: en carbonatos, la misma porosidad puede dar permeabilidades que difieren en órdenes de magnitud por diagénesis, vúgulos y fracturas. La litología y las facies de flujo dependen de interacciones no lineales entre minerales, fluidos y geometría de poro."
   inputs:
-    - "Descripciones de lámina delgada con conteos mineralógicos"
-    - "Resultados de laboratorio sobre núcleos (porosidad, permeabilidad, presión capilar)"
-    - "Registros de pozo convencionales (GR, RHOB, NPHI, resistividad)"
+    - "Registros convencionales (GR, RHOB, NPHI, DT, PEF, resistividad)"
+    - "Particiones de tamaño de poro NMR (T2), índice de fluido libre y Swirr"
+    - "Índices de imagen de pozo (vúgulos y fracturas) y volúmenes minerales"
+    - "Tipo de roca y datos de núcleo para calibración"
   outputs:
-    - "Distribución de unidades de flujo hidráulico (HFU) por pozo"
-    - "Curvas petrofísicas derivadas con consistencia física"
-    - "Insumos para actualizar el modelo estático"
+    - "Permeabilidad (log10 k) y clasificación de calidad de yacimiento (k > 1 mD)"
+    - "Litología (arenisca, lutita, caliza, dolomía)"
+    - "Facies y unidades de flujo por NMR, incluidas barreras delgadas"
+    - "Explicación SHAP de cada predicción para su verificación"
   benefits:
-    - "Reducción de incertidumbre en la distribución de propiedades"
-    - "Actualización del modelo sin adquirir datos nuevos"
+    - "Mejor tipificación de roca, definición de unidades de flujo y estimaciones de permeabilidad para el modelo de yacimiento"
+    - "Estimaciones confiables en carbonatos heterogéneos, donde fallan las transformaciones simples"
+    - "Clasificación litológica rápida y consistente en cientos de pozos"
     - "Resultados auditables variable por variable"
   evidence:
-    - "Demo sintética disponible bajo solicitud. Resultados ilustrativos con datos no reales."
+    - "Demo sintética disponible bajo solicitud. Resultados ilustrativos con datos sintéticos anclados en física real, no datos reales."
+    - "Permeabilidad (2,400 muestras, 5 tipos de roca carbonática, 10⁴× de rango dinámico): R² 0.934 con SVR y ROC-AUC 0.98–0.99 para k > 1 mD."
+    - "Litología (3,600 muestras, 4 clases, 7 registros): 96.7 % de exactitud con SVM; los errores se concentran en el límite caliza–dolomía."
+    - "Facies NMR (1,560 muestras, 4 zonas): 98.4 % de exactitud con XGBoost, corroborado por dos marcos AutoML independientes."
   tech:
-    - "Modelos con restricciones físicas"
-    - "Explicabilidad total por variable"
+    - "Atributos anclados en física de minerales y de roca (PEF, NMR, volúmenes minerales)"
+    - "Cinco algoritmos (Random Forest, XGBoost, Gradient Boosting, SVM/SVR y redes neuronales) con optimización bayesiana y validación cruzada de 5 pliegues"
+    - "Verificación del ranking SHAP contra la teoría petrofísica antes de confiar en el modelo"
+    - "Explicabilidad total por variable (SHAP)"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "HFU characterization from real diagenesis."
-  intro: "Reinterprets thin sections, cores and historical logs to update the static model without drilling new wells."
-  problem: "Conventional characterization depends on new drilling and laboratory work — high-cost and limited-availability processes. Meanwhile, decades of information remain unintegrated into an operational interpretation."
+  tagline: "Permeability, lithology and flow units from logs and NMR, with verifiable reasoning."
+  intro: "Applies petrophysics-anchored ML to conventional logs, NMR and image-log indices to estimate permeability, classify lithology and define flow units, and checks each model's reasoning against petrophysical theory before it is used."
+  problem: "Porosity–permeability transforms and single-variable crossplots assume simple relationships that real reservoirs do not follow: in carbonates, the same porosity can give permeabilities that differ by orders of magnitude because of diagenesis, vugs and fractures. Lithology and flow facies depend on non-linear interactions between minerals, fluids and pore geometry."
   inputs:
-    - "Thin section descriptions with mineralogical counts"
-    - "Core lab results (porosity, permeability, capillary pressure)"
-    - "Conventional well logs (GR, RHOB, NPHI, resistivity)"
+    - "Conventional logs (GR, RHOB, NPHI, DT, PEF, resistivity)"
+    - "NMR T2 pore-size partitions, free-fluid index and Swirr"
+    - "Image-log indices (vugs and fractures) and mineral volumes"
+    - "Rock type and core data for calibration"
   outputs:
-    - "Hydraulic flow unit (HFU) distribution per well"
-    - "Derived petrophysical curves with physical consistency"
-    - "Inputs to update the static model"
+    - "Permeability (log10 k) and reservoir-quality classification (k > 1 mD)"
+    - "Lithology (sandstone, shale, limestone, dolomite)"
+    - "NMR facies and flow units, including thin baffles"
+    - "SHAP explanation of every prediction for verification"
   benefits:
-    - "Reduced uncertainty in property distribution"
-    - "Model update without acquiring new data"
+    - "Better rock typing, flow-unit definition and permeability estimates for the reservoir model"
+    - "Reliable estimates in heterogeneous carbonates, where simple transforms break down"
+    - "Fast, consistent lithology calls across hundreds of wells"
     - "Variable-by-variable auditable results"
   evidence:
-    - "Synthetic demo available on request. Illustrative results with non-real data."
+    - "Synthetic demo available on request. Illustrative results with synthetic data anchored in real physics, not real data."
+    - "Permeability (2,400 samples, 5 carbonate rock types, 10⁴× dynamic range): R² 0.934 with SVR and ROC-AUC 0.98–0.99 for k > 1 mD."
+    - "Lithology (3,600 samples, 4 classes, 7 logs): 96.7% accuracy with SVM; errors concentrate at the limestone–dolomite boundary."
+    - "NMR facies (1,560 samples, 4 zones): 98.4% accuracy with XGBoost, corroborated by two independent AutoML frameworks."
   tech:
-    - "Physics-constrained models"
-    - "Full per-variable explainability"
+    - "Features anchored in mineral and rock physics (PEF, NMR, mineral volumes)"
+    - "Five algorithms (Random Forest, XGBoost, Gradient Boosting, SVM/SVR and neural networks) with Bayesian optimization and 5-fold cross-validation"
+    - "SHAP ranking checked against petrophysical theory before the model is trusted"
+    - "Full per-variable explainability (SHAP)"

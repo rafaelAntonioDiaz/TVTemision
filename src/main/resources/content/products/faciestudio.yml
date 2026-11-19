@@ -1,46 +1,85 @@
-name: FacieStudio
-domain: geologia-geofisica
-domainEn: geology-geophysics
+# ---------------------------------------------------------------------------
+# Ficha de producto: FacieStudio
+# Fuente: página de la aplicación "Electrofacies Studio" (Geo Petro Litix AI):
+#         predicción de facies físico-informada, validada en pozos ciegos.
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: FacieStudio                # Nombre comercial del producto
+domain: geologia-geofisica       # Clave de dominio (ES)
+domainEn: geology-geophysics     # Clave de dominio (EN)
 domainLabelEs: "Geología / Geofísica"
 domainLabelEn: "Geology / Geophysics"
-slugEs: faciestudio
-slugEn: faciestudio
-patent: null
+slugEs: faciestudio              # Slug de URL en español
+slugEn: faciestudio              # Slug de URL en inglés
+patent: null                     # Sin patente registrada
+imageFolder: faciestudio
+heroImage: fig08.webp
+gallery:
+  - fig04.webp
+  - fig09.webp
+  - fig07.webp
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Clasificación de facies asistida por IA con validación física."
-  intro: "Integra registros, núcleos y descripciones de lámina delgada para producir electrofacies consistentes y auditables."
-  problem: "La interpretación de facies es manual, lenta e inconsistente entre intérpretes; la IA convencional entrega clasificaciones que no siempre respetan la geología."
+  tagline: "Facies desde registros de pozo que respetan la geología."
+  intro: "Lleva las facies descritas en núcleo a pozos sin núcleo con aprendizaje automático anclado en petrofísica y estratigrafía, y las valida en pozos que el modelo nunca vio."
+  problem: "El núcleo describe facies en pocos pozos, mientras los registros existen en casi todos. La interpretación manual es lenta e inconsistente entre intérpretes, y la IA convencional puede ser precisa en validación aleatoria pero colocar facies imposibles, o parpadear entre facies cada media pie, en un pozo nuevo."
   inputs:
-    - "Registros convencionales"
-    - "Descripciones de núcleos y láminas"
+    - "Registros convencionales (GR, resistividad, neutrón-densidad, PE)"
+    - "Facies descritas en núcleo y láminas delgadas de pozos calibrados"
+    - "Restricción geológica opcional (indicador marino/no marino, formación o zona)"
+    - "Datos en CSV, Excel o LAS"
   outputs:
-    - "Electrofacies por pozo"
-    - "Modelo de facies calibrado"
+    - "Electrofacies por pozo y profundidad"
+    - "Modelo de facies calibrado y validado en pozos ciegos"
+    - "Métricas de consistencia geológica (violaciones de reglas, realismo de espesores de capa)"
+    - "Explicaciones SHAP por facies y por muestra"
   benefits:
     - "Consistencia entre pozos"
     - "Aceleración del flujo de interpretación"
     - "Clasificaciones auditables"
+    - "Cero violaciones de reglas geológicas y espesores de capa realistas para el modelo de propiedades"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Benchmark real de facies de núcleo (2 pozos ciegos, 9 facies): F1 ponderado 0.48 vs. 0.41 de ML puro, precisión de facies adyacentes 86% vs. 79%, 0% de violaciones de reglas vs. 2.0%."
+    - "Validación leave-one-well-out en 9 pozos: F1 similar entre modelos (0.44–0.47); la ganancia sostenida es geológica."
   tech:
-    - "Modelos con restricciones físicas"
-    - "Explicabilidad por variable"
+    - "Modelos con restricciones físicas (Vsh, porosidad neutrón-densidad, Archie, índice de carbonato)"
+    - "Prior estratigráfico de Markov decodificado con Viterbi"
+    - "Red neuronal informada por física con términos geológicos en la función de pérdida"
+    - "Random Forest, K-means y mezclas gaussianas"
+    - "Explicabilidad por variable (TreeSHAP)"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "AI-assisted facies classification with physical validation."
-  intro: "Integrates logs, cores and thin section descriptions to produce consistent, auditable electrofacies."
-  problem: "Facies interpretation is manual, slow and inconsistent across interpreters; conventional AI produces classifications that do not always respect geology."
+  tagline: "Facies from well logs that respect the geology."
+  intro: "Carries core-described facies into uncored wells using machine learning anchored in petrophysics and stratigraphy, and validates them on wells the model has never seen."
+  problem: "Core describes facies in a handful of wells, while logs exist in almost every well. Manual interpretation is slow and inconsistent across interpreters, and conventional AI can look accurate in random validation yet place impossible facies, or flicker between facies every half foot, in a new well."
   inputs:
-    - "Conventional logs"
-    - "Core and thin section descriptions"
+    - "Conventional logs (GR, resistivity, neutron-density, PE)"
+    - "Core and thin section facies descriptions from calibration wells"
+    - "Optional geological constraint (marine/non-marine flag, formation or zone)"
+    - "Data in CSV, Excel or LAS"
   outputs:
-    - "Electrofacies per well"
-    - "Calibrated facies model"
+    - "Electrofacies per well and depth"
+    - "Calibrated facies model validated on blind wells"
+    - "Geological-consistency metrics (rule violations, bed-thickness realism)"
+    - "SHAP explanations per facies and per sample"
   benefits:
     - "Consistency across wells"
     - "Faster interpretation workflow"
     - "Auditable classifications"
+    - "Zero geological-rule violations and realistic bed thicknesses for property modelling"
   evidence:
     - "Synthetic demo available on request."
+    - "Real core-facies benchmark (2 blind wells, 9 facies): weighted F1 0.48 vs. 0.41 for pure ML, adjacent-facies accuracy 86% vs. 79%, 0% rule violations vs. 2.0%."
+    - "Leave-one-well-out validation on 9 wells: F1 close across models (0.44–0.47); the lasting gain is geological."
   tech:
-    - "Physics-constrained models"
-    - "Per-variable explainability"
+    - "Physics-constrained models (Vsh, neutron-density porosity, Archie, carbonate index)"
+    - "Stratigraphic Markov prior decoded with Viterbi"
+    - "Physics-informed neural network with geological terms in the loss"
+    - "Random Forest, K-means and Gaussian mixtures"
+    - "Per-variable explainability (TreeSHAP)"

@@ -11,6 +11,9 @@ public record Product(
         String slugEs,
         String slugEn,
         String patent,
+        String imageFolder,      // null si no hay imágenes
+        String heroImage,        // "fig01.webp" o null
+        List<String> gallery,    // lista de filenames, puede ser vac
         Content es,
         Content en
 ) {
@@ -24,4 +27,7 @@ public record Product(
             List<String> evidence,
             List<String> tech
     ) {}
+    public boolean hasHero()   { return heroImage != null && !heroImage.isBlank(); }
+    public boolean hasGallery(){ return gallery != null && !gallery.isEmpty(); }
+    public boolean hasImages() { return imageFolder != null && !imageFolder.isBlank(); }
 }
