@@ -1,44 +1,78 @@
-name: Log2DT
-domain: geologia-geofisica
-domainEn: geology-geophysics
+# ---------------------------------------------------------------------------
+# Ficha de producto: Log2DT
+# Fuente: página "Symbolic Regression" / Log2Eq (Geo Petro Litix AI):
+#         descubre una ecuación explícita de DT a partir de registros
+#         convencionales; caso de estudio con el dataset abierto Volve.
+# Alcance: solo DT COMPRESIONAL (el DT de corte no está respaldado por la
+#          fuente y se retiró de la ficha).
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: Log2DT                     # Nombre comercial del producto
+domain: geologia-geofisica       # Clave de dominio (ES)
+domainEn: geology-geophysics     # Clave de dominio (EN)
 domainLabelEs: "Geología / Geofísica"
 domainLabelEn: "Geology / Geophysics"
-slugEs: log2dt
-slugEn: log2dt
-patent: null
+slugEs: log2dt                   # Slug de URL en español
+slugEn: log2dt                   # Slug de URL en inglés
+patent: null                     # Sin patente (la ecuación es propietaria de Geo Petro Litix AI)
+imageFolder: log2dt
+heroImage: img.webp
+gallery:
+  - img_1.webp
+  - img_2.webp
+  - img_3.webp
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Genera curvas de tiempo de tránsito (DT) en pozos sin sónico."
-  intro: "Deriva curvas de DT compresional y de corte a partir de registros convencionales, para calibración de porosidad, amarre sísmico y correlación entre pozos."
-  problem: "La ausencia de DT limita la calibración de porosidad, la correlación entre pozos y el amarre con la sísmica en sectores clave."
+  tagline: "Genera curvas de tiempo de tránsito (DT) en pozos sin sónico, con una ecuación que se puede leer."
+  intro: "Descubre mediante regresión simbólica una fórmula explícita de DT compresional a partir de NPHI, RHOB, GR, RT y PEF, para calibración de porosidad, amarre sísmico y correlación entre pozos."
+  problem: "El sónico es costoso de adquirir y suele faltar en pozos antiguos, lo que limita la calibración de porosidad, la correlación entre pozos y el amarre con la sísmica en sectores clave. Los modelos de caja negra predicen bien, pero no explican por qué, y las correlaciones clásicas pueden fallar fuera de su rango."
   inputs:
-    - "Registros convencionales de pozo"
+    - "Registros convencionales de pozo (NPHI, RHOB, GR, RT, PEF)"
     - "Curvas de DT existentes para calibración"
   outputs:
-    - "Curvas DT compresional y de corte"
+    - "Ecuación explícita de DT compresional (μs/ft) en forma cerrada"
+    - "Curvas de DT compresional reconstruidas en pozos sin sónico"
     - "Insumos para calibración de porosidad"
   benefits:
     - "Mejora la correlación y el amarre sísmico"
     - "Evita re-registrar pozos solo por DT"
-    - "Resultados auditables"
+    - "Resultados auditables, documentables y reproducibles"
+    - "Una sola fórmula que se ejecuta en una hoja de cálculo o un paquete de análisis de registros"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Caso Volve (Equinor, dataset abierto; 24,403 muestras de profundidad en 4 pozos, 3 de entrenamiento y 1 ciego): R² 0.926 y RMSE 4.00 μs/ft frente a 0.870 y 5.32 de Wyllie, cerca de 25 % menos error."
+    - "Referencia de caja negra (gradient boosting): R² 0.971 y RMSE 2.47 μs/ft, con miles de parámetros frente a 9 de la ecuación."
   tech:
-    - "Modelos con restricciones físicas"
+    - "Regresión simbólica con búsqueda evolutiva de expresiones"
+    - "Penalización de complejidad (frente de Pareto entre precisión y simplicidad)"
+    - "Cada ecuación se valida contra el comportamiento de la física de rocas y se rechaza si lo viola"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "Generates DT curves in wells without sonic."
-  intro: "Derives compressional and shear DT curves from conventional logs for porosity calibration, seismic ties and well correlation."
-  problem: "Missing DT limits porosity calibration, well correlation and seismic ties in key sectors."
+  tagline: "Generates DT curves in wells without sonic, with an equation you can read."
+  intro: "Uses symbolic regression to discover an explicit compressional DT formula from NPHI, RHOB, GR, RT and PEF, for porosity calibration, seismic ties and well correlation."
+  problem: "Sonic logs are expensive to acquire and often missing in older wells, which limits porosity calibration, well correlation and seismic ties in key sectors. Black-box models predict well but cannot explain why, and classical correlations can fail outside their range."
   inputs:
-    - "Conventional well logs"
+    - "Conventional well logs (NPHI, RHOB, GR, RT, PEF)"
     - "Existing DT curves for calibration"
   outputs:
-    - "Compressional and shear DT curves"
+    - "Explicit closed-form compressional DT equation (μs/ft)"
+    - "Compressional DT curves reconstructed in wells without sonic"
     - "Inputs for porosity calibration"
   benefits:
     - "Improves correlation and seismic tie"
     - "Avoids re-logging wells only for DT"
-    - "Auditable results"
+    - "Auditable, documentable and reproducible results"
+    - "A single formula that runs in a spreadsheet or a log-analysis package"
   evidence:
     - "Synthetic demo available on request."
+    - "Volve case (Equinor open dataset; 24,403 depth samples across 4 wells, 3 for training and 1 blind): R² 0.926 and RMSE 4.00 μs/ft versus 0.870 and 5.32 for Wyllie, about 25% less error."
+    - "Black-box reference (gradient boosting): R² 0.971 and RMSE 2.47 μs/ft, with thousands of parameters versus 9 for the equation."
   tech:
-    - "Physics-constrained models"
+    - "Symbolic regression with evolutionary search over expressions"
+    - "Complexity penalty (Pareto front between accuracy and simplicity)"
+    - "Every equation is validated against rock-physics behavior and rejected if it breaks it"

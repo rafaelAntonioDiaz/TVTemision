@@ -1,0 +1,66 @@
+name: WellPhiKStudio
+domain: yacimientos
+domainEn: reservoir
+domainLabelEs: "Yacimientos / Reservas"
+domainLabelEn: "Reservoir / Reserves"
+slugEs: wellphikstudio
+slugEn: wellphikstudio
+patent: null
+es:
+  tagline: "Extrapola las propiedades petrofísicas (porosidad/permeabilidad) a zonas sin datos aplicando diferentes filosofías de modelamiento,
+  desde la física pura (Darcy) hasta modelos solo de datos y sus híbridos (PINN),
+  seleccionando el mejor workflow para cada caso."
+  intro: "Puedes reevaluar tus reservas y asignar propiedades con certidumbre a zonas sin datos, comparando seis filosofías de modelamiento lado a lado."
+  problem: "La determinación de la porosidad y permeabilidad es crítica porque su magnitud está directamente relacionada con las reservas del yacimiento; los modelos puros de datos fallan al extrapolar."
+  inputs:
+    - "Pozos sintéticos físicamente consistentes"
+    - "Datos propios en formato CSV/Excel con mapeo automático de columnas"
+    - "Variables de pozo (porosidad, permeabilidad) para entrenamiento y prueba"
+  outputs:
+    - "Distribuciones de propiedad con intervalos de confianza"
+    - "Comparación de modelos (física pura, ML puro, híbrido residual, PINN)"
+    - "Tasa de violaciones físicas por modelo"
+  benefits:
+    - "Decisiones con riesgo medido"
+    - "Auditabilidad de supuestos"
+    - "Comparabilidad entre escenarios y filosofías de modelamiento"
+    - "Modelos que extrapolan de forma segura y respetan las leyes físicas"
+  evidence:
+    - "Demo sintética disponible bajo solicitud"
+    - "Test de extrapolación: entrenados en pozos con k ≤ 123 md y evaluados en el 20% de mayor permeabilidad; híbrido residual R² = 0.949, física pura R² = 0.908, PINN R² = 0.888, ML puro (Random Forest) R² = −0.12"
+    - "PINN con 0% de violaciones físicas vs 17% del ML puro"
+  tech:
+    - "Explicabilidad por variable (SHAP)"
+    - "Random Forest, gradient boosting y redes neuronales"
+    - "PINN (Physics-Informed Neural Networks)"
+    - "Flujo radial de Darcy, permeabilidad relativa de Corey, declinación de Arps"
+    - "Descubrimiento de ecuaciones e interpretación de pruebas de pozo"
+    - "Aplicación de escritorio en Python, multiplataforma (Windows, macOS, Linux)"
+en:
+  tagline: "Extrapolate petrophysical properties (porosity/permeability) to data-poor areas by comparing six modelling philosophies, from pure physics to pure data and hybrids."
+  intro: "Re-evaluate your reserves and assign properties with confidence to unsampled zones, with six modelling philosophies side by side and evidence of which ones to trust when data run out."
+  problem: "Porosity and permeability directly control reservoir reserves; pure data-driven models fail catastrophically outside the training range."
+  inputs:
+    - "Physically consistent synthetic wells"
+    - "Own data in CSV/Excel format with automatic column mapping"
+    - "Well variables (porosity, permeability) for training and testing"
+  outputs:
+    - "Property distributions with confidence intervals"
+    - "Model comparison (pure physics, pure ML, hybrid residual, PINN)"
+    - "Physics-violation rate per model"
+  benefits:
+    - "Risk-measured decisions"
+    - "Auditable assumptions"
+    - "Scenario comparability across modelling philosophies"
+    - "Models that extrapolate safely and respect physical laws"
+  evidence:
+    - "Synthetic demo available on request"
+    - "Extrapolation test: trained on wells with k ≤ 123 md, tested on the top 20% by permeability; hybrid residual R² = 0.949, pure physics R² = 0.908, PINN R² = 0.888, pure ML (Random Forest) R² = −0.12"
+    - "PINN with 0% physics violations vs 17% for pure ML"
+  tech:
+    - "Per-variable explainability (SHAP)"
+    - "Random Forest, gradient boosting and neural networks"
+    - "PINN (Physics-Informed Neural Networks)"
+    - "Radial Darcy flow, Corey relative permeability, Arps decline"
+    - "Equation discovery and well-test interpretation"
+    - "Desktop Python application, cross-platform (Windows, macOS, Linux)"

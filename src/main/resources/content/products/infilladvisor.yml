@@ -1,48 +1,84 @@
-name: InfillAdvisor
-domain: yacimientos
-domainEn: reservoir
+# ---------------------------------------------------------------------------
+# Ficha de producto: InfillAdvisor
+# Fuente: demo "Infill Drilling Advisor" (Geo Petro Litix AI, 45 pozos,
+#         malla 400x400 @ 30 m).
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: InfillAdvisor            # Nombre comercial del producto
+domain: yacimientos              # Clave de dominio (ES)
+domainEn: reservoir              # Clave de dominio (EN)
 domainLabelEs: "Yacimientos / Reservas"
 domainLabelEn: "Reservoir / Reserves"
-slugEs: infilladvisor
-slugEn: infilladvisor
-patent: null
+slugEs: infilladvisor          # Slug de URL en español (derivado del nombre)
+slugEn: infilladvisor          # Slug de URL en inglés (derivado del nombre)
+patent: null                     # Sin patente registrada
+imageFolder: infilladvisor
+heroImage: hero.webp
+gallery:
+  - radios.webp
+  - 3Dview.webp
+  - gaslift.webp
+  - DCA.webp
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Prioriza pozos de relleno con un modelo actualizado."
-  intro: "Combina historia de producción, modelo estático y datos de pozo para rankear ubicaciones candidatas de infill con valor esperado."
-  problem: "Las decisiones de infill suelen apoyarse en modelos estáticos desactualizados. El resultado: candidatos mal priorizados, pozos secos evitables y CAPEX comprometido sin justificación."
+  tagline: "Prioriza pozos de relleno con física y aprendizaje automático."
+  intro: "Combina historia de producción, petrofísica y datos de pozo sobre una malla de yacimiento para rankear ubicaciones candidatas de infill por petróleo recuperable riesgado."
+  problem: "Las decisiones de infill suelen apoyarse en modelos estáticos desactualizados. El resultado: candidatos mal priorizados, pozos secos evitables, zonas sobreperforadas y CAPEX comprometido sin justificación."
   inputs:
-    - "Historia de producción por pozo"
-    - "Modelo estático actualizado"
-    - "Datos de pozo y completamiento"
+    - "Historia de producción por pozo (OFM)"
+    - "Petrofísica y modelo estático mallado (400×400 × 30 m)"
+    - "Datos de pozo, completamiento y gas lift"
   outputs:
-    - "Ranking de ubicaciones candidatas"
-    - "Valor esperado por candidato"
+    - "Ranking de ubicaciones candidatas con petróleo riesgado, WC y GOR esperados"
+    - "Ranking de pozos por PPI y clasificación en Tiers A/B/C"
+    - "Reservas remanentes por DCA y petróleo bypassed recuperable"
+    - "Detección de pozos sobreperforados (drenaje compartido)"
+    - "Recomendaciones de gas lift y plan de acción escrito"
   benefits:
     - "Mejor targeting de pozos de relleno"
     - "Menos pozos secos evitables"
+    - "Ahorro de gas de levantamiento en pozos sobreinyectados"
     - "Decisiones justificables ante comité"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Demo de 45 pozos: 10 candidatos de infill y 12 pozos Tier A identificados."
   tech:
-    - "Modelos con restricciones físicas"
-    - "Explicabilidad por variable"
+    - "Declinación de Arps, OOIP volumétrico y balance de áreas de drenaje como restricciones físicas"
+    - "Gradientes de gas lift para evaluar capacidad de flujo natural"
+    - "Random Forest con importancia por permutación (explicabilidad por variable)"
+    - "Clustering KMeans + PCA de perfiles de pozo"
+    - "Puntuación de candidatos con riesgo"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "Prioritize infill wells with an updated model."
-  intro: "Combines production history, static model and well data to rank candidate infill locations by expected value."
-  problem: "Infill decisions are often supported by outdated static models. Result: poorly prioritized candidates, avoidable dry wells and unjustified CAPEX."
+  tagline: "Prioritize infill wells with physics and machine learning."
+  intro: "Combines production history, petrophysics and well data on a reservoir grid to rank candidate infill locations by risked recoverable oil."
+  problem: "Infill decisions are often supported by outdated static models. Result: poorly prioritized candidates, avoidable dry wells, over-drilled areas and unjustified CAPEX."
   inputs:
-    - "Production history per well"
-    - "Updated static model"
-    - "Well and completion data"
+    - "Production history per well (OFM)"
+    - "Petrophysics and gridded static model (400×400 × 30 m)"
+    - "Well, completion and gas-lift data"
   outputs:
-    - "Ranking of candidate locations"
-    - "Expected value per candidate"
+    - "Ranking of candidate locations with risked oil, expected WC and GOR"
+    - "Well ranking by PPI and Tier A/B/C classification"
+    - "DCA remaining reserves and recoverable bypassed oil"
+    - "Over-drilled well detection (shared drainage)"
+    - "Gas-lift recommendations and written action plan"
   benefits:
     - "Better infill targeting"
     - "Fewer avoidable dry wells"
+    - "Lift-gas savings on over-injected wells"
     - "Decisions defensible before committees"
   evidence:
     - "Synthetic demo available on request."
+    - "45-well demo: 10 infill candidates and 12 Tier A wells identified."
   tech:
-    - "Physics-constrained models"
-    - "Per-variable explainability"
+    - "Arps decline, volumetric OOIP and drainage-area balance as physical constraints"
+    - "Gas-lift gradients to assess natural-flow capability"
+    - "Random Forest with permutation importance (per-variable explainability)"
+    - "KMeans + PCA clustering of well profiles"
+    - "Risked candidate scoring"

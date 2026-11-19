@@ -12,7 +12,7 @@
               th:href="@{'https://www.geopetrolitixai.pro/en/solutions/' + ${product.domainEn()} + '/' + ${product.slugEn()}}"/>
         <link rel="alternate" hreflang="x-default"
               th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
-        <meta name="description" th:attr="content=${content.tagline()}"/>
+        <meta name="description" th:attr="content=${detail.tagline()}"/>
     </th:block>
 </head>
 <body>
@@ -29,10 +29,17 @@
 
     <!-- Hero producto -->
     <section class="card-custom hero-card mb-4">
+        <img th:if="${product.hasHero()}"
+             th:src="@{'/images/products/' + ${product.imageFolder()} + '/' + ${product.heroImage()}}"
+             th:alt="${product.name()}"
+             class="product-hero"
+             fetchpriority="high"
+             decoding="async"
+             width="1200" height="600"/>
         <span class="badge-tech mb-3" th:text="${domainLabel}">Dominio</span>
         <h1 class="mb-3" th:text="${product.name()}">Nombre</h1>
-        <p class="hero-lead mb-4" th:text="${content.tagline()}">Tagline</p>
-        <p th:text="${content.intro()}">Intro</p>
+        <p class="hero-lead mb-4" th:text="${detail.tagline()}">Tagline</p>
+        <p th:text="${detail.intro()}">Intro</p>
         <div class="d-flex flex-wrap gap-2 mt-4">
             <a href="tel:+573132203002" class="btn btn-primary btn-lg">📞 Llamar</a>
             <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
@@ -45,7 +52,7 @@
     <!-- Problema -->
     <section class="card-custom mb-4">
         <h2 class="h4 mb-3">El problema que resuelve</h2>
-        <p th:text="${content.problem()}">Problema</p>
+        <p th:text="${detail.problem()}">Problema</p>
     </section>
 
     <!-- Inputs / Outputs -->
@@ -54,7 +61,7 @@
             <div class="card-custom h-100 mb-0">
                 <h2 class="h4 mb-3">Qué necesita</h2>
                 <ul class="mb-0">
-                    <li th:each="i : ${content.inputs()}" th:text="${i}">Input</li>
+                    <li th:each="i : ${detail.inputs()}" th:text="${i}">Input</li>
                 </ul>
             </div>
         </div>
@@ -62,7 +69,7 @@
             <div class="card-custom h-100 mb-0">
                 <h2 class="h4 mb-3">Qué entrega</h2>
                 <ul class="mb-0">
-                    <li th:each="o : ${content.outputs()}" th:text="${o}">Output</li>
+                    <li th:each="o : ${detail.outputs()}" th:text="${o}">Output</li>
                 </ul>
             </div>
         </div>
@@ -72,14 +79,28 @@
     <section class="card-custom mb-4">
         <h2 class="h4 mb-3">Beneficios para el activo</h2>
         <ul class="mb-0">
-            <li th:each="b : ${content.benefits()}" th:text="${b}">Beneficio</li>
+                <li th:each="b : ${detail.benefits()}" th:text="${b}">Beneficio</li>
         </ul>
+    </section>
+    <!-- Galería -->
+
+    <section th:if="${product.hasGallery()}" class="card-custom mb-4">
+        <h2 class="h4 mb-3">Capturas del producto</h2>
+        <div class="product-gallery">
+            <figure th:each="g, iter : ${product.gallery()}" class="gallery-item">
+                <img th:src="@{/images/products/{folder}/{file}(folder=${product.imageFolder()}, file=${g})}"
+                     th:alt="|${product.name()} — captura ${iter.count}|"
+                     loading="lazy"
+                     decoding="async"
+                     width="800" height="450"/>
+            </figure>
+        </div>
     </section>
 
     <!-- Evidencia -->
     <section class="card-custom mb-4">
         <h2 class="h4 mb-3">Evidencia y demo</h2>
-        <div class="highlight-box mb-3" th:each="e : ${content.evidence()}" th:text="${e}">Evidencia</div>
+        <div class="highlight-box mb-3" th:each="e : ${detail.evidence()}" th:text="${e}">Evidencia</div>
         <div class="alert alert-light border small mb-0">
             <strong>Aviso:</strong> las demos públicas usan datos sintéticos. Los resultados mostrados son ilustrativos, no reproducibles y no corresponden a un activo real. La demo completa se entrega bajo NDA.
         </div>
@@ -92,7 +113,7 @@
     <section class="card-custom mb-4">
         <h2 class="h4 mb-3">Capacidad tecnológica</h2>
         <ul class="mb-3">
-            <li th:each="t : ${content.tech()}" th:text="${t}">Tecnología</li>
+            <li th:each="t : ${detail.tech()}" th:text="${t}">Tecnología</li>
         </ul>
         <a th:href="@{/tecnologia}" class="fw-bold small">Ver Tecnología →</a>
         <span th:if="${product.patent()}" class="badge-tech ms-2" th:text="${product.patent()}">Patente</span>

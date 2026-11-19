@@ -1,44 +1,81 @@
-name: PetroMonte
-domain: yacimientos
-domainEn: reservoir
+# ---------------------------------------------------------------------------
+# Ficha de producto: PetroMonte
+# Fuente: aplicación "Monte Carlo Petrophysics & Volumetrics" (Geo Petro
+#         Litix AI): evaluación petrofísica repetida miles de veces con
+#         parámetros inciertos para obtener P90 / P50 / P10 de petróleo
+#         original in situ (OOIP).
+# Alcance: OOIP (volumen in situ). La fuente NO calcula reservas
+#          recuperables ni usa factor de recuperación; los P90/P50/P10 se
+#          presentan como insumo para reservas, booking e inversión.
+# Resultados: pozos sintéticos (SYNTH-7, -42, -123); no son una estimación
+#          de reservas de ningún activo real.
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: PetroMonte                 # Nombre comercial del producto
+domain: yacimientos              # Clave de dominio (ES)
+domainEn: reservoir              # Clave de dominio (EN)
 domainLabelEs: "Yacimientos / Reservas"
 domainLabelEn: "Reservoir / Reserves"
-slugEs: petromonte
-slugEn: petromonte
-patent: null
+slugEs: petromonte               # Slug de URL en español
+slugEn: petromonte               # Slug de URL en inglés
+patent: null                     # Sin patente registrada
+
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Estimación probabilística de reservas con simulación Monte Carlo."
-  intro: "Genera distribuciones de reservas con P10/P50/P90 a partir de parámetros petrofísicos y volumétricos, con supuestos explícitos y auditables."
-  problem: "Las estimaciones determinísticas no reflejan la incertidumbre real del subsuelo. Reguladores y socios exigen rangos y supuestos explícitos."
+  tagline: "De registros de pozo a petróleo in situ, con incertidumbre honesta."
+  intro: "Repite miles de veces la evaluación petrofísica completa, sorteando cada parámetro incierto, para entregar un rango P90 / P50 / P10 de petróleo original in situ y la incertidumbre de Vsh, porosidad y Sw a cada profundidad."
+  problem: "Un solo número de petróleo in situ oculta lo que importa. Parámetros como el exponente de cementación m, la resistividad del agua de formación Rw, los puntos extremos del GR y los cortes son inciertos, y la ley de Archie es una ley de potencias: sus errores no se suman, así que el rango no se obtiene a mano. Multiplicar todos los casos bajos produce un P99.9 que nadie cree."
   inputs:
-    - "Parámetros petrofísicos con distribuciones"
-    - "Parámetros volumétricos y de recuperación"
+    - "Registros de pozo LAS 2.0 (gamma ray, resistividad profunda, densidad y neutrón)"
+    - "Zona de interés y modelo de volumen de arcilla (lineal, Larionov o Clavier)"
+    - "13 parámetros petrofísicos y volumétricos como distribuciones (constante, uniforme, triangular, normal o lognormal)"
   outputs:
-    - "Distribución probabilística de reservas"
-    - "P10 / P50 / P90"
+    - "P90 / P50 / P10 de petróleo original in situ (OOIP)"
+    - "Bandas P10–P90 de Vsh, porosidad y Sw por profundidad, y probabilidad de pago"
+    - "Gráfico tornado de sensibilidad que indica qué dato adquirir a continuación"
+    - "Exportación CSV de cada realización, para reportes de reservas"
   benefits:
-    - "Estimaciones defendibles ante reguladores"
-    - "Supuestos explícitos y auditables"
-    - "Decisiones informadas por riesgo"
+    - "Decisiones sobre rangos, no sobre estimaciones puntuales"
+    - "Supuestos explícitos y auditables: física documentada, semillas fijas y exportación completa"
+    - "Valor de la información: identifica si conviene un análisis de núcleo, una muestra de agua o un mejor mapa sísmico"
+    - "Volúmenes P90/P50/P10 en el lenguaje de comités de booking e inversión"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Pozo sintético SYNTH-42 (5,000 realizaciones): OOIP P90 178, P50 231 y P10 294 MMSTB; porosidad recuperada con RMSE de 0.017 v/v. Volúmenes ilustrativos, no una estimación de reservas de un activo real."
+    - "Limitación validada: Archie ignora la conducción en lutitas, por lo que la Sw P50 sale ~0.12 alta y, con área y Bo fijos, el OOIP verdadero (260 MMSTB) queda por encima del P10 petrofísico (244 MMSTB). Un modelo de Sw para arenas arcillosas es el primer punto de la hoja de ruta."
   tech:
-    - "Escalabilidad computacional"
+    - "Muestreo Monte Carlo de 13 parámetros con evaluación petrofísica completa en cada realización (Vsh, porosidad densidad-neutrón, Archie, cortes de pago y volumetría)"
+    - "Análisis de sensibilidad por correlación de rangos (Spearman) y verificación de convergencia de percentiles"
+    - "Cálculo vectorizado: 5,000 realizaciones sobre 1,970 muestras de profundidad en menos de un segundo, reproducible con semilla fija"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "Probabilistic reserves estimation with Monte Carlo simulation."
-  intro: "Generates reserves distributions with P10/P50/P90 from petrophysical and volumetric parameters, with explicit auditable assumptions."
-  problem: "Deterministic estimates do not reflect real subsurface uncertainty. Regulators and partners require ranges and explicit assumptions."
+  tagline: "From well logs to oil in place, with honest uncertainty."
+  intro: "Repeats the full petrophysical evaluation thousands of times, drawing new values for every uncertain parameter, to deliver a P90 / P50 / P10 range of original oil in place and the depth-by-depth uncertainty of Vsh, porosity and Sw."
+  problem: "A single number for oil in place hides what matters. Parameters such as the cementation exponent m, formation-water resistivity Rw, gamma-ray end-points and cutoffs are uncertain, and Archie's law is a power law: its errors do not simply add up, so the range cannot be obtained by hand. Multiplying every low case together produces a P99.9 that no one believes."
   inputs:
-    - "Petrophysical parameters with distributions"
-    - "Volumetric and recovery parameters"
+    - "LAS 2.0 well logs (gamma ray, deep resistivity, density and neutron)"
+    - "Zone of interest and shale-volume model (linear, Larionov or Clavier)"
+    - "13 petrophysical and volumetric parameters as distributions (constant, uniform, triangular, normal or lognormal)"
   outputs:
-    - "Probabilistic reserves distribution"
-    - "P10 / P50 / P90"
+    - "P90 / P50 / P10 of original oil in place (OOIP)"
+    - "P10–P90 bands of Vsh, porosity and Sw by depth, and pay probability"
+    - "Tornado sensitivity chart showing which data to acquire next"
+    - "CSV export of every realization, ready for reserves reports"
   benefits:
-    - "Estimates defensible before regulators"
-    - "Explicit auditable assumptions"
-    - "Risk-informed decisions"
+    - "Decisions on ranges, not on single guesses"
+    - "Explicit, auditable assumptions: documented physics, fixed seeds and full export"
+    - "Value of information: shows whether a core analysis, a water sample or a better seismic map is worth more"
+    - "P90/P50/P10 volumes in the language of booking and investment committees"
   evidence:
     - "Synthetic demo available on request."
+    - "Synthetic well SYNTH-42 (5,000 realizations): OOIP P90 178, P50 231 and P10 294 MMSTB; porosity recovered with an RMSE of 0.017 v/v. Illustrative volumes, not a reserves estimate for any real asset."
+    - "Validated limitation: Archie ignores conduction through shale, so P50 Sw reads ~0.12 high and, with area and Bo fixed, the true OOIP (260 MMSTB) sits above the petrophysics-only P10 (244 MMSTB). A shaly-sand Sw model is the first roadmap item."
   tech:
-    - "Computational scalability"
+    - "Monte Carlo sampling of 13 parameters with a full petrophysical evaluation in every realization (Vsh, density-neutron porosity, Archie, pay cutoffs and volumetrics)"
+    - "Rank-correlation (Spearman) sensitivity analysis and percentile-convergence checks"
+    - "Vectorized computation: 5,000 realizations over 1,970 depth samples in under a second, reproducible with a fixed seed"
