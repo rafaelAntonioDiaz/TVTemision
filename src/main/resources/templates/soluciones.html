@@ -17,7 +17,7 @@
     <section class="card-custom hero-card mb-5 text-center">
         <h1 class="mb-3">Soluciones</h1>
         <p class="hero-lead mb-2">
-            <strong>El CAPEX se reduce donde el dato se aprovecha.</strong>
+            <strong>El CAPEX se reduce cuando el dato se aprovecha.</strong>
         </p>
         <p class="mb-0">
             Nueve productos, cuatro dominios. Todos parten de la información que ya tienes.
@@ -34,11 +34,20 @@
 
         <div class="row g-4">
             <div class="col-md-6 col-lg-4" th:each="p : ${entry.value}">
-                <div class="card-custom h-100 mb-0 d-flex flex-column">
-                    <h3 class="h5 mb-2" th:text="${p.name()}">Nombre</h3>
-                    <p class="small mb-3" th:text="${p.es().tagline()}">Tagline</p>
-                    <a th:href="@{'/soluciones/' + ${p.domain()} + '/' + ${p.slugEs()}}"
-                       class="mt-auto fw-bold small">Ver detalle →</a>
+                <div class="card-custom h-100 mb-0 d-flex flex-column p-0 overflow-hidden">
+                    <img th:if="${p.hasHero()}"
+                         th:src="@{'/images/products/' + ${p.imageFolder()} + '/' + ${p.heroImage()}}"
+                         th:alt="${p.name()}"
+                         class="product-thumb"
+                         loading="lazy"
+                         decoding="async"
+                         width="400" height="200"/>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <h3 class="h5 mb-2" th:text="${p.name()}">Nombre</h3>
+                        <p class="small mb-3" th:text="${p.es().tagline()}">Tagline</p>
+                        <a th:href="@{'/soluciones/' + ${p.domain()} + '/' + ${p.slugEs()}}"
+                           class="mt-auto fw-bold small">Ver detalle →</a>
+                    </div>
                 </div>
             </div>
         </div>

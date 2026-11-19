@@ -1,11 +1,17 @@
-name: GuajiraMan
+name: GuajiraPro
 domain: produccion
 domainEn: production
 domainLabelEs: "Producción"
 domainLabelEn: "Production"
-slugEs: guajiraman
-slugEn: guajiraman
+slugEs: guajirapro
+slugEn: guajirapro
 patent: null
+imageFolder: guajirapro
+heroImage: fig01.webp
+gallery:
+  - fig02.webp
+  - fig04.webp
+  - fig05.webp
 es:
   tagline: "Monitoreo y optimización de producción con datos de campo."
   intro: "Consolida datos de pozo, superficie y equipos de bombeo para detectar anomalías y recomendar acciones de optimización."

@@ -1,11 +1,11 @@
-name: DrillingSuper
+name: OptimumDrilling
 domain: perforacion
 domainEn: drilling
 domainLabelEs: "Perforación"
 domainLabelEn: "Drilling"
-slugEs: drillingsuper
-slugEn: drillingsuper
-patent: "Patentes estadounidenses otorgadas"
+slugEs: optimumdrilling
+slugEn: optimumdrilling
+patent: null
 es:
   tagline: "ROP híbrido y detección de eventos en tiempo real."
   intro: "Modelos híbridos física + ML para optimización de ROP y detección automatizada de eventos (atascamientos, eventos de flujo, clasificación de ripios)."

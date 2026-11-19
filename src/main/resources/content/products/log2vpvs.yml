@@ -1,46 +1,85 @@
-name: Log2VpVs
-domain: geologia-geofisica
-domainEn: geology-geophysics
+# ---------------------------------------------------------------------------
+# Ficha de producto: Log2VpVs
+# Fuente: "Explicit-Equation Rock Physics" (Geo Petro Litix AI): ecuaciones
+#         de forma cerrada para Vp y Vs descubiertas con dos técnicas de
+#         ML científico (A: búsqueda evolutiva; B: regresión dispersa sobre
+#         una biblioteca de 21 términos físicos).
+# Datos del estudio: 30 pozos sintéticos (VRH -> Hertz-Mindlin -> Gassmann)
+#         y 4 pozos reales de Volve (leave-one-well-out).
+# Estructura: metadatos generales + bloque `es` + bloque `en`
+#             (ambos bloques deben mantener las mismas claves y el mismo
+#              número de elementos en cada lista).
+# ---------------------------------------------------------------------------
+
+# --- Metadatos generales ---------------------------------------------------
+name: Log2VpVs                   # Nombre comercial del producto
+domain: geologia-geofisica       # Clave de dominio (ES)
+domainEn: geology-geophysics     # Clave de dominio (EN)
 domainLabelEs: "Geología / Geofísica"
 domainLabelEn: "Geology / Geophysics"
-slugEs: log2vpvs
-slugEn: log2vpvs
-patent: null
+slugEs: log2vpvs                 # Slug de URL en español
+slugEn: log2vpvs                 # Slug de URL en inglés
+patent: null                     # Sin patente (las técnicas son propietarias de Geo Petro Litix AI)
+imageFolder: log2vpvs
+heroImage: img.webp
+gallery:
+  - img_1.webp
+  - img_2.webp
+  - img_3.webp
+# --- Contenido en español --------------------------------------------------
 es:
-  tagline: "Predice Vp/Vs donde no hay registro sónico."
-  intro: "Genera curvas sintéticas de Vp y Vs a partir de registros convencionales, habilitando inversión sísmica y amarre pozo-sísmica en pozos sin sónico."
-  problem: "El registro sónico no se adquiere en todos los pozos por costo. Sin Vp/Vs, la inversión sísmica y la caracterización elástica pierden calidad en zonas clave del activo."
+  tagline: "Predice Vp/Vs donde no hay registro sónico, con ecuaciones explícitas."
+  intro: "Descubre ecuaciones de forma cerrada para Vp y Vs a partir de propiedades derivadas de registros convencionales, para usar en flujos de trabajo sísmicos, de geomodelado y de yacimiento en pozos sin sónico."
+  problem: "El registro sónico no se adquiere en todos los pozos por costo. Sin Vp/Vs, la caracterización elástica y los flujos sísmicos pierden calidad en zonas clave del activo. Los modelos de caja negra no se pueden contrastar con la teoría de física de rocas y pueden fallar sin aviso fuera de su rango de entrenamiento."
   inputs:
-    - "Registros convencionales (GR, RHOB, NPHI, resistividad)"
+    - "Registros convencionales (GR, RHOB, NPHI, resistividad) como insumo de partida"
+    - "Propiedades derivadas que usa la ecuación: Vsh, Vsand, Vcarb, porosidad, Sw y presión efectiva (ΔP)"
     - "Curvas sónicas existentes para calibración"
   outputs:
+    - "Ecuaciones explícitas de Vp y Vs en forma cerrada"
     - "Curvas sintéticas de Vp y Vs por pozo"
-    - "Relaciones Vp/Vs consistentes con la litología"
+    - "Relaciones Vp/Vs consistentes con la teoría de física de rocas"
   benefits:
-    - "Habilita inversión sísmica en pozos sin sónico"
+    - "Habilita flujos sísmicos y de caracterización elástica en pozos sin sónico"
     - "Reduce necesidad de adquirir registros nuevos"
-    - "Curvas físicamente consistentes y auditables"
+    - "Curvas físicamente consistentes y auditables: la ecuación es el modelo y la explicación"
+    - "Despliegue sin ejecutable de ML: se evalúa en una línea, en una hoja de cálculo o en un geomodelador"
   evidence:
     - "Demo sintética disponible bajo solicitud."
+    - "Pozo ciego sintético SYN30 (datos limpios, verdad conocida): R² de 0.995 para Vp y 0.999 para Vs."
+    - "Datos reales de Volve (4 pozos, leave-one-well-out): R² medio de Vp de 0.758 con la técnica B frente a 0.792 de SVR; para Vs, 0.636–0.637 frente a 0.635 de SVR."
+    - "En el pozo real geológicamente distinto (F1-B), Random Forest y MLP cayeron bajo cero en R²; las ecuaciones explícitas se mantuvieron positivas en todos los pozos."
   tech:
-    - "Modelos con restricciones físicas"
-    - "Explicabilidad por variable"
+    - "Dos técnicas propietarias de ML científico: búsqueda evolutiva de ecuaciones y regresión dispersa sobre una biblioteca de 21 términos físicos"
+    - "Términos de física de rocas (rigidez del marco (1−φ)², volumen de arcilla, presión) bajo límites de dispersión y complejidad"
+    - "Verdad sintética con Voigt–Reuss–Hill, Hertz–Mindlin y Gassmann"
+    - "Explicabilidad total: sin capa de explicación posterior (SHAP)"
+
+# --- Contenido en inglés ---------------------------------------------------
 en:
-  tagline: "Predict Vp/Vs where no sonic log exists."
-  intro: "Generates synthetic Vp and Vs curves from conventional logs, enabling seismic inversion and well-to-seismic ties in wells without sonic."
-  problem: "Sonic logs are not acquired in every well due to cost. Without Vp/Vs, seismic inversion and elastic characterization lose quality in key asset zones."
+  tagline: "Predict Vp/Vs where no sonic log exists, with explicit equations."
+  intro: "Discovers closed-form equations for Vp and Vs from properties derived from conventional logs, for use in seismic, geomodeling and reservoir workflows in wells without sonic."
+  problem: "Sonic logs are not acquired in every well due to cost. Without Vp/Vs, elastic characterization and seismic workflows lose quality in key asset zones. Black-box models cannot be checked against rock-physics theory and can fail silently outside their training range."
   inputs:
-    - "Conventional logs (GR, RHOB, NPHI, resistivity)"
+    - "Conventional logs (GR, RHOB, NPHI, resistivity) as the starting input"
+    - "Derived properties used by the equation: Vsh, Vsand, Vcarb, porosity, Sw and effective pressure (ΔP)"
     - "Existing sonic curves for calibration"
   outputs:
+    - "Explicit closed-form Vp and Vs equations"
     - "Synthetic Vp and Vs curves per well"
-    - "Vp/Vs relationships consistent with lithology"
+    - "Vp/Vs relationships consistent with rock-physics theory"
   benefits:
-    - "Enables seismic inversion in wells without sonic"
+    - "Enables seismic and elastic characterization workflows in wells without sonic"
     - "Reduces need to acquire new logs"
-    - "Physically consistent, auditable curves"
+    - "Physically consistent, auditable curves: the equation is the model and the explanation"
+    - "Deployment without an ML runtime: evaluates in one line, in a spreadsheet or a geomodeler"
   evidence:
     - "Synthetic demo available on request."
+    - "Synthetic blind well SYN30 (clean data, known truth): R² of 0.995 for Vp and 0.999 for Vs."
+    - "Real Volve data (4 wells, leave-one-well-out): mean Vp R² of 0.758 with technique B versus 0.792 for SVR; for Vs, 0.636–0.637 versus 0.635 for SVR."
+    - "On the geologically distinct real well (F1-B), Random Forest and MLP fell below zero R²; the explicit equations stayed positive on every well."
   tech:
-    - "Physics-constrained models"
-    - "Per-variable explainability"
+    - "Two proprietary scientific-ML techniques: evolutionary equation search and sparse regression over a library of 21 physics terms"
+    - "Rock-physics terms (frame stiffness (1−φ)², shale volume, pressure) under sparsity and complexity limits"
+    - "Synthetic ground truth with Voigt–Reuss–Hill, Hertz–Mindlin and Gassmann"
+    - "Full explainability: no post-hoc explanation layer (SHAP) needed"
