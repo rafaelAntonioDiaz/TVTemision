@@ -41,11 +41,13 @@ public class PageController {
     public String segundaEmision() {
         return "segunda_emision";
     }
-    
+
     @GetMapping("/tecnologia")
     public String tecnologia() {
         return "tecnologia";
     }
+    @GetMapping("/en/technology")
+    public String technologyEn() { return "en-technology"; }
 
     @GetMapping("/brochure")
     public String brochure() {
@@ -56,5 +58,9 @@ public class PageController {
     public String brochureEn() {
         return "brochure-en";
     }
+    @GetMapping("/contacto")
+    public String contacto() { return "contacto"; }
 
+    @GetMapping("/en/contact")
+    public String contactEn() { return "en-contact"; }
 }

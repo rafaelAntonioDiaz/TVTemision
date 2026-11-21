@@ -23,7 +23,13 @@ domainLabelEn: "Reservoir / Reserves"
 slugEs: petromonte               # Slug de URL en español
 slugEn: petromonte               # Slug de URL en inglés
 patent: null                     # Sin patente registrada
-
+imageFolder: petromonte
+heroImage: hero.webp
+gallery:
+  - fig01.webp
+  - fig02.webp
+  - fig03.webp
+  - fig04.webp
 # --- Contenido en español --------------------------------------------------
 es:
   tagline: "De registros de pozo a petróleo in situ, con incertidumbre honesta."
