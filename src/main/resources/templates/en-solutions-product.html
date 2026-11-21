@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::#page-head}, ~{::main}, 'en')}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${product.name()} + ' — Geo Petro Litix AI'">Product</title>
+    <th:block id="page-head">
+        <link rel="canonical"
+              th:href="@{'https://www.geopetrolitixai.pro/en/solutions/' + ${product.domainEn()} + '/' + ${product.slugEn()}}"/>
+        <link rel="alternate" hreflang="es"
+              th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
+        <link rel="alternate" hreflang="en"
+              th:href="@{'https://www.geopetrolitixai.pro/en/solutions/' + ${product.domainEn()} + '/' + ${product.slugEn()}}"/>
+        <link rel="alternate" hreflang="x-default"
+              th:href="@{'https://www.geopetrolitixai.pro/soluciones/' + ${product.domain()} + '/' + ${product.slugEs()}}"/>
+        <meta name="description" th:attr="content=${detail.tagline()}"/>
+    </th:block>
 </head>
 <body>
+<main class="container my-5">
 
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/en/solutions}">Solutions</a></li>
+            <li class="breadcrumb-item" th:text="${domainLabel}">Domain</li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${product.name()}">Product</li>
+        </ol>
+    </nav>
+
+    <!-- Product hero -->
+    <section class="card-custom hero-card mb-4">
+        <img th:if="${product.hasHero()}"
+             th:src="@{'/images/products/' + ${product.imageFolder()} + '/' + ${product.heroImage()}}"
+             th:alt="${product.name()}"
+             class="product-hero"
+             fetchpriority="high"
+             decoding="async"
+             width="1200" height="600"/>
+        <span class="badge-tech mb-3" th:text="${domainLabel}">Domain</span>
+        <h1 class="mb-3" th:text="${product.name()}">Name</h1>
+        <p class="hero-lead mb-4" th:text="${detail.tagline()}">Tagline</p>
+        <p th:text="${detail.intro()}">Intro</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg">📞 Call</a>
+            <a href="https://wa.me/573132203002?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+               class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Product%20inquiry"
+               class="btn btn-outline-navy btn-lg">✉️ Email</a>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">The problem it solves</h2>
+        <p th:text="${detail.problem()}">Problem</p>
+    </section>
+
+    <!-- Inputs / Outputs -->
+    <section class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card-custom h-100 mb-0">
+                <h2 class="h4 mb-3">What it needs</h2>
+                <ul class="mb-0">
+                    <li th:each="i : ${detail.inputs()}" th:text="${i}">Input</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-custom h-100 mb-0">
+                <h2 class="h4 mb-3">What it delivers</h2>
+                <ul class="mb-0">
+                    <li th:each="o : ${detail.outputs()}" th:text="${o}">Output</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Benefits for the asset</h2>
+        <ul class="mb-0">
+            <li th:each="b : ${detail.benefits()}" th:text="${b}">Benefit</li>
+        </ul>
+    </section>
+
+    <!-- Gallery -->
+    <section th:if="${product.hasGallery()}" class="card-custom mb-4">
+        <h2 class="h4 mb-3">Product screenshots</h2>
+        <div class="product-gallery">
+            <figure th:each="g, iter : ${product.gallery()}" class="gallery-item">
+                <img th:src="@{/images/products/{folder}/{file}(folder=${product.imageFolder()}, file=${g})}"
+                     th:alt="|${product.name()} — screenshot ${iter.count}|"
+                     loading="lazy"
+                     decoding="async"
+                     width="800" height="450"/>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Evidence -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Evidence and demo</h2>
+        <div class="highlight-box mb-3" th:each="e : ${detail.evidence()}" th:text="${e}">Evidence</div>
+        <div class="alert alert-light border small mb-0">
+            <strong>Notice:</strong> public demos use synthetic data. Results shown are illustrative, not reproducible, and do not correspond to a real asset. The full demo is delivered under NDA.
+        </div>
+        <div class="mt-3">
+            <!-- TODO: crear @GetMapping("/en/contact") en PageController -->
+            <a th:href="@{/en/contact}" class="btn btn-primary">Request a demo under NDA</a>
+        </div>
+    </section>
+
+    <!-- Tech brief -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Technology capability</h2>
+        <ul class="mb-3">
+            <li th:each="t : ${detail.tech()}" th:text="${t}">Technology</li>
+        </ul>
+        <!-- TODO: crear @GetMapping("/en/technology") en PageController -->
+        <a th:href="@{/en/technology}" class="fw-bold small">See Technology →</a>
+        <span th:if="${product.patent()}" class="badge-tech ms-2" th:text="${product.patent()}">Patent</span>
+    </section>
+
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>Shall we talk about your asset?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+            <a href="https://wa.me/573132203002?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Product%20inquiry"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+    </section>
+
+</main>
 </body>
 </html>

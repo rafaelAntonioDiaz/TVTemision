@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::#page-head}, ~{::main}, 'en')}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Solutions — Geo Petro Litix AI</title>
+    <th:block id="page-head">
+        <link rel="canonical" href="https://www.geopetrolitixai.pro/en/solutions"/>
+        <link rel="alternate" hreflang="es" href="https://www.geopetrolitixai.pro/soluciones"/>
+        <link rel="alternate" hreflang="en" href="https://www.geopetrolitixai.pro/en/solutions"/>
+        <link rel="alternate" hreflang="x-default" href="https://www.geopetrolitixai.pro/soluciones"/>
+        <meta name="description" content="Geo Petro Litix AI solutions: geology, geophysics, reservoirs, reserves, drilling and production. Delivered in 4 to 6 weeks."/>
+    </th:block>
 </head>
 <body>
+<main class="container my-5">
 
+    <section class="card-custom hero-card mb-5 text-center">
+        <h1 class="mb-3">Solutions</h1>
+        <p class="hero-lead mb-2">
+            <strong>CAPEX goes down when data is put to work.</strong>
+        </p>
+        <p class="mb-0">
+            Nine products, four domains. All of them built on the information you already have.
+        </p>
+    </section>
+
+    <!-- Iterate over domains -->
+    <section th:each="entry : ${productsByDomain}" class="mb-5">
+        <div class="d-flex align-items-center mb-3">
+            <h2 class="h3 mb-0 me-3" th:text="${entry.value[0].domainLabelEn}">Domain</h2>
+            <span class="badge-tech"
+                  th:text="${entry.value.size()} + ' products'">N products</span>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" th:each="p : ${entry.value}">
+                <div class="card-custom h-100 mb-0 d-flex flex-column p-0 overflow-hidden">
+                    <img th:if="${p.hasHero()}"
+                         th:src="@{'/images/products/' + ${p.imageFolder()} + '/' + ${p.heroImage()}}"
+                         th:alt="${p.name()}"
+                         class="product-thumb"
+                         loading="lazy"
+                         decoding="async"
+                         width="400" height="200"/>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <h3 class="h5 mb-2" th:text="${p.name()}">Name</h3>
+                        <p class="small mb-3" th:text="${p.en().tagline()}">Tagline</p>
+                        <a th:href="@{'/en/solutions/' + ${p.domain()} + '/' + ${p.slugEn()}}"
+                           class="mt-auto fw-bold small">View details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>Shall we talk about your asset?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+            <a href="https://wa.me/573132203002?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Inquiry%20from%20the%20website"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+    </section>
+
+</main>
 </body>
 </html>

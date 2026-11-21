@@ -21,7 +21,7 @@ slugEs: log2vpvs                 # Slug de URL en español
 slugEn: log2vpvs                 # Slug de URL en inglés
 patent: null                     # Sin patente (las técnicas son propietarias de Geo Petro Litix AI)
 imageFolder: log2vpvs
-heroImage: img.webp
+heroImage: hero.webp
 gallery:
   - img_1.webp
   - img_2.webp

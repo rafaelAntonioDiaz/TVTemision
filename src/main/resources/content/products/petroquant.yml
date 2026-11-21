@@ -19,7 +19,14 @@ domainLabelEn: "Reservoir / Reserves"
 slugEs: petroquant               # Slug de URL en español
 slugEn: petroquant               # Slug de URL en inglés
 patent: null                     # Sin patente registrada
-
+imageFolder: petroquant
+heroImage: hero.webp
+gallery:
+  - fig01.webp
+  - fig02.webp
+  - fig03.webp
+  - fig04.webp
+  - fig05.webp
 # --- Contenido en español --------------------------------------------------
 es:
   tagline: "Porosidad y permeabilidad desde petrografía, con validación honesta e incertidumbre."
