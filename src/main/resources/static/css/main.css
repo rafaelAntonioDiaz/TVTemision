@@ -292,3 +292,19 @@ body {
     0%   { background-position: 200% 0; }
     100% { background-position: -200% 0; }
 }
+.navbar-gpl .brand-logo {
+    height: 48px;
+    width: auto;              /* respeta la proporción real del archivo */
+    object-fit: contain;
+    display: block;
+}
+
+/* Ajuste opcional en pantallas pequeñas */
+@media (max-width: 576px) {
+    .navbar-gpl .brand-logo {
+        height: 40px;
+    }
+}
+@media (max-width: 400px) {
+    .navbar-gpl .subtitle-contrast { display: none; }
+}

@@ -63,4 +63,16 @@ public class PageController {
 
     @GetMapping("/en/contact")
     public String contactEn() { return "en-contact"; }
+
+    @GetMapping("/entrenamiento")  public String entrenamiento()  { return "entrenamiento"; }
+
+    @GetMapping("/en/training")  public String trainingEn()  { return "en-training"; }
+
+    @GetMapping("/recursos") public String recursos() { return "recursos"; }
+
+    @GetMapping("/en/resources") public String resourcesEn() { return "en-resources"; }
+
+    @GetMapping("/nosotros")     public String nosotros()     { return "nosotros"; }
+
+    @GetMapping("/en/about")     public String aboutEn()     { return "en-about"; }
 }

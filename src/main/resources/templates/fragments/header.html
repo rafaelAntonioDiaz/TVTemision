@@ -1,13 +1,18 @@
 <nav th:fragment="header(lang)" class="navbar navbar-expand-lg navbar-dark navbar-gpl">
     <div class="container">
 
-        <!-- Logo / Marca con Título y Subtítulo adaptado al idioma -->
-        <a class="navbar-brand d-flex align-items-center" th:href="@{/home}">
+        <!-- Logo / Marca -->
+        <a class="navbar-brand d-flex align-items-center gap-2"
+           th:href="${lang == 'es'} ? @{/home} : @{/en/home}">
+            <img th:src="@{/images/logoGeoPetroLitixAI.webp}"
+                 alt="Geo Petro Litix AI"
+                 class="brand-logo"
+                 width="48" height="48"/>
             <div class="d-flex flex-column">
                 <span class="fw-bold fs-5">Geo Petro Litix AI</span>
                 <small class="subtitle-contrast"
                        th:text="${lang == 'es'} ? 'Hacia la soberanía tecnológica'
-                        : 'Towards technological sovereignty'">
+                : 'Towards technological sovereignty'">
                     Hacia la soberanía tecnológica
                 </small>
             </div>
@@ -21,30 +26,50 @@
 
         <div class="collapse navbar-collapse" id="navMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+
+                <!-- Soluciones / Solutions -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/soluciones}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/soluciones} : @{/en/solutions}"
                        th:text="${lang == 'es'} ? 'Soluciones' : 'Solutions'">Soluciones</a>
                 </li>
+
+                <!-- Tecnología / Technology -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/tecnologia}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/tecnologia} : @{/en/technology}"
                        th:text="${lang == 'es'} ? 'Tecnología' : 'Technology'">Tecnología</a>
                 </li>
+
+                <!-- Entrenamiento / Training -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/entrenamiento}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/entrenamiento} : @{/en/training}"
                        th:text="${lang == 'es'} ? 'Entrenamiento' : 'Training'">Entrenamiento</a>
                 </li>
+
+                <!-- Recursos / Resources -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/recursos}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/recursos} : @{/en/resources}"
                        th:text="${lang == 'es'} ? 'Recursos' : 'Resources'">Recursos</a>
                 </li>
+
+                <!-- Quiénes somos / About us -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/quienes-somos}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/nosotros} : @{/en/about}"
                        th:text="${lang == 'es'} ? 'Quiénes somos' : 'About us'">Quiénes somos</a>
                 </li>
+
+                <!-- Contacto / Contact -->
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/contacto}"
+                    <a class="nav-link"
+                       th:href="${lang == 'es'} ? @{/contacto} : @{/en/contact}"
                        th:text="${lang == 'es'} ? 'Contacto' : 'Contact'">Contacto</a>
                 </li>
+
+                <!-- Switch de idioma -->
                 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
                     <a th:if="${lang == 'es'}" th:href="${langSwitchUrl} ?: '/en/home'"
                        class="lang-switch" hreflang="en" aria-label="Switch to English">🇺🇸 English</a>

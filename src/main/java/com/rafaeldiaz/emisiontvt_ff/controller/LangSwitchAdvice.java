@@ -21,6 +21,7 @@ public class LangSwitchAdvice {
         String ctx = req.getContextPath();
         if (ctx != null && !ctx.isEmpty() && uri.startsWith(ctx)) uri = uri.substring(ctx.length());
 
+        // --- Soluciones (con lookup de productos por dominio/slug) ---
         if (uri.equals("/soluciones")) return "/en/solutions";
         if (uri.equals("/en/solutions")) return "/soluciones";
 
@@ -39,6 +40,27 @@ public class LangSwitchAdvice {
             }
         }
 
+        // --- Pares explícitos ES <-> EN ---
+        switch (uri) {
+            case "/home":           return "/en/home";
+            case "/en/home":        return "/home";
+            case "/tecnologia":     return "/en/technology";
+            case "/en/technology":  return "/tecnologia";
+            case "/contacto":       return "/en/contact";
+            case "/en/contact":     return "/contacto";
+            case "/brochure":       return "/brochure-en";
+            case "/brochure-en":    return "/brochure";
+            case "/entrenamiento":  return "/en/training";
+            case "/en/training":    return "/entrenamiento";
+            case "/recursos":       return "/en/resources";
+            case "/en/resources":   return "/recursos";
+            case "/nosotros":       return "/en/about";
+            case "/en/about":       return "/nosotros";
+
+        }
+
+        // --- Fallback: páginas sin versión EN (inversionistas, amigosyfamilia,
+        //     primera_emision, segunda_emision) llevan a la home del otro idioma ---
         if (uri.startsWith("/en/")) return "/home";
         return "/en/home";
     }
