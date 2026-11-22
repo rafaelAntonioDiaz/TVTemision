@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::headExtra}, ~{::content}, 'en')}">
+<head>
+    <title>Technology — Geo Petro Litix AI</title>
+    <th:block th:fragment="headExtra"></th:block>
+</head>
+<body>
+<main th:fragment="content" class="container py-5">
+
+    <!-- Hero -->
+    <header class="mb-5">
+        <h1 class="display-5 fw-bold">Technology</h1>
+        <p class="lead mb-1">Three capabilities. Not seven acronyms.</p>
+        <p class="text-muted">
+            We translate technical depth into asset decisions:
+            which well to intervene, which model to trust, which equation to audit.
+        </p>
+    </header>
+
+    <!-- At-a-glance strip -->
+    <div class="row g-3 mb-5 text-center">
+        <div class="col-md-4">
+            <div class="p-3 border rounded bg-light h-100">
+                <div class="fw-semibold">Physics + Data</div>
+                <small class="text-muted">Models that cannot produce impossible outputs</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 border rounded bg-light h-100">
+                <div class="fw-semibold">Compute at scale</div>
+                <small class="text-muted">Model updates in days, not months</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 border rounded bg-light h-100">
+                <div class="fw-semibold">Explainable decisions</div>
+                <small class="text-muted">Every prediction comes with its drivers</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Models with physical constraints -->
+    <section class="mb-5">
+        <h2 class="h3 fw-semibold">1. Models with physical constraints</h2>
+        <p class="text-muted">
+            Machine learning that <em>cannot</em> produce impossible outputs,
+            because it respects the equations governing the reservoir.
+            It generalizes from scarce data and delivers results a technical committee can defend.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">PIML — Physics-Informed Machine Learning</h3>
+                        <p class="card-text">
+                            Blends statistical fit with flow and conservation laws.
+                            The model learns from data, but physics acts as the referee:
+                            it penalizes any output that violates the diffusion equation.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            Production forecasts a reservoir engineer can act on —
+                            plan interventions without rebuilding the model every time the dataset changes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">PINN — Physics-Informed Neural Networks</h3>
+                        <p class="card-text">
+                            A network that solves partial differential equations as part of its loss function —
+                            no mesh and no traditional solver needed to interpolate between control points.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            A PINN can estimate permeability where no cores exist,
+                            while respecting the flow equation. Where there was a data gap,
+                            there is now an estimate with stated uncertainty.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Sparse Regression</h3>
+                        <p class="card-text">
+                            Automatically selects the variables that actually explain the signal
+                            and drops the ones that only add noise. Fewer variables, more stable models.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            Stop building spurious correlations from 40 logs and start working
+                            with the 6 that actually move the needle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Symbolic Regression</h3>
+                        <p class="card-text">
+                            Searches for compact algebraic expressions that fit the data — not black boxes.
+                            The output is an equation you can read, discuss and audit.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            It discovers compact equations relating logs to HFUs,
+                            auditable by a petrophysicist. The knowledge stays with your company,
+                            not with the model vendor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Computational scalability -->
+    <section class="mb-5">
+        <h2 class="h3 fw-semibold">2. Computational scalability</h2>
+        <p class="text-muted">
+            A good model that takes three months to update is a bad model.
+            HPC infrastructure is what separates a prototype from an operating asset.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">HPC — High Performance Computing</h3>
+                        <p class="card-text">
+                            GPU clusters and massive parallelization to train, calibrate and validate
+                            models across thousands of geological realizations.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            Model updates in days, not months.
+                            When a new well or a new log arrives, the forecast re-calibrates
+                            while the team keeps working.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Reservoir simulation at scale</h3>
+                        <p class="card-text">
+                            Thousands of scenarios in parallel to quantify uncertainty
+                            and prioritize decisions under capital constraints.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            Intervention portfolios with P10/P50/P90 computed in hours,
+                            not in consultant-weeks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Explainability -->
+    <section class="mb-5">
+        <h2 class="h3 fw-semibold">3. Explainability</h2>
+        <p class="text-muted">
+            A model that cannot be explained is a model that cannot be defended.
+            This is not a nice-to-have: it is the condition for a geoscientist to sign off on a recommendation.
+        </p>
+
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">TreeSHAP — Per-prediction importance attribution</h3>
+                        <p class="card-text">
+                            Every prediction comes with the variables that explain it
+                            and how much each one contributes. This is not global feature importance:
+                            it is the exact attribution for <em>that</em> well, <em>that</em> log,
+                            <em>that</em> decision.
+                        </p>
+                        <p class="card-text mb-0"><strong>What it means for the asset:</strong>
+                            It settles the black-box objection.
+                            The geologist sees why the model recommends intervening in a well,
+                            and can accept, challenge or reject it on the merits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center py-4">
+        <p class="lead mb-3">Want to see these capabilities applied to your asset?</p>
+        <a class="btn btn-primary btn-lg" th:href="@{/en/contact}">Let's talk</a>
+    </section>
+
+</main>
+</body>
+</html>
