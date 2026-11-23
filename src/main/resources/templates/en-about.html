@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::head-extra}, ~{::main}, 'en')}">
+<head>
+    <title>About Us - Geo Petro Litix AI</title>
+    <th:block th:fragment="head-extra"></th:block>
+</head>
+<body>
+<main>
+    <!-- Hero Section -->
+    <section class="bg-light py-5 text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-navy mb-3">About Us</h1>
+            <p class="lead mx-auto" style="max-width: 800px;">
+                A team that combines domain knowledge, physics, and data intelligence
+                to build real solutions for the energy industry.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+
+                <!-- Pablo Guillén - CTO (Left) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 text-center">
+                        <img th:src="@{/images/pablo_guillen.webp}"
+                             class="card-img-top rounded-circle mx-auto mt-4"
+                             alt="Dr. Pablo Guillén"
+                             style="width: 160px; height: 160px; object-fit: cover;"/>
+                        <div class="card-body">
+                            <h4 class="card-title mb-1">Dr. Pablo Guillén</h4>
+                            <p class="text-muted mb-2">CTO</p>
+                            <p class="card-text small">
+                                Computational scientist with over 110 peer-reviewed publications. His expertise spans applied mathematics, modeling, deep learning, and high-performance computing. He has translated cutting-edge AI research into real-world impact, from medical diagnostics to oil & gas production optimization. A passionate mentor, he leads technical development at Geo Petro Litix AI.
+                            </p>
+                            <a th:href="'https://www.linkedin.com/in/pablo-guill%C3%A9n-2947a2ab'"
+                               class="btn btn-outline-primary btn-sm mt-2" target="_blank" rel="noopener">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rafael Díaz - CEO (Center) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 text-center border-primary" style="border-width: 2px !important;">
+                        <img th:src="@{/images/rafael_diaz.webp}"
+                             class="card-img-top rounded-circle mx-auto mt-4"
+                             alt="Rafael Antonio Díaz Sarmiento"
+                             style="width: 160px; height: 160px; object-fit: cover;"/>
+                        <div class="card-body">
+                            <h4 class="card-title mb-1">Rafael Antonio Díaz Sarmiento</h4>
+                            <p class="text-muted mb-2">CEO</p>
+                            <p class="card-text small">
+                                Petroleum Engineer with over 30 years of experience and PMI-certified PMP. His career spans from project control engineering at BP (Cusiana-Cupiagua) to reservoir and drilling engineering (HTHP). A JAVA developer and ISO auditor, he has focused on AI, computer vision, and software development since 2019. Fluent in English, French, and Spanish, he leads the company's vision for technological sovereignty.
+                            </p>
+                            <a th:href="'https://www.linkedin.com/in/rafael-antonio-d%C3%ADaz-sarmiento-9b103751'"
+                               class="btn btn-outline-primary btn-sm mt-2" target="_blank" rel="noopener">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- William Contreras - Sr. Specialist (Right) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 text-center">
+                        <img th:src="@{/images/william_contreras.webp}"
+                             class="card-img-top rounded-circle mx-auto mt-4"
+                             alt="MSc. William Contreras"
+                             style="width: 160px; height: 160px; object-fit: cover;"/>
+                        <div class="card-body">
+                            <h4 class="card-title mb-1">MSc. William Contreras</h4>
+                            <p class="text-muted mb-2">Sr. Digital Drilling Specialist</p>
+                            <p class="card-text small">
+                                Founder of WillCo Drilling Consulting. With over 35 years of international experience (including Saudi Aramco), he is an expert in well optimization and HPHT operations. He holds 7 patents and 30+ publications, along with an MSc from the University of Tulsa. He applies data analytics and AI to well construction to turn field experience into better operational decisions.
+                            </p>
+                            <a th:href="'https://lnkd.in/p/erap3iJC'"
+                               class="btn btn-outline-primary btn-sm mt-2" target="_blank" rel="noopener">
+                                View LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission / Vision -->
+    <section class="bg-dark text-white py-5"> <!-- CORREGIDO: bg-navy a bg-dark -->
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="mb-3">Mission</h3>
+                    <p class="lead mb-0">
+                        To bring artificial intelligence and data science to the energy industry
+                        with interpretable, defensible, and physics-aligned solutions, so that
+                        companies make evidence-based decisions rather than relying on promises.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mb-3">Vision</h3>
+                    <p class="lead mb-0">
+                        To be the reference in technological sovereignty for the oil & gas sector
+                        in Latin America, training the next generation of engineers and leaders
+                        capable of building and evaluating AI with their own judgment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-highlight text-center py-5 bg-light">
+        <div class="container">
+            <p class="mb-2"><strong>Want to learn more about our team?</strong></p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+                <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20Geo%20Petro%20Litix%20AI."
+                   class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+                <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20sobre%20el%20equipo"
+                   class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+            </div>
+            <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
+        </div>
+    </section>
+</main>
+</body>
+</html>

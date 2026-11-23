@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::headExtra}, ~{::main}, 'en')}">
+<head>
+    <title>Resources | Geo Petro Litix AI</title>
+    <th:block th:fragment="headExtra"></th:block>
+</head>
+<body>
+<main>
+    <section class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold">Resources</h1>
+            <p class="lead text-muted mb-0">
+                Videos and multimedia material about our technologies
+            </p>
+        </header>
+
+        <div class="row g-4">
+
+            <!-- Video 1: Symbolic regression -->
+            <div class="col-lg-6">
+                <article class="card h-100 shadow-sm border-0">
+                    <div class="ratio ratio-16x9">
+                        <video controls preload="metadata" playsinline>
+                            <source th:src="@{/video/symbReg.webm}" type="video/webm"/>
+                            Your browser does not support the HTML5 video tag.
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5 card-title mb-1">
+                            Symbolic regression for equation discovery
+                        </h2>
+                        <p class="card-text text-muted mb-2">
+                            <strong>Dr. Pablo Guillén Rondón</strong>
+                        </p>
+                        <p class="card-text mb-0">
+                            Automatic discovery of equations and mathematical models
+                            from experimental data via symbolic regression.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Video 2: Digital drilling -->
+            <div class="col-lg-6">
+                <article class="card h-100 shadow-sm border-0">
+                    <div class="ratio ratio-16x9">
+                        <video controls preload="metadata" playsinline>
+                            <source th:src="@{/video/digdrill.webm}" type="video/webm"/>
+                            Your browser does not support the HTML5 video tag.
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5 card-title mb-1">
+                            Digital drilling
+                        </h2>
+                        <p class="card-text text-muted mb-2">
+                            <strong>MSc. William Contreras</strong>
+                        </p>
+                        <p class="card-text mb-0">
+                            Application of digital technologies to the drilling process:
+                            real-time monitoring, analytics and operations optimization.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+</main>
+</body>
+</html>>

@@ -21,8 +21,9 @@ slugEs: litixcore                # Slug de URL en español
 slugEn: litixcore                # Slug de URL en inglés
 patent: null                     # Sin patente registrada
 imageFolder: litixcore
-heroImage: fig02.webp
+heroImage: hero.webp
 gallery:
+  - fig01.webp
   - fig02.webp
   - fig04.webp
   - fig05.webp

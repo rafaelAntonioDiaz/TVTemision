@@ -20,7 +20,7 @@ slugEs: log2dt                   # Slug de URL en español
 slugEn: log2dt                   # Slug de URL en inglés
 patent: null                     # Sin patente (la ecuación es propietaria de Geo Petro Litix AI)
 imageFolder: log2dt
-heroImage: img.webp
+heroImage: hero.webp
 gallery:
   - img_1.webp
   - img_2.webp

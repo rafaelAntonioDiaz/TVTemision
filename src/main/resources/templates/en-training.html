@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::head-extra}, ~{::main}, 'en')}">
+<head>
+    <title>Training - Geo Petro Litix AI</title>
+    <th:block th:fragment="head-extra"></th:block>
+</head>
+<body>
+<main>
+    <!-- Hero Section -->
+    <section class="bg-light py-5 text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-navy mb-3">Training & Professional Development</h1>
+            <p class="lead mx-auto" style="max-width: 800px;">
+                We empower your team to tackle energy industry challenges with data intelligence.
+                From executive strategy to advanced technical implementation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Executive Course -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-header bg-navy text-white py-3">
+                            <h4 class="mb-0">AI for Executives</h4>
+                            <small class="text-light">Buying with judgment, implementing with success</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">1 Day (6 Hours)</span>
+                                <span class="badge bg-secondary">Strategy</span>
+                            </div>
+                            <p class="card-text">
+                                An intensive course designed for leaders who need to distinguish real AI solutions from tech "hype".
+                                Learn to evaluate vendors, define ROI, and ensure AI serves your company's goals.
+                            </p>
+                            <h6 class="fw-bold mt-4">What you will learn:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Identify use cases with real return on investment.</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Evaluate AI vendor proposals without being dazzled.</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Differentiate between "AI-washing" and real data solutions.</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Structure teams and processes for successful AI adoption.</li>
+                            </ul>
+                            <hr>
+                            <p class="mb-1"><strong>Instructor:</strong> Rafael Antonio Díaz Sarmiento</p>
+                            <p class="text-muted small">Format: In-person or Virtual (In-company)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Course -->
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-header bg-dark text-white py-3"> <!-- CORREGIDO: bg-secondary a bg-dark -->
+                            <h4 class="mb-0">Data Science & Machine Learning</h4>
+                            <small class="text-light">Applied to Petroleum Engineering & Geosciences</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">3 Days (16.5 Hours)</span>
+                                <span class="badge bg-info text-dark">Technical</span>
+                            </div>
+                            <p class="card-text">
+                                Intensive in-person course at ACIPET (Bogotá). From Python and EDA to AutoML,
+                                Explainable AI (SHAP), and Physics-Informed Machine Learning (PIML).
+                            </p>
+                            <h6 class="fw-bold mt-4">Key Syllabus:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Day 1:</strong> Python, EDA, ML Pipelines, Unsupervised Learning (K-Means, PCA).</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Day 2:</strong> Supervised Learning (KNN, SVM, RF), Neural Networks, AutoML (PyCaret, MLJAR).</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Day 3:</strong> Explainable AI (SHAP), PIML/SciML, Symbolic Regression, Capstone.</li>
+                            </ul>
+                            <hr>
+                            <p class="mb-1"><strong>Instructor:</strong> Dr. Pablo Guillen</p>
+                            <p class="text-muted small">Dates: January 2027 (TBD) • Location: ACIPET, Bogotá</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Additional Details for Technical Course -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="accordion" id="accordionSyllabusEn">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOneEn">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneEn" aria-expanded="true" aria-controls="collapseOneEn">
+                                    View full syllabus (Technical Course - 3 Days)
+                                </button>
+                            </h2>
+                            <div id="collapseOneEn" class="accordion-collapse collapse show" aria-labelledby="headingOneEn" data-bs-parent="#accordionSyllabusEn">
+                                <div class="accordion-body">
+                                    <p><strong>Target Audience:</strong> Petroleum engineers, geoscientists, data analysts, and energy professionals. No prior programming experience is required.</p>
+                                    <p><strong>Tools:</strong> Python (Anaconda / Google Colab), Scikit-learn, PyCaret, MLJAR, SHAP, SHAPASH, LIME.</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped mt-3">
+                                            <thead class="table-dark">
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Core Topics</th>
+                                                <th>Practice / Examples</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><strong>Day 1</strong><br>Foundations</td>
+                                                <td>Python intro, EDA, ML Pipelines, K-Means, PCA, t-SNE.</td>
+                                                <td>Lithofacies clustering, PCA on seismic data, Anomaly detection in multiphase flow.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Day 2</strong><br>Supervised ML</td>
+                                                <td>K-NN, Logistic Regression, Random Forest, SVM, Neural Networks, AutoML.</td>
+                                                <td>Well log property prediction, Seismic facies classification, Benchmarking with PyCaret.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Day 3</strong><br>Advanced</td>
+                                                <td>Explainable AI (XAI), PIML, SciML, Symbolic Regression, Capstone.</td>
+                                                <td>Deriving physical equations from data, Digital Rocks Physics, Final integrative project.</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact-highlight text-center py-5 bg-light">
+        <div class="container">
+            <p class="mb-2"><strong>Want to receive training?</strong></p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+                <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+                   class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+                <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20desde%20el%20sitio%20web"
+                   class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+            </div>
+            <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
+        </div>
+    </section>
+</main>
+</body>
+</html>

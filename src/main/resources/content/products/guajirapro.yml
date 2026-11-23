@@ -7,8 +7,9 @@ slugEs: guajirapro
 slugEn: guajirapro
 patent: null
 imageFolder: guajirapro
-heroImage: fig01.webp
+heroImage: hero.webp
 gallery:
+  - fig01.webp
   - fig02.webp
   - fig04.webp
   - fig05.webp

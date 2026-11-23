@@ -9,14 +9,22 @@
 <main th:fragment="content" class="container py-5">
 
     <!-- Hero -->
-    <header class="mb-5">
+    <header class="mb-4">
         <h1 class="display-5 fw-bold">Tecnología</h1>
-        <p class="lead mb-1">Tres capacidades. No siete siglas.</p>
+        <p class="lead mb-1">Tres capacidades. No seis siglas.</p>
         <p class="text-muted">
             Traducimos la profundidad técnica en decisiones de activo:
             qué pozo intervenir, a qué modelo creerle, qué ecuación auditar.
         </p>
     </header>
+
+    <!-- Imagen hero -->
+    <figure class="mb-5 text-center">
+        <img th:src="@{/images/tech/hero.webp}"
+             alt="Visualización abstracta de tecnología aplicada al subsuelo: capas geológicas con overlay de datos"
+             class="img-fluid rounded shadow-sm"
+             loading="eager"/>
+    </figure>
 
     <!-- Resumen "de un vistazo" -->
     <div class="row g-3 mb-5 text-center">
@@ -48,6 +56,17 @@
             porque respeta las ecuaciones que gobiernan el yacimiento.
             Generaliza con pocos datos y entrega resultados defendibles ante un comité técnico.
         </p>
+
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/fisres.webp}"
+                 alt="Comparación entre una predicción de machine learning sin restricciones físicas y una predicción restringida que respeta las leyes de flujo"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                Predicción libre vs. predicción con restricciones físicas:
+                la física acota al modelo a valores admisibles del yacimiento.
+            </figcaption>
+        </figure>
 
         <div class="row g-4">
             <div class="col-md-6">
@@ -127,6 +146,17 @@
             La infraestructura HPC es lo que separa un prototipo de un activo operativo.
         </p>
 
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/hpc.webp}"
+                 alt="Infraestructura de cómputo de alto rendimiento: clúster de servidores con GPUs para entrenamiento de modelos a escala"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                Cómputo de alto rendimiento: miles de realizaciones geológicas en paralelo
+                para actualizar modelos en días, no meses.
+            </figcaption>
+        </figure>
+
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="card h-100 shadow-sm">
@@ -171,6 +201,18 @@
             No es un extra: es la condición para que un geocientífico firme una recomendación.
         </p>
 
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/treeshap.webp}"
+                 alt="Gráfico de atribución TreeSHAP mostrando la contribución de cada variable a una predicción individual"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                Atribución por predicción: cada variable aporta una cantidad medible
+                al resultado. No es importancia global del modelo, es la explicación
+                de <em>esta</em> decisión.
+            </figcaption>
+        </figure>
+
         <div class="row g-4">
             <div class="col-12">
                 <div class="card h-100 shadow-sm border-primary">
@@ -194,11 +236,17 @@
     </section>
 
     <!-- CTA -->
-    <section class="text-center py-4">
-        <p class="lead mb-3">¿Quiere ver estas capacidades aplicadas a su activo?</p>
-        <a class="btn btn-primary btn-lg" th:href="@{/contacto}">Hablemos</a>
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>¿Quiere ver estas capacidades aplicadas a su activo?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Llamar ahora</a>
+            <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20desde%20el%20sitio%20web"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+        <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
     </section>
-
 </main>
 </body>
 </html>
