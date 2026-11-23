@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::#page-head}, ~{::main}, 'en')}">
+<head>
+    <title>Contact — Geo Petro Litix AI</title>
+    <th:block id="page-head">
+        <link rel="canonical" href="https://www.geopetrolitixai.pro/en/contact"/>
+        <link rel="alternate" hreflang="es" href="https://www.geopetrolitixai.pro/contacto"/>
+        <link rel="alternate" hreflang="en" href="https://www.geopetrolitixai.pro/en/contact"/>
+        <link rel="alternate" hreflang="x-default" href="https://www.geopetrolitixai.pro/contacto"/>
+        <meta name="description" content="Let's talk about your asset. Reach Geo Petro Litix AI by call, WhatsApp or email. Response within 24 business hours."/>
+    </th:block>
+</head>
+<body>
+<main class="container my-5">
+
+    <!-- Hero -->
+    <section class="card-custom hero-card mb-5 text-center">
+        <h1 class="mb-3">Contact</h1>
+        <p class="hero-lead mb-2"><strong>Let's talk about your asset.</strong></p>
+        <p class="mb-0">Call, WhatsApp or email. However you prefer.</p>
+    </section>
+
+    <!-- Three contact channels -->
+    <section class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">📞</div>
+                <h2 class="h5 mb-2">Call</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    Talk directly to Rafael A. Díaz Sarmiento.
+                </p>
+                <a href="tel:+573132203002" class="btn btn-primary mt-auto">Call now</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">💬</div>
+                <h2 class="h5 mb-2">WhatsApp</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    Tell us about your asset in a message.
+                </p>
+                <a href="https://wa.me/573132203002?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+                   class="btn btn-whatsapp mt-auto" target="_blank" rel="noopener">Message on WhatsApp</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">✉️</div>
+                <h2 class="h5 mb-2">Email</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    rafael.diaz@geopetrolitixai.pro
+                </p>
+                <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Inquiry%20from%20the%20website"
+                   class="btn btn-outline-navy mt-auto">Send email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to include -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">What to include in your message</h2>
+        <ul class="mb-0">
+            <li>Asset type (field, reservoir, well, basin).</li>
+            <li>Available data (seismic, logs, production, etc.).</li>
+            <li>Goal: CAPEX reduction, reserve estimation, optimization, etc.</li>
+            <li>Desired timeline or urgency.</li>
+        </ul>
+    </section>
+
+    <!-- Response time -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Response time</h2>
+        <p class="mb-0">
+            We reply during business hours (GMT-5) within 24 business hours.
+            For confidential topics, the conversation is handled under NDA from the first contact.
+        </p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>Shall we talk about your asset?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+            <a href="https://wa.me/573132203002?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Inquiry%20from%20the%20website"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+        <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
+    </section>
+
+</main>
+</body>
+</html>

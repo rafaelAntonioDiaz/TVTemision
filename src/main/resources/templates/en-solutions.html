@@ -45,7 +45,7 @@
                     <div class="p-3 d-flex flex-column flex-grow-1">
                         <h3 class="h5 mb-2" th:text="${p.name()}">Name</h3>
                         <p class="small mb-3" th:text="${p.en().tagline()}">Tagline</p>
-                        <a th:href="@{'/en/solutions/' + ${p.domain()} + '/' + ${p.slugEn()}}"
+                        <a th:href="@{'/en/solutions/' + ${p.domainEn()} + '/' + ${p.slugEn()}}"
                            class="mt-auto fw-bold small">View details →</a>
                     </div>
                 </div>
