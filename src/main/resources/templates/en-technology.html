@@ -9,14 +9,22 @@
 <main th:fragment="content" class="container py-5">
 
     <!-- Hero -->
-    <header class="mb-5">
+    <header class="mb-4">
         <h1 class="display-5 fw-bold">Technology</h1>
-        <p class="lead mb-1">Three capabilities. Not seven acronyms.</p>
+        <p class="lead mb-1">Three capabilities. Not six acronyms.</p>
         <p class="text-muted">
             We translate technical depth into asset decisions:
             which well to intervene, which model to trust, which equation to audit.
         </p>
     </header>
+
+    <!-- Hero image -->
+    <figure class="mb-5 text-center">
+        <img th:src="@{/images/tech/hero.webp}"
+             alt="Abstract visualization of technology applied to the subsurface: geological layers with a data overlay"
+             class="img-fluid rounded shadow-sm"
+             loading="eager"/>
+    </figure>
 
     <!-- At-a-glance strip -->
     <div class="row g-3 mb-5 text-center">
@@ -48,6 +56,17 @@
             because it respects the equations governing the reservoir.
             It generalizes from scarce data and delivers results a technical committee can defend.
         </p>
+
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/fisres.webp}"
+                 alt="Comparison between an unconstrained machine learning prediction and a physics-constrained prediction that respects flow laws"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                Unconstrained vs. physics-constrained prediction:
+                physics bounds the model to admissible reservoir values.
+            </figcaption>
+        </figure>
 
         <div class="row g-4">
             <div class="col-md-6">
@@ -127,6 +146,17 @@
             HPC infrastructure is what separates a prototype from an operating asset.
         </p>
 
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/hpc.webp}"
+                 alt="High performance computing infrastructure: GPU server cluster for training models at scale"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                High performance computing: thousands of geological realizations in parallel
+                to update models in days, not months.
+            </figcaption>
+        </figure>
+
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="card h-100 shadow-sm">
@@ -171,6 +201,18 @@
             This is not a nice-to-have: it is the condition for a geoscientist to sign off on a recommendation.
         </p>
 
+        <figure class="mb-4 text-center">
+            <img th:src="@{/images/tech/treeshap.webp}"
+                 alt="TreeSHAP attribution chart showing each variable's contribution to an individual prediction"
+                 class="img-fluid rounded shadow-sm"
+                 loading="lazy"/>
+            <figcaption class="text-muted small mt-2">
+                Per-prediction attribution: each variable contributes a measurable amount
+                to the result. This is not global model importance — it is the explanation
+                of <em>this</em> decision.
+            </figcaption>
+        </figure>
+
         <div class="row g-4">
             <div class="col-12">
                 <div class="card h-100 shadow-sm border-primary">
@@ -194,9 +236,16 @@
     </section>
 
     <!-- CTA -->
-    <section class="text-center py-4">
-        <p class="lead mb-3">Want to see these capabilities applied to your asset?</p>
-        <a class="btn btn-primary btn-lg" th:href="@{/en/contact}">Let's talk</a>
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>Wanna see these capabilities applied to your asset?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Call now</a>
+            <a href="https://wa.me/573132203002?text=Hello%2C%20I%20want%20to%20talk%20about%20the%20value%20of%20my%20asset%27s%20data."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Inquiry%20from%20website"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+        <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
     </section>
 
 </main>

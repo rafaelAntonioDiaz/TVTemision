@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::headExtra}, ~{::main}, 'es')}">
+<head>
+    <title>Recursos | Geo Petro Litix AI</title>
+    <th:block th:fragment="headExtra"></th:block>
+</head>
+<body>
+<main>
+    <section class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-5 fw-bold">Recursos</h1>
+            <p class="lead text-muted mb-0">
+                Videos y material multimedia sobre nuestras tecnologías
+            </p>
+        </header>
+
+        <div class="row g-4">
+
+            <!-- Video 1: Regresión simbólica -->
+            <div class="col-lg-6">
+                <article class="card h-100 shadow-sm border-0">
+                    <div class="ratio ratio-16x9">
+                        <video controls preload="metadata" playsinline>
+                            <source th:src="@{/video/symbReg.webm}" type="video/webm"/>
+                            Tu navegador no soporta la etiqueta de video HTML5.
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5 card-title mb-1">
+                            Regresión simbólica para descubrir ecuaciones
+                        </h2>
+                        <p class="card-text text-muted mb-2">
+                            <strong>Dr. Pablo Guillén Rondón</strong>
+                        </p>
+                        <p class="card-text mb-0">
+                            Descubrimiento automático de ecuaciones y modelos matemáticos
+                            a partir de datos experimentales mediante regresión simbólica.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Video 2: Perforación digital -->
+            <div class="col-lg-6">
+                <article class="card h-100 shadow-sm border-0">
+                    <div class="ratio ratio-16x9">
+                        <video controls preload="metadata" playsinline>
+                            <source th:src="@{/video/digdrill.webm}" type="video/webm"/>
+                            Tu navegador no soporta la etiqueta de video HTML5.
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5 card-title mb-1">
+                            Perforación digital
+                        </h2>
+                        <p class="card-text text-muted mb-2">
+                            <strong>MSc. William Contreras</strong>
+                        </p>
+                        <p class="card-text mb-0">
+                            Aplicación de tecnologías digitales al proceso de perforación:
+                            monitoreo en tiempo real, analítica y optimización de operaciones.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+</main>
+</body>
+</html>
