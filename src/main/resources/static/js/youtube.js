@@ -4,12 +4,17 @@ document.querySelectorAll('.yt-video').forEach(function (container) {
 
     btn.addEventListener('click', function () {
         var id    = container.dataset.videoId;
-        var start = container.dataset.start || '0';
+        var start = parseInt(container.dataset.start, 10) || 0;
         var title = container.dataset.title || 'Video';
 
+        var src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+            '?autoplay=1&rel=0';
+        if (start > 0) {
+            src += '&start=' + start;
+        }
+
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
-            '?autoplay=1&start=' + encodeURIComponent(start) + '&rel=0';
+        iframe.src = src;
         iframe.title = title;
         iframe.setAttribute('allow',
             'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

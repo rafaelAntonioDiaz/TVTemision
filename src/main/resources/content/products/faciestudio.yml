@@ -17,8 +17,9 @@ slugEs: faciestudio              # Slug de URL en español
 slugEn: faciestudio              # Slug de URL en inglés
 patent: null                     # Sin patente registrada
 imageFolder: faciestudio
-heroImage: fig08.webp
+heroImage: hero.webp
 gallery:
+  - fig08.webp
   - fig04.webp
   - fig09.webp
   - fig07.webp
