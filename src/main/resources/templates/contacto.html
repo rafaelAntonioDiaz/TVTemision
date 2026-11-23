@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::#page-head}, ~{::main}, 'es')}">
+<head>
+    <title>Contacto — Geo Petro Litix AI</title>
+    <th:block id="page-head">
+        <link rel="canonical" href="https://www.geopetrolitixai.pro/contacto"/>
+        <link rel="alternate" hreflang="es" href="https://www.geopetrolitixai.pro/contacto"/>
+        <link rel="alternate" hreflang="en" href="https://www.geopetrolitixai.pro/en/contact"/>
+        <link rel="alternate" hreflang="x-default" href="https://www.geopetrolitixai.pro/contacto"/>
+        <meta name="description" content="Hablemos de tu activo. Contacta a Geo Petro Litix AI por llamada, WhatsApp o email. Respuesta en 24 horas hábiles."/>
+    </th:block>
+</head>
+<body>
+<main class="container my-5">
+
+    <!-- Hero -->
+    <section class="card-custom hero-card mb-5 text-center">
+        <h1 class="mb-3">Contacto</h1>
+        <p class="hero-lead mb-2"><strong>Hablemos de tu activo.</strong></p>
+        <p class="mb-0">Llamada, WhatsApp o email. Como prefieras.</p>
+    </section>
+
+    <!-- Tres vías de contacto -->
+    <section class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">📞</div>
+                <h2 class="h5 mb-2">Llamada</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    Atención directa con Rafael A. Díaz Sarmiento.
+                </p>
+                <a href="tel:+573132203002" class="btn btn-primary mt-auto">Llamar ahora</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">💬</div>
+                <h2 class="h5 mb-2">WhatsApp</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    Contanos de tu activo en un mensaje.
+                </p>
+                <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+                   class="btn btn-whatsapp mt-auto" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-custom h-100 mb-0 text-center d-flex flex-column">
+                <div class="display-4 mb-2">✉️</div>
+                <h2 class="h5 mb-2">Email</h2>
+                <p class="small text-muted mb-3 flex-grow-1">
+                    rafael.diaz@geopetrolitixai.pro
+                </p>
+                <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20desde%20el%20sitio%20web"
+                   class="btn btn-outline-navy mt-auto">Enviar email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué contar -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Qué contar en tu mensaje</h2>
+        <ul class="mb-0">
+            <li>Tipo de activo (campo, yacimiento, pozo, cuenca).</li>
+            <li>Datos disponibles (sísmica, registros, producción, etc.).</li>
+            <li>Objetivo: reducción de CAPEX, estimación de reservas, optimización, etc.</li>
+            <li>Plazo deseado o urgencia.</li>
+        </ul>
+    </section>
+
+    <!-- Tiempo de respuesta -->
+    <section class="card-custom mb-4">
+        <h2 class="h4 mb-3">Tiempo de respuesta</h2>
+        <p class="mb-0">
+            Respondemos en horario laboral (GMT-5) dentro de 24 horas hábiles.
+            Para temas confidenciales, la conversación se maneja bajo NDA desde el primer contacto.
+        </p>
+    </section>
+
+    <!-- CTA final -->
+    <section class="contact-highlight text-center">
+        <p class="mb-2"><strong>¿Hablamos de tu activo?</strong></p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <a href="tel:+573132203002" class="btn btn-primary btn-lg mb-2">📞 Llamar ahora</a>
+            <a href="https://wa.me/573132203002?text=Hola%2C%20quiero%20hablar%20sobre%20el%20valor%20de%20los%20datos%20de%20mi%20activo."
+               class="btn btn-whatsapp btn-lg mb-2" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a href="mailto:rafael.diaz@geopetrolitixai.pro?subject=Consulta%20desde%20el%20sitio%20web"
+               class="btn btn-outline-navy btn-lg mb-2">✉️ Email</a>
+        </div>
+        <p class="text-muted mt-2 mb-0"><small>Rafael Antonio Díaz Sarmiento</small></p>
+    </section>
+
+</main>
+</body>
+</html>
